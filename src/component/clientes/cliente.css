@@ -1,0 +1,48 @@
+.Container {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+.contenedor {
+    width: 100%;
+}
+.id {
+    text-align: center;
+    border: 1px solid black;
+}
+.nombre {
+    text-align: center;
+    border: 1px solid black;
+}
+.direccion {
+    text-align: center;
+    border: 1px solid black;
+}
+.titulo {
+    text-align: center;
+    border: 1px solid black;
+}
+.botonera {
+    border: 1px solid black;
+}
+.formid {
+    width: 25%;
+    margin-bottom: 3px;
+}
+.formnombre {
+    width: 25%;
+    margin-bottom: 3px; 
+}
+.formdir {
+    width: 25%;
+    margin-bottom: 3px; 
+}
+.botonadd {
+    width: 25%;
+    margin-bottom: 3px; 
+}
+.botoncliente {
+    width: 50%;
+    margin: 0px 0px 0px 0px;
+    border: 1px solid black;
+}

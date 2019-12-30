@@ -2,9 +2,13 @@ import React from 'react';
 import { Component } from 'react';
 import ClienteList from './ClienteList';
 import ReactDOM from 'react-dom';
-import './cliente.css'
+import ClienteService from '../../service/ClienteService';
+import FormCliente from './FormCliente';
 
-export default class Clientes extends Component {
+import './cliente.css'
+import './form.css'
+
+class Clientes extends Component {
   constructor () {
         super();
         this.state = {
@@ -15,12 +19,11 @@ export default class Clientes extends Component {
         global.id = 0;
     };
 
-    idChange(e){ 
-      global.id = e;
-      console.log(global.id)
+    idChange(e) { 
+      //return(<FormCliente/>);
     }
 
-    editarCliente(nombre,dir){
+    editarCliente(nombre,dir) {
       console.log(nombre);
       console.log(dir);
       console.log(global.id);
@@ -44,6 +47,7 @@ export default class Clientes extends Component {
         console.log("Valores invalidos");
       }
     }
+
     borrarCliente(id) {
       fetch('http://localhost:8080/api/v1/cliente/'+ id, {
         method: 'DELETE'
@@ -53,15 +57,14 @@ export default class Clientes extends Component {
         console.error(err)
       });
     }
+
     listarClientes() {
-      fetch('http://localhost:8080/api/v1/cliente')
-          .then((response) => {
-            return response.json()
-          })
-          .then((clientes) => {
-            this.setState({ clientes: clientes })
-          })
+      ClienteService.obtenerClientes()
+      .then(resp => {
+        this.setState({clientes: resp.data})
+      })
     }
+
     agregarCliente(nombre,direccion){
       fetch('http://localhost:8080/api/v1/cliente', {
         method: 'POST',
@@ -77,25 +80,32 @@ export default class Clientes extends Component {
       this.setState({ nombre : ""})
       this.setState({ direccion : ""})
     }
+
     nameChange = (e) =>{ 
       this.setState({nombre: e.target.value});
     }
+
     dirChange = (e) =>{ 
       this.setState({direccion: e.target.value});
     }
+
     componentDidMount() {
       setInterval(() => this.listarClientes(), 500);
       setInterval(() => this.forceUpdate(), 500);
+    }
+    displayeditar() {
+      var elemento = document.getElementById("cuadroedit1");
+      elemento.style.display = "block";
+      elemento = document.getElementById("cuadroedit2");
+      elemento.style.display = "block";
     }
     render() {
         if (this.state.clientes.length > 0) {
           return (
             <React.Fragment>
+              <FormCliente/>
               <div className="Container">
-                <input type="text" name="Nombre" className="formnombre" placeholder="Nombre" value={this.state.nombre} onChange={this.nameChange}/>
-                <input type="text" name="Direccion" className="formdir" placeholder="Direccion" value={this.state.direccion} onChange={this.dirChange}/>
-                <button onClick={() => this.agregarCliente(this.state.nombre,this.state.direccion)} className="botonadd">Agregar</button>
-                <button onClick={() => this.editarCliente(this.state.nombre,this.state.direccion)} className="botonadd">Editar</button>
+                <button onClick={() => this.displayeditar()} className="botonadd">Agregar</button>
                 <ClienteList listado={this.state.clientes} />
               </div>
             </React.Fragment>      
@@ -105,3 +115,5 @@ export default class Clientes extends Component {
         }
       }
 }
+
+export default Clientes;

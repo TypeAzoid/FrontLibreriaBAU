@@ -1,0 +1,66 @@
+.contenedoreditar {
+    width: 50%;
+    height: 20%;
+    margin-left: 25%;
+    margin-top:  10%;
+    background-color: black;
+    position: fixed;
+    display: none;
+}
+
+.backgroundeditar {
+    width:100%;
+    height: 100%;
+    margin-left: 0px;
+    margin-top: 0px;
+    opacity: 0.5;
+    background-color: white;
+    position: fixed;
+    display: none;
+}
+
+.contenedoreditardisplay {
+    width: 50%;
+    height: 20%;
+    margin-left: 25%;
+    margin-top:  10%;
+    background-color: black;
+    position: fixed;
+    display: block;
+}
+.backgroundeditardisplay {
+    width:100%;
+    height: 100%;
+    margin-left: 0px;
+    margin-top: 0px;
+    opacity: 0.5;
+    background-color: white;
+    position: fixed;
+    display: block;
+}
+
+.botonagregar {
+    width: 34%;
+    margin-left: 15%;
+    margin-top: 1%;
+    background-color: black;
+}
+
+.botoncancelar {
+    width: 34%;
+    margin-left: 2%;
+    margin-top: 1%;
+    background-color: black;
+}
+
+.editarnombre {
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 3%;
+}
+
+.editardireccion {
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 2%;
+}

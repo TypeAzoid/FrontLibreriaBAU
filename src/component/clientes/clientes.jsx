@@ -13,22 +13,16 @@ class Clientes extends Component {
         super();
         this.state = {
             clientes: [],
-            nombre: '',
-            direccion: '',
         };
-        global.id = 0;
     };
 
-    idChange(e) { 
-      //return(<FormCliente/>);
-    }
 
-    editarCliente(nombre,dir) {
+    editarCliente(id,nombre,dir) {
       console.log(nombre);
       console.log(dir);
-      console.log(global.id);
-      if(global.id !== 0 && nombre !== "" && dir !== "") {
-        fetch('http://localhost:8080/api/v1/cliente/' + global.id, {
+      console.log(id);
+      if(id !== 0 && nombre !== "" && dir !== "") {
+        fetch('http://localhost:8080/api/v1/cliente/' + id, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -39,9 +33,6 @@ class Clientes extends Component {
           direccion: dir,
         })
       })
-      this.setState({ nombre : ""})
-      this.setState({ direccion : ""})
-      global.id = 0;
       console.log("editado");
       } else {
         console.log("Valores invalidos");
@@ -77,35 +68,20 @@ class Clientes extends Component {
           direccion: direccion,
         })
       })
-      this.setState({ nombre : ""})
-      this.setState({ direccion : ""})
-    }
-
-    nameChange = (e) =>{ 
-      this.setState({nombre: e.target.value});
-    }
-
-    dirChange = (e) =>{ 
-      this.setState({direccion: e.target.value});
     }
 
     componentDidMount() {
       setInterval(() => this.listarClientes(), 500);
       setInterval(() => this.forceUpdate(), 500);
     }
-    displayeditar() {
-      var elemento = document.getElementById("cuadroedit1");
-      elemento.style.display = "block";
-      elemento = document.getElementById("cuadroedit2");
-      elemento.style.display = "block";
-    }
+
     render() {
         if (this.state.clientes.length > 0) {
           return (
             <React.Fragment>
               <FormCliente/>
               <div className="Container">
-                <button onClick={() => this.displayeditar()} className="botonadd">Agregar</button>
+                <button onClick={() => new FormCliente().displayeditar(0,"Nombre","Direccion")} className="botonadd">Agregar</button>
                 <ClienteList listado={this.state.clientes} />
               </div>
             </React.Fragment>      

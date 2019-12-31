@@ -18,56 +18,22 @@ class Clientes extends Component {
 
 
     editarCliente(id,nombre,dir) {
-      console.log(nombre);
-      console.log(dir);
-      console.log(id);
-      if(id !== 0 && nombre !== "" && dir !== "") {
-        fetch('http://localhost:8080/api/v1/cliente/' + id, {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: nombre,
-          direccion: dir,
-        })
-      })
-      console.log("editado");
-      } else {
-        console.log("Valores invalidos");
-      }
+      console.log(ClienteService.editarCliente(id,nombre,dir));
     }
 
     borrarCliente(id) {
-      fetch('http://localhost:8080/api/v1/cliente/'+ id, {
-        method: 'DELETE'
-      }).then((resp) => {
-        console.log('removed');
-      }).catch(err => {
-        console.error(err)
-      });
+      console.log(ClienteService.borrarCliente(id));
     }
 
     listarClientes() {
       ClienteService.obtenerClientes()
       .then(resp => {
         this.setState({clientes: resp.data})
-      })
+      });
     }
 
     agregarCliente(nombre,direccion){
-      fetch('http://localhost:8080/api/v1/cliente', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: nombre,
-          direccion: direccion,
-        })
-      })
+      ClienteService.agregarCliente(nombre,direccion);
     }
 
     componentDidMount() {

@@ -13,6 +13,7 @@ class Clientes extends Component {
         super();
         this.state = {
             clientes: [],
+            buscador: "",
         };
     };
 
@@ -25,10 +26,15 @@ class Clientes extends Component {
       console.log(ClienteService.borrarCliente(id));
     }
 
-    listarClientes() {
+    listarClientes(nombre) {
       ClienteService.obtenerClientes()
       .then(resp => {
-        this.setState({clientes: resp.data})
+        if(nombre !== "") {
+          const data = resp.data.filter(filt => filt.name.toLowerCase() === nombre.toLowerCase());
+          this.setState({clientes: data});
+        } else {
+          this.setState({clientes: resp.data});
+        }
       });
     }
 
@@ -37,24 +43,25 @@ class Clientes extends Component {
     }
 
     componentDidMount() {
-      setInterval(() => this.listarClientes(), 500);
+      setInterval(() => this.listarClientes(this.state.buscador), 500);
       setInterval(() => this.forceUpdate(), 500);
     }
 
+    busChange = (e) =>{ 
+      this.setState({buscador: e.target.value});
+    }
+
     render() {
-        if (this.state.clientes.length > 0) {
           return (
             <React.Fragment>
               <FormCliente/>
               <div className="Container">
+                <input type="text" className="buscadorname" placeholder="Buscar por nombre" value={this.state.buscador} onChange={this.busChange}></input>
                 <button onClick={() => new FormCliente().displayeditar(0,"Nombre","Direccion")} className="botonadd">Agregar</button>
                 <ClienteList listado={this.state.clientes} />
               </div>
             </React.Fragment>      
           )
-        } else {
-          return <p className="text-center">Cargando Clientes...</p>
-        }
       }
 }
 

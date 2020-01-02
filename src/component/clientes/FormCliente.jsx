@@ -35,13 +35,13 @@ class FormCliente extends React.Component {
     }
 
     displayeditar(id,nombre,direccion){
-            var elemento = document.getElementById("cuadroedit1");
-            elemento.style.display = "block";
-            elemento = document.getElementById("cuadroedit2");
-            elemento.style.display = "block";
-            global.id = id;
-            global.name = nombre;
-            global.direccion = direccion;
+        var elemento = document.getElementById("cuadroedit1");
+        elemento.style.display = "block";
+        elemento = document.getElementById("cuadroedit2");
+        elemento.style.display = "block";
+        global.id = id;
+        global.name = nombre;
+        global.direccion = direccion;
     }
 
     enviar(id,nombre,direccion) {

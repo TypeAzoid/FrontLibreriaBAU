@@ -49,8 +49,9 @@
 }
 
 .botonadd {
-    width: 25%;
-    margin-bottom: 3px; 
+    width: 24.8%;
+    margin-left: 0.2%;
+    margin-bottom: 0.2%;
 }
 
 .botoncliente {
@@ -60,5 +61,11 @@
 }
 
 .buscadorname {
-    width: 25%;
+    width: 24.8%;
+    margin-left: 0.2%;
+    margin-bottom: 0.2%;
+}
+
+.selectCliente {
+    width: 24.8%;
 }

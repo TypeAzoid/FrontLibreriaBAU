@@ -39,10 +39,10 @@ class Clientes extends Component {
       .then(resp => {
         if(nombre !== "") {
           if(busqueda === "0") {
-            const data = resp.data.filter(filt => filt.name.toLowerCase() === nombre.toLowerCase());
+            const data = resp.data.filter(filt => filt.name.toLowerCase().includes(nombre.toLowerCase()));
             this.setState({clientes: data});
           } else if(busqueda === "1") {
-            const data = resp.data.filter(filt => filt.direccion.toLowerCase() === nombre.toLowerCase());
+            const data = resp.data.filter(filt => filt.direccion.toLowerCase().includes(nombre.toLowerCase()));
             this.setState({clientes: data});
           } else if (busqueda === "2") {
             const data = resp.data.filter(filt => filt.id === parseInt(nombre));
@@ -68,7 +68,7 @@ class Clientes extends Component {
             <React.Fragment>
               <FormCliente/>
               <div className="Container">
-                <select value={this.state.busqueda} onChange={this.changeBusq}>
+                <select value={this.state.busqueda} onChange={this.changeBusq} className="selectCliente">
                   <option value="0">Nombre</option>
                   <option value="1">Direccion</option>
                   <option value="2">Id</option>

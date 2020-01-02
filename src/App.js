@@ -1,31 +1,24 @@
-import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
-import Home from "./component/home/home";
-import Clientes from "./component/clientes/clientes";
-import './App.css';
-import Menu from './component/menu/menu';
-import NF404 from './component/404NF/404NF';
+import React from "react";
+import "./App.css";
+import { render, findAllByAltText } from "@testing-library/react";
+import ResultadosProducto from "./ResultadosProductos";
+import { Router, Link } from "@reach/router";
+import Producto from "./Producto";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
-      <React.Fragment>
+      <div>
         <header>
-          <Menu/>
+          <Link to="/producto">Productos</Link>
         </header>
-        <BrowserRouter>
-            <Switch>
-              <Route
-                path="/home"
-                component={Home} />
-              <Route
-                path="/clientes"
-                render={() => <Clientes name="Clientes" />} />
-              <Route component={NF404}/>
-            </Switch>
-        </BrowserRouter>
-      </React.Fragment>
+        <Router>
+          <Producto path="/producto" />
+        </Router>
+      </div>
     );
   }
 }
-export default App;
+
+render(<App />, document.getElementById("root"));

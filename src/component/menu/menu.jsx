@@ -14,6 +14,7 @@ class Menu extends React.Component {
                 <ul id="menu" className="menu">
                     <li id="homeB"><a href="/home">Home</a></li>
                     <li id="clientesB"><a href="/clientes">Clientes</a></li>
+                    <li id="suscripcionB"><a href="/suscripciones">Suscripciones</a></li>
                 </ul>
             </React.Fragment>
         );

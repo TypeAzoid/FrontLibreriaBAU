@@ -7,6 +7,7 @@ import FormCliente from './FormCliente';
 
 import './cliente.css'
 import './form.css'
+import CuentaC from '../cuentas/cuenta';
 
 class Clientes extends Component {
   constructor () {
@@ -67,6 +68,7 @@ class Clientes extends Component {
           return (
             <React.Fragment>
               <FormCliente/>
+              <CuentaC/>
               <div className="Container">
                 <select value={this.state.busqueda} onChange={this.changeBusq} className="selectCliente">
                   <option value="0">Nombre</option>

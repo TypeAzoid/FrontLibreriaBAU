@@ -5,6 +5,7 @@ import Clientes from "./component/clientes/clientes";
 import './App.css';
 import Menu from './component/menu/menu';
 import NF404 from './component/404NF/404NF';
+import Suscripcion from './component/suscripcion/suscripcion';
 
 class App extends Component {
   render() {
@@ -21,6 +22,9 @@ class App extends Component {
               <Route
                 path="/clientes"
                 render={() => <Clientes name="Clientes" />} />
+                <Route
+                path="/suscripciones"
+                render={() => <Suscripcion name="Suscripciones" />} />
               <Route component={NF404}/>
             </Switch>
         </BrowserRouter>

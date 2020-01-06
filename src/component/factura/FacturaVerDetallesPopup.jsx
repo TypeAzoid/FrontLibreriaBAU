@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+import './FacturaVerDetallesPopup.css'
 
 export default class FacturaVerDetallesPopup extends Component {
     constructor(props){
@@ -63,7 +64,7 @@ export default class FacturaVerDetallesPopup extends Component {
 
     render() {
         return (
-            <div>
+            <div className='popup'>
                 {this.props.title}
                 <table className='facturaTavle'>
                   <thead>

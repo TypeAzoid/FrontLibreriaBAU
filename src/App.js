@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Home from "./component/home/home";
 import Clientes from "./component/clientes/clientes";
+import Facturas from "./component/factura/Facturas";
 import './App.css';
 import Menu from './component/menu/menu';
 import NF404 from './component/404NF/404NF';
@@ -21,6 +22,9 @@ class App extends Component {
               <Route
                 path="/clientes"
                 render={() => <Clientes name="Clientes" />} />
+              <Route
+                path="/facturas"
+                component = {Facturas}/>
               <Route component={NF404}/>
             </Switch>
         </BrowserRouter>

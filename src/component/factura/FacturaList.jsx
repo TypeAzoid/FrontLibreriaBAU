@@ -2,10 +2,6 @@ import React from 'react'
 import FacturaRow from './FacturaRow'
 
 class FacturaList extends React.Component {
-    constructor(props){
-        super(props);
-        
-    }
   
   render() {
     return (

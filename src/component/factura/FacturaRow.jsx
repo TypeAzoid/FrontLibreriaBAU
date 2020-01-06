@@ -6,7 +6,7 @@ class FacturaRow extends React.Component {
     return(
     <tr>
         <td className='Id'>         {this.props.id}</td>
-        <td className='Cliente'>    {this.props.cliente.name}</td>
+        <td className='Cliente'>    {this.props.cliente}</td>
         <td className='Fecha'>      {this.props.fecha}</td>
         <td className='Compras'>    
             <button> Ver </button>

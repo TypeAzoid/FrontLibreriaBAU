@@ -25,3 +25,8 @@
     margin-left: 0.2%;
     margin-bottom: 0.2%;
 }
+
+.clienteFila:hover {
+    color: white;
+    background-color: grey;
+}

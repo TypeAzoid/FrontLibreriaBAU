@@ -1,13 +1,27 @@
 .container {
-
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
 }
 
 .contenedor {
-    
+    width: 100%;
 }
 
 .titulo {
     text-align: center;
     border: 1px solid black;
     width: 14.2%;
+}
+
+.botonadd {
+    width: 24.8%;
+    margin-left: 0.2%;
+    margin-bottom: 0.2%;
+}
+
+.buscadorname {
+    width: 24.8%;
+    margin-left: 0.2%;
+    margin-bottom: 0.2%;
 }

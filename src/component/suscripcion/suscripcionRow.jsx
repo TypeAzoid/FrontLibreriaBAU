@@ -6,12 +6,12 @@ class SuscripcionRow extends React.Component {
     return(
     <tr>
         <td className="columna">{this.props.id}</td>
-        <td className="columna">{this.props.Producto}</td>
-        <td className="columna">{this.props.Cantidad_mensual}</td>
-        <td className="columna">{this.props.Inicio_de_suscripcion}</td>
-        <td className="columna">{this.props.Fin_de_suscripcion}</td>
+        <td className="columna">{this.props.producto}</td>
+        <td className="columna">{this.props.cantidadMensual}</td>
+        <td className="columna">{this.props.inicio}</td>
+        <td className="columna">{this.props.fin}</td>
         <td className="columna">{this.props.cliente}</td>
-        <td className="columna">-</td>
+        <td className="columna">{this.props.anual}</td>
     </tr>
     )
   }

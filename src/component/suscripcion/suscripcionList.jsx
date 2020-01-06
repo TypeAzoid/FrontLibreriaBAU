@@ -2,6 +2,23 @@ import React from 'react';
 import SuscripcionRow from './suscripcionRow';
 
 class SuscripcionList extends React.Component {
+
+    detectarAnual(value){
+        if(value === true) {
+            return "Si";
+        } else if (value === false) {
+            return "No";
+        }
+    }
+
+    detectarCliente(value) {
+        return value.name;
+    }
+
+    detectarProducto(value) {
+        return value.nombre;
+    }
+    
     render() {
         return(
             <table className="contenedor">
@@ -16,22 +33,18 @@ class SuscripcionList extends React.Component {
                 </tr>
                 {
                     this.props.listado.map((suscripcion) => {
-                        return <SuscripcionRow id={ suscripcion.id }
-                                               Producto={ suscripcion.Producto }
-                                               Cantidad_mensual={ suscripcion.Cantidad_mensual}
-                                               Inicio_de_suscripcion={ suscripcion.Inicio_de_suscripcion }
-                                               Fin_de_suscripcion={ suscripcion.Fin_de_suscripcion }
-                                               cliente={ suscripcion.cliente }/>
+                        return <SuscripcionRow id={suscripcion.id}
+                                               cantidadMensual={suscripcion.cantidadMensual}
+                                               inicio={suscripcion.inicio}
+                                               fin={suscripcion.fin}
+                                               anual={this.detectarAnual(suscripcion.anual)}
+                                               cliente={this.detectarCliente(suscripcion.cliente)}
+                                               producto={this.detectarProducto(suscripcion.producto)}/>
                     })
                 }
             </table>
         );
     }
 }
-/*      <td className="columna">{this.props.id}</td>
-        <td className="columna">{this.props.Producto.nombre}</td>
-        <td className="columna">{this.props.Cantidad_mensual}</td>
-        <td className="columna">{this.props.Inicio_de_suscripcion}</td>
-        <td className="columna">{this.props.Fin_de_suscripcion}</td>
-        <td className="columna">{this.props.cliente.name}</td>*/
+
 export default SuscripcionList;

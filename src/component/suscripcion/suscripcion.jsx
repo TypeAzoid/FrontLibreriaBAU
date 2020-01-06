@@ -1,6 +1,8 @@
 import React from 'react';
 import SuscripcionList from './suscripcionList';
 import SuscripcionService from '../../service/SuscripcionService';
+import FormSuscripcion from './FormSuscripcion';
+
 import './suscripcion.css';
 
 class Suscripcion extends React.Component {
@@ -27,9 +29,14 @@ class Suscripcion extends React.Component {
     
     render() {
         return(
-            <div className="container">
-                <SuscripcionList listado={this.state.suscripciones}/>
-            </div>
+            <React.Fragment>
+                <FormSuscripcion/>
+                <div className="container">
+                    <input type="text" className="buscadorname" placeholder="Buscar por nombre de cliente" value={this.state.buscador} onChange={this.busChange}></input>
+                    <button className="botonadd">Agregar</button>
+                    <SuscripcionList listado={this.state.suscripciones}/>
+                </div>
+            </React.Fragment>
         );
     }
 }

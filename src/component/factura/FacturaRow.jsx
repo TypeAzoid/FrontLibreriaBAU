@@ -1,4 +1,6 @@
 import React from 'react';
+import Popup from 'reactjs-popup'
+import FacturaVerDetallesPopup from './FacturaVerDetallesPopup';
 
 class FacturaRow extends React.Component {
 
@@ -7,12 +9,23 @@ class FacturaRow extends React.Component {
     <tr>
         <td className='Id'>         {this.props.id}</td>
         <td className='Cliente'>    {this.props.cliente}</td>
+        <td className='ClienteId'>  {this.props.clienteId}</td>
         <td className='Fecha'>      {this.props.fecha}</td>
-        <td className='Compras'>    
-            <button> Ver </button>
+        <td className='Compras'>   
+            <Popup modal trigger={ <button> Ver </button> }>
+                <FacturaVerDetallesPopup 
+                    title='Compras'
+                    compras={this.props.compras}
+                />
+            </Popup>
         </td>
         <td className='Descuentos'>
-            <button> Ver </button> 
+            <Popup modal trigger={ <button> Ver </button> }>
+                <FacturaVerDetallesPopup 
+                    title='Descuentos'
+                    descuentos={this.props.descuentos}
+                />
+            </Popup>  
         </td>
         <td className='Monto Total'>{this.props.montoTotal}</td>
         <td className='Pagado'>     {this.props.pagado ? 'Si' : 'No' }</td>

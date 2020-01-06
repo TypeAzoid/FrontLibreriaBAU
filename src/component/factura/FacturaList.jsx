@@ -10,6 +10,7 @@ class FacturaList extends React.Component {
                     <tr>
                       <th>Id</th>
                       <th>Cliente</th>
+                      <th>Id Cliente</th>
                       <th>Fecha</th>
                       <th>Compras</th>
                       <th>Descuentos</th>
@@ -22,6 +23,7 @@ class FacturaList extends React.Component {
                         return <FacturaRow
                                 id = {f.id}
                                 cliente = {f.cliente.name}
+                                clienteId = {f.cliente.id}
                                 fecha = {f.fecha}
                                 compras = {f.compras}
                                 descuentos = {f.descuentos}

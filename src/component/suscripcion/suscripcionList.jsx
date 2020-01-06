@@ -30,6 +30,7 @@ class SuscripcionList extends React.Component {
                     <th className="titulo">Fin</th>
                     <th className="titulo">Cliente</th>
                     <th className="titulo">Anual</th>
+                    <th className="titulo"></th>
                 </tr>
                 {
                     this.props.listado.map((suscripcion) => {

@@ -33,7 +33,7 @@ class Suscripcion extends React.Component {
                 <FormSuscripcion/>
                 <div className="container">
                     <input type="text" className="buscadorname" placeholder="Buscar por nombre de cliente" value={this.state.buscador} onChange={this.busChange}></input>
-                    <button className="botonadd" onClick={() => new FormSuscripcion().display()}>Agregar</button>
+                    <button className="botonadd" onClick={() => new FormSuscripcion().display(0,0)}>Agregar</button>
                     <SuscripcionList listado={this.state.suscripciones}/>
                 </div>
             </React.Fragment>

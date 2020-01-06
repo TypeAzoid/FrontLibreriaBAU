@@ -7,12 +7,8 @@ class SuscripcionService extends React.Component {
         return axios.get("http://localhost:8080/api/v1/suscripcion/");
     }
 
-    obtenerClientePorId(id) {
-        return axios.get("http://localhost:8080/api/v1/cliente/" + id)
-    }
-
-    obtenerProductoPorId(id) {
-        return axios.get("http://localhost:8080/api/v1/producto/" + id)
+    borrarSuscripcion(id) {
+        axios.delete("http://localhost:8080/api/v1/suscripcion/" + id);
     }
 
     agregarSuscripcion(cantidadMensual,anual,productoId,clienteId,finSuscripcion) {

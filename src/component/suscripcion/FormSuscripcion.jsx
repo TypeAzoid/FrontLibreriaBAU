@@ -87,6 +87,9 @@ class FormSuscripcion extends React.Component {
             elemento.style.display = "none";
             elemento2.style.display = "block";
             this.listarProductos(this.state.buscador);
+        } else if(estado === "3") {
+            elemento.style.display = "none";
+            elemento2.style.display = "none";
         }
     }
 
@@ -125,11 +128,15 @@ class FormSuscripcion extends React.Component {
         this.setState({checkbox: false});
     }
 
-    display() {
-        var elemento = document.getElementById("BSE");
-        var elemento2 = document.getElementById("CSE");
-        elemento.style.display = "block";
-        elemento2.style.display = "block";
+    display(edit,id) {
+        if(edit === 0) {
+            var elemento = document.getElementById("BSE");
+            var elemento2 = document.getElementById("CSE");
+            elemento.style.display = "block";
+            elemento2.style.display = "block";
+        } else {
+            
+        }
     }
 
     render() {
@@ -142,7 +149,6 @@ class FormSuscripcion extends React.Component {
                     <div className="datecontainer">
                         Fin <input type="date" className="Date" value={this.state.fin} onChange={this.finChange}></input>
                     </div>
-                    <input type="number" placeholder="cantidad" min="1" value={this.state.cantidad} onChange={this.cantidadChange} className="cantidad"></input>
                     <select className="SelectSuscripcion" value={this.state.busqueda} onChange={this.changeBusq}>
                         <option value="0">Cliente</option>
                         <option value="1">Producto</option>
@@ -160,6 +166,7 @@ class FormSuscripcion extends React.Component {
                         <option value={true}>Anual</option>
                         <option value={false}>No Anual</option>
                     </select>
+                    <input type="number" placeholder="cantidad" min="1" value={this.state.cantidad} onChange={this.cantidadChange} className="cantidad"></input>
                 </div>
             </React.Fragment>
         );

@@ -15,6 +15,16 @@ class SuscripcionService extends React.Component {
         return axios.get("http://localhost:8080/api/v1/producto/" + id)
     }
 
+    agregarSuscripcion(cantidadMensual,anual,productoId,clienteId,finSuscripcion) {
+        return axios.post('http://localhost:8080/api/v1/suscripcion/', {
+            productoId,
+            cantidadMensual,
+            finSuscripcion,
+            clienteId,
+            anual,
+        })
+    }
+
 }
 
 export default new SuscripcionService();

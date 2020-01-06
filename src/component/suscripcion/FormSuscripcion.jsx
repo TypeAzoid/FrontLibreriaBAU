@@ -4,6 +4,7 @@ import ClienteService from '../../service/ClienteService';
 import SuscripcionClienteList from './suscripcionClienteList';
 import SuscripcionProductoList from './suscripcionProductoList';
 import axios from 'axios';
+import SuscripcionService from '../../service/SuscripcionService';
 
 class FormSuscripcion extends React.Component {
     constructor() {
@@ -16,8 +17,8 @@ class FormSuscripcion extends React.Component {
             idc: "-",
             idp: "-",
             cantidad: "",
-            inicio: "",
             fin: "",
+            checkbox: false,
         }
         this.changeIdc = this.changeIdc.bind(this);
         this.changeIdp = this.changeIdp.bind(this);
@@ -47,6 +48,10 @@ class FormSuscripcion extends React.Component {
         });
     }
 
+    checkChange = (e) => {
+        this.setState({checkbox: e.target.value});
+    }
+
     changeIdc(id) {
         this.setState({idc: id});
     }
@@ -61,10 +66,6 @@ class FormSuscripcion extends React.Component {
 
     cantidadChange = (e) => {
         this.setState({cantidad: e.target.value});
-    }
-
-    inicioChange = (e) => {
-        this.setState({inicio: e.target.value});
     }
 
     finChange = (e) => {
@@ -93,8 +94,20 @@ class FormSuscripcion extends React.Component {
         setInterval(() => this.selectDisplay(this.state.busqueda),500);
     }
 
-    enviar() {
-
+    enviar(cantidad,anual,idp,idc,fin) {
+        if( cantidad !== "" && anual !== "" && idp !== "" && idc !== "" && fin !== "") {
+            const c1 = parseInt(idp);
+            const c2 = parseInt(idc);
+            const c3 = parseInt(cantidad);
+            SuscripcionService.agregarSuscripcion(c3,anual,c1,c2,fin).then( (sus) => {
+                console.log("Suscripcion creada");
+                alert("suscripcion creada");
+                this.undisplay();
+            })
+        } else {
+            alert("Los campos no pueden estar vacios");
+            this.undisplay();
+        }
     }
 
     undisplay() {
@@ -102,6 +115,14 @@ class FormSuscripcion extends React.Component {
         var elemento2 = document.getElementById("CSE");
         elemento.style.display = "none";
         elemento2.style.display = "none";
+        this.setState({busqueda: "0"});
+        this.setState({buscador: ""});
+        this.setState({idc: "-"});
+        this.setState({idp: "-"});
+        this.setState({cantidad: ""});
+        this.setState({inicio: ""});
+        this.setState({fin: ""});
+        this.setState({checkbox: false});
     }
 
     display() {
@@ -119,9 +140,6 @@ class FormSuscripcion extends React.Component {
                     <div className="Selection">Id cliente  seleccionado: {this.state.idc}</div>
                     <div className="Selection">Id producto seleccionado: {this.state.idp}</div>
                     <div className="datecontainer">
-                        Inicio <input type="date" className="Date" value={this.state.inicio} onChange={this.inicioChange}></input>
-                    </div>
-                    <div className="datecontainer">
                         Fin <input type="date" className="Date" value={this.state.fin} onChange={this.finChange}></input>
                     </div>
                     <input type="number" placeholder="cantidad" min="1" value={this.state.cantidad} onChange={this.cantidadChange} className="cantidad"></input>
@@ -136,8 +154,12 @@ class FormSuscripcion extends React.Component {
                         <div id="showerSPL"><SuscripcionProductoList listado={this.state.productos}
                                                                      idp={this.changeIdp}/></div>
                     </div>
-                    <button className="botonEnviar" onClick={() => this.enviar()}>Enviar</button>
+                    <button className="botonEnviar" onClick={() => this.enviar(this.state.cantidad,this.state.checkbox,this.state.idp,this.state.idc,this.state.fin)}>Enviar</button>
                     <button className="botonCancelar" onClick={() => this.undisplay()}>Cancelar</button>
+                    <select className="SelectAnual" value={this.state.checkbox} onChange={this.checkChange}>
+                        <option value={true}>Anual</option>
+                        <option value={false}>No Anual</option>
+                    </select>
                 </div>
             </React.Fragment>
         );

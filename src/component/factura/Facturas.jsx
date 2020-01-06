@@ -3,14 +3,33 @@ import { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 import './Facturas.css'
+import FacturaList from './FacturaList';
+import FacturaService from '../../service/FacturaService';
 
 class Facturas extends Component {
+    constructor(props){
+      super(props);
+
+      this.state = {
+        facturas : []
+      };
+    }
+
+    componentDidMount(){
+      FacturaService.getAllFacturas()
+      .then( resp => {
+        this.setState({
+          facturas : resp.data
+        })
+     });
+      
+    }
 
     render() {
           return (
               <div className='facturasDiv'>
                 <h1>Facturas</h1>
-                
+                <FacturaList facturas={this.state.facturas}/>
               </div>
           )
       }

@@ -10,5 +10,22 @@
 }
 
 #productos {
-  border: solid black 3px;
+}
+
+.trProductos {
+  border: 1px solid black;
+}
+
+.tdProductos {
+  border: 1px solid black;
+}
+
+.tablaProductos {
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+
+.botonAgregarProducto {
+
 }

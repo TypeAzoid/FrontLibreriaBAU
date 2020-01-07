@@ -29,8 +29,11 @@ class FormEditar extends React.Component {
     undisplay() {
         var elemento = document.getElementById("BSFE");
         var elemento2 = document.getElementById("CSFE");
+        var elemento3 = document.getElementById("cantidadTI");
         elemento.style.display = "none";
         elemento2.style.display = "none";
+        elemento2.style.minHeight = "200px";
+        elemento3.style.marginLeft = "15.2%";
         global.ids = 0;
         global.idc = 0;
         global.idp = 0;
@@ -74,7 +77,7 @@ class FormEditar extends React.Component {
                         <option value={true}>Anual</option>
                         <option value={false}>No Anual</option>
                     </select>
-                    <input type="number" placeholder="cantidad" min="1" value={global.cantidad} onChange={this.cantidadChange} className="cantidad"></input>
+                    <input type="number" placeholder="cantidad" min="1" value={global.cantidad} onChange={this.cantidadChange} className="cantidad" id="cantidadTI"></input>
                 </div>
             </React.Fragment>
         );

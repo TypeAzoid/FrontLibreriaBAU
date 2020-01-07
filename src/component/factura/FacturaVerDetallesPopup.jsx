@@ -68,10 +68,10 @@ export default class FacturaVerDetallesPopup extends Component {
                 {this.props.title}
                 <table className='facturaTavle'>
                   <thead>
-                    { this.props.title == 'Compras' ? this.comprasTableHead() : this.descuentosTableHead()}
+                    { this.props.title === 'Compras' ? this.comprasTableHead() : this.descuentosTableHead()}
                   </thead>
                   <tbody>
-                    { this.props.title == 'Compras' ? this.comprasTableBody() : this.descuentosTableBody()}
+                    { this.props.title === 'Compras' ? this.comprasTableBody() : this.descuentosTableBody()}
                   </tbody>
         </table>
             </div>

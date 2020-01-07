@@ -44,6 +44,10 @@
     width: 17%;
     margin-top: 3%;
     margin-bottom: 3%;
+    background: black;
+    color: white;
+    opacity: 0.8;
+    border: 0px;
 }
 
 /* el cuadro de select de suscripcion */
@@ -53,6 +57,10 @@
     margin-top: 3%;
     margin-bottom: 3%;
     height: 30px;
+    background: black;
+    color: white;
+    opacity: 0.8;
+    border: 0px;
 }
 
 /* Contenedor de los campos Date */
@@ -66,7 +74,11 @@
 }
 
 /* Campos date */
-.date {
+.Date {
+    background: black;
+    color: white;
+    opacity: 0.8;
+    border: 0px;
 }
 
 /* Bloque donde se visualiza el id de seleccion */
@@ -84,23 +96,39 @@
     margin-left: 3%;
     margin-top: 3%;
     margin-bottom: 3%;
+    background: black;
+    color: white;
+    opacity: 0.8;
+    border: 0px;
 }
 
 .botonEnviar {
     margin-top: 3%;
     margin-bottom: 3%;
     margin-left: 3%;
+    background: black;
+    color: white;
+    opacity: 0.8;
+    border: 0px;
 }
 
 .botonCancelar {
     margin-top: 3%;
     margin-bottom: 3%;
     margin-left: 3%;
+    background: black;
+    color: white;
+    opacity: 0.8;
+    border: 0px;
 }
 
 .SelectAnual {
     margin-left: 3%;
     height: 30px;
+    background: black;
+    color: white;
+    opacity: 0.8;
+    border: 0px;
 }
 
 .botonsuscripcion {

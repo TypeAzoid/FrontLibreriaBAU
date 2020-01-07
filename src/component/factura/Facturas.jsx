@@ -1,6 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
 import ReactDOM from 'react-dom';
+import Popup from 'reactjs-popup';
 
 import './Facturas.css'
 import FacturaList from './FacturaList';
@@ -29,6 +30,11 @@ class Facturas extends Component {
           return (
               <div className='facturasDiv'>
                 <h1>Facturas</h1>
+                <br/>
+                  <Popup modal trigger={ <button> Agregar Factura </button> }>
+                    
+                  </Popup>
+                <br/>
                 <FacturaList facturas={this.state.facturas}/>
               </div>
           )

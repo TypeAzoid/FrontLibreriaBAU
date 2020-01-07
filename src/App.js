@@ -3,11 +3,13 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Home from "./component/home/home";
 import Clientes from "./component/clientes/clientes";
 import Producto from "./component/producto/Producto";
+import Facturas from "./component/factura/Facturas";
 import "./App.css";
 import Menu from "./component/menu/menu";
 import NF404 from "./component/404NF/404NF";
 import FormProducto from "./component/producto/FormProducto";
 import Suscripcion from './component/suscripcion/suscripcion';
+
 
 class App extends Component {
   render() {
@@ -29,6 +31,9 @@ class App extends Component {
             <Route
                 path="/suscripciones"
                 render={() => <Suscripcion name="Suscripciones" />} />
+            <Route
+                path="/facturas"
+                render={() => <Facturas name="Facturas" />} />
             <Route component={NF404} />
           </Switch>
         </BrowserRouter>

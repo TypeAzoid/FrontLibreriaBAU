@@ -3,9 +3,13 @@ import { Component } from 'react';
 import axios from 'axios';
 
 class FacturaService extends Component {
-    
+
     getAllFacturas() {
         return axios.get("http://localhost:8080/api/v1/factura");
+    }
+
+    pagarFactura(id) {
+        return axios.get("http://localhost:8080/api/v1/factura/" + id + "/pagar");
     }
     /*
     agregarCliente(nombre,direccion) {

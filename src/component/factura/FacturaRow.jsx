@@ -1,8 +1,34 @@
 import React from 'react';
 import Popup from 'reactjs-popup'
 import FacturaVerDetallesPopup from './FacturaVerDetallesPopup';
+import FacturaService from '../../service/FacturaService';
 
 class FacturaRow extends React.Component {
+
+  constructor(props){
+      super(props);
+      
+      this.state = {
+        pagado : false
+      }
+
+      this.pagarFactura = this.pagarFactura.bind(this);
+  }  
+
+  componentWillMount(){
+      this.setState({
+          pagado : this.props.pagado
+      })
+  }
+
+  pagarFactura(){
+    FacturaService.pagarFactura(this.props.id).then( resp => {
+        let factura = resp.data;
+        this.setState({
+            pagado : factura.pagado
+        })
+    });
+  }
 
   render() {
     return(
@@ -28,7 +54,10 @@ class FacturaRow extends React.Component {
             </Popup>  
         </td>
         <td className='Monto Total'>{this.props.montoTotal}</td>
-        <td className='Pagado'>     {this.props.pagado ? 'Si' : 'No' }</td>
+        <td className='Pagado'>     
+            {this.state.pagado ? 'Pagado' : 
+                <button onClick={this.pagarFactura}>
+                    Pagar</button> }</td>
     </tr>
     )
   }

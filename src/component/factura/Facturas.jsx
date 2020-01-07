@@ -31,7 +31,7 @@ class Facturas extends Component {
               <div className='facturasDiv'>
                 <h1>Facturas</h1>
                 <br/>
-                  <Popup modal trigger={ <button> Agregar Factura </button> }>
+                  <Popup modal lockScroll={false} trigger={ <button> Agregar Factura </button> }>
                     
                   </Popup>
                 <br/>

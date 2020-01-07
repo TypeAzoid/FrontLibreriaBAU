@@ -11,6 +11,7 @@ class Suscripcion extends React.Component {
         this.state = {
             suscripciones: [],
             suscripcion: [],
+            buscador: "",
         }
     }
 
@@ -23,8 +24,17 @@ class Suscripcion extends React.Component {
     obtenerSuscripciones() {
         SuscripcionService.obtenerSuscripciones()
         .then( resp => {
-            this.setState({suscripciones: resp.data});
+            if(this.state.buscador !== "") {
+                const data = resp.data.filter(filt => filt.cliente.name.toLowerCase().includes(this.state.buscador.toLowerCase()));
+                this.setState({suscripciones: data});
+            } else {
+                this.setState({suscripciones: resp.data});
+            }
         });
+    }
+
+    busChange = (e) =>{ 
+        this.setState({buscador: e.target.value});
     }
 
     componentDidMount() {

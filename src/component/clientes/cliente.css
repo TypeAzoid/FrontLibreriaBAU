@@ -8,17 +8,7 @@
     width: 100%;
 }
 
-.id {
-    text-align: center;
-    border: 1px solid black;
-}
-
-.nombre {
-    text-align: center;
-    border: 1px solid black;
-}
-
-.direccion {
+.columna {
     text-align: center;
     border: 1px solid black;
 }
@@ -26,7 +16,7 @@
 .titulo {
     text-align: center;
     border: 1px solid black;
-    width: 25%;
+    width: 20%;
 }
 
 .botonera {
@@ -55,7 +45,7 @@
 }
 
 .botoncliente {
-    width: 50%;
+    width: 33.3%;
     margin: 0px 0px 0px 0px;
     border: 1px solid black;
 }

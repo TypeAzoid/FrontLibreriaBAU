@@ -28,4 +28,40 @@ li a:hover {
     color: white;
     text-decoration: none;
 }
-  
+
+td {
+    color: white;
+    text-shadow: 0 0 5px black, 0 0 10px black, 0 0 15px black, 0 0 20px black, 0 0 30px black, 0 0 40px black, 0 0 55px black, 0 0 75px black
+}
+
+th {
+    background-color: black;
+    color: white;
+    opacity: 0.8;
+}
+.botonadd {
+    background: black;
+    opacity: 0.8;
+    color: white;
+    border: 0px;
+}
+
+.botoncliente {
+    background: black;
+    color: white;
+    border: 0px;
+}
+
+.selectCliente {
+    background: black;
+    opacity: 0.8;
+    color: white;
+    border: 1px solid black;
+}
+
+.buscadorname {
+    background: black;
+    opacity: 0.8;
+    color: white;
+    border: 1px solid black;
+}

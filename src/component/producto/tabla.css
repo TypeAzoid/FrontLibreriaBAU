@@ -12,14 +12,3 @@
 #productos {
   border: solid black 3px;
 }
-
-th {
-  border: solid black 1px;
-  font-size: large;
-  font-weight: bold;
-  background-color: darkgray;
-}
-
-td {
-  border: solid black 1px;
-}

@@ -23,12 +23,14 @@ class App extends Component {
               path="/clientes"
               render={() => <Clientes name="Clientes" />}
             />
-            <Route exact path="/producto" component={Producto} />
-            <Route component={NF404} />
-          </Switch>
-                <Route
+            <Route
+                path="/producto"
+                render={() => <Producto name="Productos" />} />
+            <Route
                 path="/suscripciones"
                 render={() => <Suscripcion name="Suscripciones" />} />
+            <Route component={NF404} />
+          </Switch>
         </BrowserRouter>
       </React.Fragment>
     );

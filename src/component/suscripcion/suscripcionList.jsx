@@ -40,7 +40,8 @@ class SuscripcionList extends React.Component {
                                                fin={suscripcion.fin}
                                                anual={this.detectarAnual(suscripcion.anual)}
                                                cliente={this.detectarCliente(suscripcion.cliente)}
-                                               producto={this.detectarProducto(suscripcion.producto)}/>
+                                               producto={this.detectarProducto(suscripcion.producto)}
+                                               ids={this.props.ids}/>
                     })
                 }
             </table>

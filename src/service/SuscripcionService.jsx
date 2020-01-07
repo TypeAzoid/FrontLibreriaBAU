@@ -20,6 +20,20 @@ class SuscripcionService extends React.Component {
             anual,
         })
     }
+    
+    editarSuscripcion(cantidadMensual,anual,productoId,clienteId,finSuscripcion,inicio,ids) {
+        return axios.put('http://localhost:8080/api/v1/suscripcion/' + ids, {
+            productoId,
+            cantidadMensual,
+            finSuscripcion,
+            clienteId,
+            anual,
+        })
+    }
+
+    obtenerSuscripcionId(id) {
+        return axios.get('http://localhost:8080/api/v1/suscripcion/' + id)
+    }
 
 }
 

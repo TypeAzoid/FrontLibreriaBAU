@@ -18,6 +18,8 @@ class FormSuscripcion extends React.Component {
             idp: "-",
             cantidad: "",
             fin: "",
+            ids: "",
+            inicio: "",
             checkbox: false,
         }
         this.changeIdc = this.changeIdc.bind(this);
@@ -87,14 +89,7 @@ class FormSuscripcion extends React.Component {
             elemento.style.display = "none";
             elemento2.style.display = "block";
             this.listarProductos(this.state.buscador);
-        } else if(estado === "3") {
-            elemento.style.display = "none";
-            elemento2.style.display = "none";
         }
-    }
-
-    componentDidMount() {
-        setInterval(() => this.selectDisplay(this.state.busqueda),500);
     }
 
     enviar(cantidad,anual,idp,idc,fin) {
@@ -116,6 +111,8 @@ class FormSuscripcion extends React.Component {
     undisplay() {
         var elemento = document.getElementById("BSE");
         var elemento2 = document.getElementById("CSE");
+        var elemento3 = document.getElementById("PSC");
+        elemento3.style.display = "block";
         elemento.style.display = "none";
         elemento2.style.display = "none";
         this.setState({busqueda: "0"});
@@ -123,20 +120,21 @@ class FormSuscripcion extends React.Component {
         this.setState({idc: "-"});
         this.setState({idp: "-"});
         this.setState({cantidad: ""});
-        this.setState({inicio: ""});
         this.setState({fin: ""});
+        this.setState({inicio: ""});
+        this.setState({idp: ""});
         this.setState({checkbox: false});
     }
 
-    display(edit,id) {
-        if(edit === 0) {
-            var elemento = document.getElementById("BSE");
-            var elemento2 = document.getElementById("CSE");
-            elemento.style.display = "block";
-            elemento2.style.display = "block";
-        } else {
-            
-        }
+    display() {
+        var elemento = document.getElementById("BSE");
+        var elemento2 = document.getElementById("CSE");
+        elemento.style.display = "block";
+        elemento2.style.display = "block";
+    }
+    
+    componentDidMount() {
+        setInterval(() => this.selectDisplay(this.state.busqueda),500);
     }
 
     render() {
@@ -154,7 +152,7 @@ class FormSuscripcion extends React.Component {
                         <option value="1">Producto</option>
                     </select>
                     <input type="text" className="inputNombre" placeholder="Buscar" value={this.state.buscador} onChange={this.busChange}></input>
-                    <div className="SelectContainer">
+                    <div className="SelectContainer" id="PSC">
                         <div id="showerSCL"><SuscripcionClienteList listado={this.state.clientes} 
                                                                     idc={this.changeIdc}/></div>
                         <div id="showerSPL"><SuscripcionProductoList listado={this.state.productos}

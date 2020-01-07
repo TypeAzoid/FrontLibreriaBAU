@@ -10,6 +10,7 @@ class ClienteList extends React.Component {
                 <th className="titulo" >id</th>
                 <th className="titulo">nombre</th>
                 <th className="titulo">direccion</th>
+                <th className="titulo">Monto</th>
                 <th className="titulo"></th>
             </tr>
             {

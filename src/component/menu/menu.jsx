@@ -21,6 +21,9 @@ class Menu extends React.Component {
           <li id="productoB">
             <a href="/producto">Producto</a>
           </li>
+          <li id="suscripcionB">
+            <a href="/suscripciones">Suscripciones</a>
+          </li>
         </ul>
       </React.Fragment>
     );

@@ -7,6 +7,7 @@ import "./App.css";
 import Menu from "./component/menu/menu";
 import NF404 from "./component/404NF/404NF";
 import FormProducto from "./component/producto/FormProducto";
+import Suscripcion from './component/suscripcion/suscripcion';
 
 class App extends Component {
   render() {
@@ -23,9 +24,11 @@ class App extends Component {
               render={() => <Clientes name="Clientes" />}
             />
             <Route exact path="/producto" component={Producto} />
-            <Route path="/producto/formulario/:id" component={FormProducto} />
             <Route component={NF404} />
           </Switch>
+                <Route
+                path="/suscripciones"
+                render={() => <Suscripcion name="Suscripciones" />} />
         </BrowserRouter>
       </React.Fragment>
     );

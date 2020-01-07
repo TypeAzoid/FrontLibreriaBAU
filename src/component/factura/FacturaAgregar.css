@@ -9,12 +9,17 @@ h1{
 
 }
 
+
 .productos{
     height: 150px;
     overflow: auto;
 }
 
-.descuentos{
+.tablaDescuentos{
     height: 150px;
     overflow: auto;
+}
+
+.opciones{
+    height: 50px;
 }

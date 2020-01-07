@@ -2,7 +2,11 @@ import React from 'react';
 
 class NF404 extends React.Component {
     render() {
-        return(<h1>418: El servidor se niega a hacer cafe por que es una tetera</h1>);
+        return(<React.Fragment>
+                <h1>418: El servidor se niega a hacer cafe por que es una tetera</h1>
+                <h1>PD: Preguntar al señor olson que piensa al respecto</h1>
+                <h1>A Ale no le gusto la banana</h1>
+               </React.Fragment>);
     }
 }
 

@@ -1,0 +1,152 @@
+.containerhome{
+    background-image: url(./4843419.jpg);
+    position: static;
+    z-index: 0;
+    
+}
+
+#warped {position: relative; display: block; width:919px; height:545px;}
+
+                     #warped>span[class^=w]:nth-of-type(n+0){display:block; position:absolute;
+                     -moz-transform-origin:50% 100%; -webkit-transform-origin:50% 100%; -o-transform-origin:50%
+                     100%; -ms-transform-origin:50% 100%; transform-origin:50% 100%; }
+
+                     #warped span{font-family:'Covered By Your Grace';font-size:85px;font-weight:regular;font-style:normal;
+                     line-height:0.7; white-space:pre; overflow:visible; padding:0px;}
+
+                     #warped .w0 {-moz-transform: rotate(-1.47rad);-webkit-transform: rotate(-1.47rad);-o-transform:
+                     rotate(-1.47rad);-ms-transform: rotate(-1.47rad); transform: rotate(-1.47rad);
+                     width: 61px; height: 59px; left: 5.71px; top: 374.7px;}
+
+                     #warped .w1 {-moz-transform: rotate(-1.33rad);-webkit-transform: rotate(-1.33rad);-o-transform:
+                     rotate(-1.33rad);-ms-transform: rotate(-1.33rad); transform: rotate(-1.33rad);
+                     width: 24px; height: 59px; left: 35.11px; top: 313.22px;}
+
+                     #warped .w2 {-moz-transform: rotate(-1.2rad);-webkit-transform: rotate(-1.2rad);-o-transform:
+                     rotate(-1.2rad);-ms-transform: rotate(-1.2rad); transform: rotate(-1.2rad);
+                     width: 43px; height: 59px; left: 42.03px; top: 262.34px;}
+
+                     #warped .w3 {-moz-transform: rotate(-1.06rad);-webkit-transform: rotate(-1.06rad);-o-transform:
+                     rotate(-1.06rad);-ms-transform: rotate(-1.06rad); transform: rotate(-1.06rad);
+                     width: 33px; height: 59px; left: 71.88px; top: 209.98px;}
+
+                     #warped .w4 {-moz-transform: rotate(-0.93rad);-webkit-transform: rotate(-0.93rad);-o-transform:
+                     rotate(-0.93rad);-ms-transform: rotate(-0.93rad); transform: rotate(-0.93rad);
+                     width: 43px; height: 59px; left: 98.63px; top: 161.49px;}
+
+                     #warped .w5 {-moz-transform: rotate(-0.78rad);-webkit-transform: rotate(-0.78rad);-o-transform:
+                     rotate(-0.78rad);-ms-transform: rotate(-0.78rad); transform: rotate(-0.78rad);
+                     width: 43px; height: 59px; left: 140.23px; top: 114.26px;}
+
+                     #warped .w6 {-moz-transform: rotate(-0.66rad);-webkit-transform: rotate(-0.66rad);-o-transform:
+                     rotate(-0.66rad);-ms-transform: rotate(-0.66rad); transform: rotate(-0.66rad);
+                     width: 21px; height: 59px; left: 190.52px; top: 80.25px;}
+
+                     #warped .w7 {-moz-transform: rotate(-0.53rad);-webkit-transform: rotate(-0.53rad);-o-transform:
+                     rotate(-0.53rad);-ms-transform: rotate(-0.53rad); transform: rotate(-0.53rad);
+                     width: 43px; height: 59px; left: 222.67px; top: 51.29px;}
+
+                     #warped .w8 {-moz-transform: rotate(-0.41rad);-webkit-transform: rotate(-0.41rad);-o-transform:
+                     rotate(-0.41rad);-ms-transform: rotate(-0.41rad); transform: rotate(-0.41rad);
+                     width: 21px; height: 59px; left: 280.03px; top: 27.81px;}
+
+                     #warped .w9 {-moz-transform: rotate(-0.28rad);-webkit-transform: rotate(-0.28rad);-o-transform:
+                     rotate(-0.28rad);-ms-transform: rotate(-0.28rad); transform: rotate(-0.28rad);
+                     width: 52px; height: 59px; left: 317.74px; top: 8.92px;}
+
+                     #warped .w10 {-moz-transform: rotate(-0.14rad);-webkit-transform: rotate(-0.14rad);-o-transform:
+                     rotate(-0.14rad);-ms-transform: rotate(-0.14rad); transform: rotate(-0.14rad);
+                     width: 24px; height: 59px; left: 388.46px; top: -2.95px;}
+
+                     #warped .w11 {-moz-transform: rotate(-0.02rad);-webkit-transform: rotate(-0.02rad);-o-transform:
+                     rotate(-0.02rad);-ms-transform: rotate(-0.02rad); transform: rotate(-0.02rad);
+                     width: 43px; height: 59px; left: 432.27px; top: -6.97px;}
+
+                     #warped .w12 {-moz-transform: rotate(0.13rad);-webkit-transform: rotate(0.13rad);-o-transform:
+                     rotate(0.13rad);-ms-transform: rotate(0.13rad); transform: rotate(0.13rad);
+                     width: 38px; height: 59px; left: 495.12px; top: -3.42px;}
+
+                     #warped .w13 {-moz-transform: rotate(0.25rad);-webkit-transform: rotate(0.25rad);-o-transform:
+                     rotate(0.25rad);-ms-transform: rotate(0.25rad); transform: rotate(0.25rad);
+                     width: 28px; height: 59px; left: 552.11px; top: 6.71px;}
+
+                     #warped .w14 {-moz-transform: rotate(0.36rad);-webkit-transform: rotate(0.36rad);-o-transform:
+                     rotate(0.36rad);-ms-transform: rotate(0.36rad); transform: rotate(0.36rad);
+                     width: 24px; height: 59px; left: 597.91px; top: 20.69px;}
+
+                     #warped .w15 {-moz-transform: rotate(0.48rad);-webkit-transform: rotate(0.48rad);-o-transform:
+                     rotate(0.48rad);-ms-transform: rotate(0.48rad); transform: rotate(0.48rad);
+                     width: 38px; height: 59px; left: 637.38px; top: 41.61px;}
+
+                     #warped .w16 {-moz-transform: rotate(0.59rad);-webkit-transform: rotate(0.59rad);-o-transform:
+                     rotate(0.59rad);-ms-transform: rotate(0.59rad); transform: rotate(0.59rad);
+                     width: 21px; height: 59px; left: 688.29px; top: 67.1px;}
+
+                     #warped .w17 {-moz-transform: rotate(0.73rad);-webkit-transform: rotate(0.73rad);-o-transform:
+                     rotate(0.73rad);-ms-transform: rotate(0.73rad); transform: rotate(0.73rad);
+                     width: 57px; height: 59px; left: 716.53px; top: 103.66px;}
+
+                     #warped .w18 {-moz-transform: rotate(0.89rad);-webkit-transform: rotate(0.89rad);-o-transform:
+                     rotate(0.89rad);-ms-transform: rotate(0.89rad); transform: rotate(0.89rad);
+                     width: 38px; height: 59px; left: 772.15px; top: 152.85px;}
+
+                     #warped .w19 {-moz-transform: rotate(1.03rad);-webkit-transform: rotate(1.03rad);-o-transform:
+                     rotate(1.03rad);-ms-transform: rotate(1.03rad); transform: rotate(1.03rad);
+                     width: 43px; height: 59px; left: 803.9px; top: 202.66px;}
+
+                     #warped .w20 {-moz-transform: rotate(1.17rad);-webkit-transform: rotate(1.17rad);-o-transform:
+                     rotate(1.17rad);-ms-transform: rotate(1.17rad); transform: rotate(1.17rad);
+                     width: 28px; height: 59px; left: 836.33px; top: 252.21px;}
+
+                     #warped .w21 {-moz-transform: rotate(1.29rad);-webkit-transform: rotate(1.29rad);-o-transform:
+                     rotate(1.29rad);-ms-transform: rotate(1.29rad); transform: rotate(1.29rad);
+                     width: 38px; height: 59px; left: 848.91px; top: 302.17px;}
+
+                     #warped .w22 {-moz-transform: rotate(1.42rad);-webkit-transform: rotate(1.42rad);-o-transform:
+                     rotate(1.42rad);-ms-transform: rotate(1.42rad); transform: rotate(1.42rad);
+                     width: 33px; height: 59px; left: 863.01px; top: 356.4px;}
+
+                     #warped .w23 {-moz-transform: rotate(1.53rad);-webkit-transform: rotate(1.53rad);-o-transform:
+                     rotate(1.53rad);-ms-transform: rotate(1.53rad); transform: rotate(1.53rad);
+                     width: 24px; height: 59px; left: 871.79px; top: 404.69px;}
+
+.botoneraHome {
+    position: static;
+    margin-top: -4%;
+    margin-left: 19%;
+}
+
+#warped {
+    color: rgba(0,0,0,.8);
+    text-shadow: rgba(0,0,0,.2) 2px 6px 5px,rgba(255,255,255,.4) 0 -4px 30px;
+    margin-left: 14%;
+    margin-top: 2%;
+}
+
+.botonHome {
+    margin-left: 5%;
+    width: 12%;
+    height: 40px;
+    background-color: black;
+    color: white;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 0px solid #000000;
+    opacity: 0.85;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+body {
+    background: url(./4843419.jpg);
+    background-size: cover;
+}

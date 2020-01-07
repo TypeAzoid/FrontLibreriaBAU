@@ -71,6 +71,7 @@
 
 .botoncliente {
     background: black;
+    opacity: 0.8;
     color: white;
     border: 0px;
 }
@@ -87,4 +88,10 @@
     opacity: 0.8;
     color: white;
     border: 1px solid black;
+}
+
+.trCliente {
+    background: black;
+    opacity: 0.8;
+    color: white;
 }

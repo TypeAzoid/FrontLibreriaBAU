@@ -111,3 +111,9 @@
     height: 100%;
     width: 50%;
 }
+
+.trSuscripcion {
+    background: black;
+    opacity: 0.8;
+    color: white;
+}

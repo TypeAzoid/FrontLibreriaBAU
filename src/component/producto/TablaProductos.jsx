@@ -35,7 +35,7 @@ class TablaProductos extends React.Component {
   render() {
     return (
       <div className="bodyTable">
-        <Popup modal trigger={<button> Agregar </button>}>
+        <Popup modal trigger={<button className="botonAgregarProducto"> Agregar </button>}>
           <FormProducto id={-1} />
         </Popup>
         <table id="productos">

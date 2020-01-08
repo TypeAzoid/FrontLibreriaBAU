@@ -1,6 +1,6 @@
 .SuscripcionE {
     width: 50%;
-    min-height: 400px;
+    height: 400px;
     margin-left: 25%;
     margin-top:  10%;
     background-color: white;
@@ -21,7 +21,7 @@
 }
 
 .SelectContainer {
-    min-height: 218px;
+    height: 218px;
     overflow-y: scroll;
     width: 100%;
     border: 1px solid black;

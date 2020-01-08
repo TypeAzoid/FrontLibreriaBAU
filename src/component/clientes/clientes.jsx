@@ -2,6 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import ClienteList from './ClienteList';
 import ClienteService from '../../service/ClienteService';
+import SuscripcionService from '../../service/SuscripcionService';
 import FormCliente from './FormCliente';
 
 import './cliente.css'
@@ -30,8 +31,38 @@ class Clientes extends Component {
       console.log(ClienteService.editarCliente(id,nombre,dir));
     }
 
-    borrarCliente(id) {
-      console.log(ClienteService.borrarCliente(id));
+    async borrarCliente(id) {
+      const cliente = (await ClienteService.obtenerClienteId(id)).data;
+      const suscripciones = (await SuscripcionService.obtenerSuscripciones()).data;
+      const incluidas = suscripciones.filter(filt => filt.cliente.name.toLowerCase().includes(cliente.name.toLowerCase()));
+      if(incluidas.length >= 1) {
+        // eslint-disable-next-line no-restricted-globals
+        const opcion = confirm("El cliente tiene suscripciones, ¿desea eliminarlas?");
+        if(opcion === true){
+          let largo = incluidas.length;
+          let idsIncluidas = [];
+          for(let c=0; c < largo;c++){
+           let buffer = idsIncluidas.concat(incluidas[c].id);
+           idsIncluidas = buffer;
+          }
+          // eslint-disable-next-line no-restricted-globals
+          let opcion2 = confirm("Si borra este cliente se borraran: " + idsIncluidas.length + " suscripciones ¿desea continuar?");
+          if(opcion2 === true){
+            for(let c=0; c < idsIncluidas.length; c++){
+              await SuscripcionService.borrarSuscripcion(idsIncluidas[c]);
+            }
+            await ClienteService.borrarCliente(cliente.id);
+            alert("Cliente y suscripciones eliminadas");
+          } else{
+            alert("operacion cancelada");
+          }
+        } else {
+          alert("Operacion cancelada");
+        }
+      } else {
+        alert("Cliente Borrado");
+        ClienteService.borrarCliente(cliente.id);
+      }
     }
 
     listarClientes(nombre,busqueda) {

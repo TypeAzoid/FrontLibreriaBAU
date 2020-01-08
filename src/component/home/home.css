@@ -105,8 +105,8 @@
 
 .botoneraHome {
     position: static;
-    margin-top: -4%;
-    margin-left: 19%;
+    margin-top: -3%;
+    margin-left: 12%;
 }
 
 #warped {
@@ -118,7 +118,7 @@
 
 .botonHome {
     margin-left: 5%;
-    width: 12%;
+    width: 10%;
     height: 40px;
     background-color: black;
     color: white;

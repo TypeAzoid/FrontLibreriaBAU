@@ -6,10 +6,13 @@ import ProductoService from "../../service/ProductoService";
 class Producto extends React.Component {
   constructor(props) {
     super(props);
-    this.refreshProductos = this.refreshProductos.bind(this);
+    this.listProductos = this.listProductos.bind(this);
     this.deleteProducto = this.deleteProducto.bind(this);
     this.getOne = this.getOne.bind(this);
+
     this.state = {
+      parametroDeBusqueda: "0",
+      valorDeBusqueda: "",
       productos: [],
       nombre: "",
       tipo: "",
@@ -18,26 +21,29 @@ class Producto extends React.Component {
   }
 
   componentDidMount() {
-    this.refreshProductos();
+    this.listProductos();
   }
 
-  refreshProductos() {
-    ProductoService.findAll() //HARDCODED
-      .then(response => {
-        console.log(response);
-        this.setState({ productos: response.data });
-      });
+  componentWillUpdate(nextProps, nextState) {
+    this.listProductos();
+  }
+
+  listProductos() {
+    ProductoService.findAll().then(response => {
+      var resultado = response.data;
+      this.setState({ productos: resultado });
+    });
   }
 
   deleteProducto(id) {
     ProductoService.delete(id).then(response => {
-      this.refreshProductos();
+      this.listProductos();
     });
   }
 
   getOne(id) {
     ProductoService.findOne(id).then(response => {
-      this.refreshProductos();
+      this.listProductos();
     });
   }
 

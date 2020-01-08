@@ -25,6 +25,7 @@ export default class Home extends Component {
                         <button className="botonHome"><a href="/producto">Productos</a></button>
                         <button className="botonHome"><a href="/suscripciones">Suscripciones</a></button>
                         <button className="botonHome"><a href="/facturas">Facturas</a></button>
+                        <button className="botonHome"><a href="/descuentos">Descuentos</a></button>
                     </div>
             </React.Fragment>
         );

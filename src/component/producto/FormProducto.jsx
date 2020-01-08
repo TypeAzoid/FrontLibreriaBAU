@@ -97,9 +97,10 @@ class FormProducto extends React.Component {
     });
 
     return (
-      <div className="formularioProducto">
+      <div className="popupProducto">
         <h1>{this.state.titulo}</h1>
         <input
+          className="inputProducto"
           type="text"
           value={this.state.nombre}
           onChange={this.nameChange}
@@ -108,6 +109,7 @@ class FormProducto extends React.Component {
           {tipos}
         </select>
         <input
+          className="inputProducto"
           type="text"
           value={this.state.precio}
           onChange={this.precioChange}
@@ -119,7 +121,6 @@ class FormProducto extends React.Component {
         >
           {this.state.titulo}
         </button>
-
         <a href="/producto">
           <button>Cancelar</button>
         </a>

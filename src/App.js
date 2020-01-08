@@ -4,6 +4,7 @@ import Home from "./component/home/home";
 import Clientes from "./component/clientes/clientes";
 import Producto from "./component/producto/Producto";
 import Facturas from "./component/factura/Facturas";
+import Descuento from "./component/descuento/Descuento"
 import "./App.css";
 import Menu from "./component/menu/menu";
 import NF404 from "./component/404NF/404NF";
@@ -34,6 +35,10 @@ class App extends Component {
             <Route
                 path="/facturas"
                 render={() => <Facturas name="Facturas" />} />
+            <Route
+              path="/Descuentos"
+              render={() => <Descuento name="Descuentos" />}
+            />
             <Route component={NF404} />
           </Switch>
         </BrowserRouter>

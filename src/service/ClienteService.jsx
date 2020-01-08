@@ -8,6 +8,10 @@ class ClienteService extends Component {
         return axios.get("http://localhost:8080/api/v1/cliente/");
     }
 
+    obtenerClienteId(id) {
+        return axios.get("http://localhost:8080/api/v1/cliente/" + id);
+    }
+
     agregarCliente(nombre,direccion) {
         axios.post('http://localhost:8080/api/v1/cliente/', {
             name: nombre,

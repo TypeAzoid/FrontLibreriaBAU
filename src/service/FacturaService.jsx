@@ -11,6 +11,10 @@ class FacturaService extends Component {
     pagarFactura(id) {
         return axios.get("http://localhost:8080/api/v1/factura/" + id + "/pagar");
     }
+
+    guardarFactura(factura) {
+        return axios.post('http://localhost:8080/api/v1/factura/', factura)
+    }
     /*
     agregarCliente(nombre,direccion) {
         axios.post('http://localhost:8080/api/v1/cliente/', {

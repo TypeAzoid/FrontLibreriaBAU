@@ -5,12 +5,14 @@ import Popup from 'reactjs-popup';
 import ProductoService from '../../service/ProductoService';
 import axios from "axios";
 import FacturaVerDetallesPopup from './FacturaVerDetallesPopup';
+import FacturaService from '../../service/FacturaService';
 
 
 export default class FacturaAgregar extends Component {
     constructor(props){
         super(props);
 
+        this.slc_cliente = React.createRef();
         this.slc_descuentos = React.createRef();
         this.slc_productos = React.createRef();
         this.cantidad = React.createRef();
@@ -30,6 +32,7 @@ export default class FacturaAgregar extends Component {
         this.agregarDescuento = this.agregarDescuento.bind(this);
         this.agregarCompra = this.agregarCompra.bind(this);
         this.calcularMontoTotal = this.calcularMontoTotal.bind(this);
+        this.agregarFactura = this.agregarFactura.bind(this);
     }
 
     componentDidMount()
@@ -60,7 +63,7 @@ export default class FacturaAgregar extends Component {
 
     listarClientes(){
         return this.state.clientes.map( cliente => {
-            return (<option key={cliente.id}>
+            return (<option key={cliente.id} value={cliente.id}>
                         {cliente.id} : {cliente.name}
                     </option>)
         })
@@ -156,6 +159,27 @@ export default class FacturaAgregar extends Component {
         }
     }
     
+    agregarFactura(){
+        let mapCompras = this.state.misCompras.map(c => {
+             return  {
+                productoId : c.producto.id,
+                cantidad : c.cantidad
+            }
+        });
+
+        let mapDescuentos = this.state.misDescuentos.map(desc =>{
+            return  desc.id 
+        });
+
+        let factura = {
+            clienteId : this.refs.slc_cliente.value,
+            compras : mapCompras,
+            descuentosId : mapDescuentos,
+            pagado: false
+        }
+        FacturaService.guardarFactura(factura);
+        window.open('/facturas','_self');
+    }
 
     render() {
         let i= 0;
@@ -165,7 +189,7 @@ export default class FacturaAgregar extends Component {
                 <h1> Nueva Factura</h1>
                 <div className="cliente">
                     Cliente :
-                    <select id="slc_clientes">
+                    <select ref="slc_cliente">
                         {this.listarClientes()}
                     </select>
                 </div>
@@ -237,8 +261,8 @@ export default class FacturaAgregar extends Component {
                 </div>
                 <div className="opciones">
                     Monto Total : {this.state.montoTotal}
-                    <button> Cancelar</button>
-                    <button> Agregar Factura</button>
+                    <button onClick={this.props.closePopup}> Cancelar</button>
+                    <button onClick={this.agregarFactura}> Agregar Factura</button>
                 </div>
             </div>
         )

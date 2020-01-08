@@ -30,12 +30,13 @@ class Facturas extends Component {
     render() {
           return (
               <div className='facturasDiv'>
-                <h1>Facturas</h1>
-                <br/>
-                  <Popup modal lockScroll={false} trigger={ <button> Agregar Factura </button> }>
-                    <FacturaAgregar />
-                  </Popup>
-                <br/>
+                <h1>Facturas
+                  <br/>
+                    <Popup modal closeOnDocumentClick={false} trigger={ <button> Agregar Factura </button> }>
+                      {close =>( <FacturaAgregar closePopup={close}/> )}
+                    </Popup>
+                  <br/>
+                </h1>
                 <FacturaList facturas={this.state.facturas}/>
               </div>
           )

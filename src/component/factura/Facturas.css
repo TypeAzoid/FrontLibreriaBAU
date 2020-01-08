@@ -34,3 +34,9 @@ table.facturaTavle thead {
   background-color: #2AF8F8;
   color: #5C21FF;
 }
+
+h1 button{
+  float:right;
+  font-size: 24px;
+  margin-right: 50px;
+}

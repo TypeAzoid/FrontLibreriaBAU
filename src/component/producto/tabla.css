@@ -9,9 +9,6 @@
   text-align: center;
 }
 
-#productos {
-}
-
 .trProductos {
   border: 1px solid black;
 }
@@ -27,5 +24,14 @@
 }
 
 .botonAgregarProducto {
+  margin: 0 10px;
+  border-radius: 3px;
+}
 
+.inputTablaProducto {
+  margin: 0 5px;
+}
+
+.parametrosProducto {
+  margin: 0 5px;
 }

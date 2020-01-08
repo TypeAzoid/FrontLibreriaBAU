@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import DescuentoService from "../../service/DescuentoService";
 
-class FormProducto extends React.Component {
+class FormDescuento extends React.Component {
   constructor(props) {
     super(props);
     this.descripcionChange = this.descripcionChange.bind(this);
@@ -36,7 +36,7 @@ class FormProducto extends React.Component {
     console.log("la descripcion es:" + descripcion);
     console.log("el valor de descuento es:" + valorDescuento);
     DescuentoService.post(descripcion, valorDescuento).then(response => {
-      window.open("http://localhost:3000/descuento", "_self");
+      window.open("http://localhost:3000/descuentos", "_self");
     });
   }
 
@@ -50,7 +50,7 @@ class FormProducto extends React.Component {
     console.log("el id es:" + id);
 
     DescuentoService.edit(id, descripcion, valorDescuento).then(() => {
-      window.open("http://localhost:3000/descuento", "_self");
+      window.open("http://localhost:3000/descuentos", "_self");
     });
   }
 
@@ -79,6 +79,7 @@ class FormProducto extends React.Component {
         <input
           type="text"
           value={this.state.descripcion}
+          placeholder = {this.props.descripcion}
           onChange={this.descripcionChange}
         ></input>
         <input
@@ -94,7 +95,7 @@ class FormProducto extends React.Component {
           {this.state.titulo}
         </button>
 
-        <a href="/descuento">
+        <a href="/descuentos">
           <button>Cancelar</button>
         </a>
       </div>

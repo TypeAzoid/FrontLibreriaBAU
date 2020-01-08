@@ -20,7 +20,7 @@ class DescuentoService extends Component {
   }
 
   delete(id) {
-    return axios.delete(DESCUENTOURL + id);
+    return axios.delete(DESCUENTOURL + "/" + id);
   }
 
   edit(id, descripcion, valorDescuento) {

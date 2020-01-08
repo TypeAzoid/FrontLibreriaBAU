@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { DescuentoService } from "../../service/DescuentoService";
+import DescuentoService from "../../service/DescuentoService";
+import TablaDescuento from "./TablaDescuento"
 
 export default class Descuento extends Component {
   constructor(props) {
@@ -40,9 +41,9 @@ export default class Descuento extends Component {
     return (
       <div className="tablaDescuento">
         <TablaDescuento
-          listado={this.state.descuentos}
-          deleteDescuento={this.deleteDescuento}
-          getOne={this.getOne}
+          listado = {this.state.descuentos}
+          deleteDescuento = {this.deleteDescuento}
+          getOne = {this.getOne}
         />
       </div>
     );

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
 import ClienteList from './ClienteList';
-import ReactDOM from 'react-dom';
 import ClienteService from '../../service/ClienteService';
 import FormCliente from './FormCliente';
 

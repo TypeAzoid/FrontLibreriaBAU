@@ -97,8 +97,13 @@ class FormProducto extends React.Component {
     });
 
     return (
-      <div className="formularioProducto">
+      <div className="popup">
         <h1>{this.state.titulo}</h1>
+        <div>
+          <span>Nombre ---- </span>
+          <span>Tipo ---- </span>
+          <span>Precio</span>
+        </div>
         <input
           type="text"
           value={this.state.nombre}

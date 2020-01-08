@@ -61,3 +61,37 @@
     height:30px;
     line-height:30px;
 }
+
+.botonadd {
+    background: black;
+    opacity: 0.8;
+    color: white;
+    border: 0px;
+}
+
+.botoncliente {
+    background: black;
+    opacity: 0.8;
+    color: white;
+    border: 0px;
+}
+
+.selectCliente {
+    background: black;
+    opacity: 0.8;
+    color: white;
+    border: 1px solid black;
+}
+
+.buscadorname {
+    background: black;
+    opacity: 0.8;
+    color: white;
+    border: 1px solid black;
+}
+
+.trCliente {
+    background: black;
+    opacity: 0.8;
+    color: white;
+}

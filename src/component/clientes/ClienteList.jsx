@@ -6,7 +6,7 @@ class ClienteList extends React.Component {
   render() {
     return (
         <table className="contenedor">
-            <tr>
+            <tr className="trCliente">
                 <th className="titulo" >id</th>
                 <th className="titulo">nombre</th>
                 <th className="titulo">direccion</th>

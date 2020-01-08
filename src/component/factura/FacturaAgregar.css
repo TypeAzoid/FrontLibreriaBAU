@@ -1,0 +1,25 @@
+.agregar{
+    height: 450px;
+}
+
+h1{
+    text-align: center;
+}
+.cliente{
+
+}
+
+
+.productos{
+    height: 150px;
+    overflow: auto;
+}
+
+.tablaDescuentos{
+    height: 150px;
+    overflow: auto;
+}
+
+.opciones{
+    height: 50px;
+}

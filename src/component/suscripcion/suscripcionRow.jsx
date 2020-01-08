@@ -16,8 +16,8 @@ class SuscripcionRow extends React.Component {
         <td className="columna">{this.props.cliente}</td>
         <td className="columna">{this.props.anual}</td>
         <td className="columna">
-          <button onClick={() => SuscripcionService.borrarSuscripcion(this.props.id)}>Borrar</button>
-          <button onClick={() => new Suscripcion().editarSuscripcion(this.props.id)}>Editar</button>
+          <button className="botonsuscripcion" onClick={() => SuscripcionService.borrarSuscripcion(this.props.id)}>Borrar</button>
+          <button className="botonsuscripcion" onClick={() => new Suscripcion().editarSuscripcion(this.props.id)}>Editar</button>
         </td>
     </tr>
     )

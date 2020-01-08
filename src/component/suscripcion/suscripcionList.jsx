@@ -22,7 +22,7 @@ class SuscripcionList extends React.Component {
     render() {
         return(
             <table className="contenedor">
-                <tr>
+                <tr className="trSuscripcion">
                     <th className="titulo">Id</th>
                     <th className="titulo">Producto</th>
                     <th className="titulo">Cantidad Mensual</th>

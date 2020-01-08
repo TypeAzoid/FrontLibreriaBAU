@@ -99,32 +99,10 @@ class FormProducto extends React.Component {
     return (
       <div className="popup">
         <h1>{this.state.titulo}</h1>
-        <div>
-          <span>Nombre ---- </span>
-          <span>Tipo ---- </span>
-          <span>Precio</span>
-        </div>
-        <input
-          type="text"
-          value={this.state.nombre}
-          onChange={this.nameChange}
-        ></input>
-        <select className="tipo" onChange={this.tipoOnChange}>
-          {tipos}
-        </select>
-        <input
-          type="text"
-          value={this.state.precio}
-          onChange={this.precioChange}
-        ></input>
-        <button
-          onClick={() => {
-            this.formAction();
-          }}
-        >
-          {this.state.titulo}
-        </button>
-
+        <input type="text" value={this.state.nombre} onChange={this.nameChange}></input>
+        <select className="tipo" onChange={this.tipoOnChange}>{tipos}</select>
+        <input type="text" value={this.state.precio} onChange={this.precioChange}></input>
+        <button onClick={() => {this.formAction();}}>{this.state.titulo}</button>
         <a href="/producto">
           <button>Cancelar</button>
         </a>

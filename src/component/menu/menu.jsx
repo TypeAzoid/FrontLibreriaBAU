@@ -13,7 +13,7 @@ class Menu extends React.Component {
       <React.Fragment>
         <ul id="menu" className="menu">
           <li id="homeB">
-            <a href="/home">Home</a>
+            <a href="/home">Homo</a>
           </li>
           <li id="clientesB">
             <a href="/clientes">Clientes</a>

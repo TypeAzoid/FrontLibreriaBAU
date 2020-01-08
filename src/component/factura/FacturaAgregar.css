@@ -1,16 +1,50 @@
 .agregar{
-    height: 450px;
+    height: 500px;
 }
 
 h1{
     text-align: center;
 }
-.cliente{
 
+.cliente{
+    
 }
 
+button{
+  float: right;
+  margin-right: 15px;
+}
 
-.productos{
+select{
+  margin-left: 15px;
+}
+
+input{
+  margin-left: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-width: 2px;
+    
+    border-style: solid;
+    font-weight: bolder;
+    text-align: center;
+  }
+  
+  table td, table th {
+    border-width: 2px;
+    border-style: solid;
+    padding: 5px;
+  }
+  
+  table thead {
+    background-color: grey;
+  }
+
+
+.tablaProductos{
     height: 150px;
     overflow: auto;
 }
@@ -21,5 +55,4 @@ h1{
 }
 
 .opciones{
-    height: 50px;
 }

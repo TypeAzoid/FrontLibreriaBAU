@@ -20,7 +20,7 @@ class FacturaList extends React.Component {
                   </thead>
                   <tbody>
                     {this.props.facturas.map( (f) => {
-                        return <FacturaRow
+                        return <FacturaRow key={f.id}
                                 id = {f.id}
                                 cliente = {f.cliente.name}
                                 clienteId = {f.cliente.id}

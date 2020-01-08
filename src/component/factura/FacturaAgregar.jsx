@@ -11,17 +11,25 @@ export default class FacturaAgregar extends Component {
     constructor(props){
         super(props);
 
+        this.slc_descuentos = React.createRef();
+        this.slc_productos = React.createRef();
+        this.cantidad = React.createRef();
+
         this.state = {
+            montoTotal : 0,
             clientes : [],
             productos : [],
             descuentos : [],
-            misProducots : [],
+            misCompras : [], /* compra = productos - cantidad */
             misDescuentos : []
         }
 
         this.listarClientes = this.listarClientes.bind(this);
         this.listarProductos = this.listarProductos.bind(this);
         this.listarDescuentos = this.listarDescuentos.bind(this);
+        this.agregarDescuento = this.agregarDescuento.bind(this);
+        this.agregarCompra = this.agregarCompra.bind(this);
+        this.calcularMontoTotal = this.calcularMontoTotal.bind(this);
     }
 
     componentDidMount()
@@ -47,14 +55,12 @@ export default class FacturaAgregar extends Component {
             this.setState({
                 descuentos : listaDescuentos
             })
-            console.log(this.state.descuentos);
-            
         })
     }
 
     listarClientes(){
         return this.state.clientes.map( cliente => {
-            return (<option id={cliente.id}>
+            return (<option key={cliente.id}>
                         {cliente.id} : {cliente.name}
                     </option>)
         })
@@ -62,7 +68,7 @@ export default class FacturaAgregar extends Component {
 
     listarProductos(){
         return this.state.productos.map( producto => {
-            return (<option id={producto.id}>
+            return (<option key={producto.id} value={producto.id} >
                         {producto.id} : {producto.nombre}
                     </option>)
         })
@@ -70,65 +76,167 @@ export default class FacturaAgregar extends Component {
 
     listarDescuentos(){
         return this.state.descuentos.map( descuento => {
-            return (<option id={descuento.id} value={descuento.id}>
+            return (<option key={descuento.id} value={descuento.id}>
                         {descuento.id} : {descuento.descripcion} : {descuento.valorDescuento * 100 + '%'} 
                     </option>)
         })
     }
 
-    agregarDescuento(descuento){
-        
+    agregarCompra(){
+        if(this.refs.cantidad.value <= 0) return;
+
+        let productoElegido = this.state.productos.filter( prod => prod.id == this.refs.slc_productos.value);
+        let compra = {
+            producto : productoElegido[0],
+            cantidad : this.refs.cantidad.value
+        };
+        let nuevasCompras = this.state.misCompras.concat(compra);
+        /*
+        this.setState({
+            misCompras : nuevasCompras
+        })*/
+
+        this.calcularMontoTotal(nuevasCompras,true);
     }
 
+    agregarDescuento(){
+        let descuentoElegido = this.state.descuentos.filter( desc => desc.id == this.refs.slc_descuentos.value);
+        let newDesc = this.state.misDescuentos.concat(descuentoElegido);
+        /*
+        this.setState({
+            misDescuentos : newDesc
+        })*/
 
+        this.calcularMontoTotal(newDesc,false);
+    }
+
+    calcularMontoTotal(valor,isCompra){
+        if(isCompra){
+            if(valor.length == 0) return;
+        
+            let totalProductos = 0;
+            valor.forEach( compra =>{
+                totalProductos += compra.producto.precio * compra.cantidad
+            })
+
+            if(this.state.misDescuentos.length > 0 && this.state.misCompras.length > 0){
+                this.state.misDescuentos.forEach( desc =>{
+                    totalProductos = totalProductos - totalProductos * desc.valorDescuento;
+                })
+            }
+
+            totalProductos = totalProductos.toFixed(2);
+
+            this.setState({
+                montoTotal : totalProductos,
+                misCompras : valor
+            })
+        }
+        else
+        {
+            if(valor.length == 0) return;
+       
+            let totalProductos = 0;
+            this.state.misCompras.forEach( compra =>{
+                totalProductos += compra.producto.precio * compra.cantidad
+            })
+            
+            if(valor.length > 0 && this.state.misCompras.length > 0){
+                valor.forEach( desc =>{
+                    totalProductos = totalProductos - (totalProductos * desc.valorDescuento);
+                })
+            } 
+
+            totalProductos = totalProductos.toFixed(2);
+
+            this.setState({
+                montoTotal : totalProductos,
+                misDescuentos : valor
+            })
+        }
+    }
+    
 
     render() {
+        let i= 0;
         return (
-           
+            
             <div className="agregar">
                 <h1> Nueva Factura</h1>
-                <br/>
                 <div className="cliente">
                     Cliente :
                     <select id="slc_clientes">
                         {this.listarClientes()}
                     </select>
                 </div>
+                <br/>
                 <div className="productos">
-                    Productos 
-                    <select id="slc_productos">
-                        {this.listarProductos()}
-                    </select>  
-                    <button >Agregar</button>
-                    
+                    <div className="prod_options">
+                        Productos 
+                        <select ref="slc_productos">
+                            {this.listarProductos()}
+                        </select>  
+                        &nbsp; Cantidad : 
+                        <input ref="cantidad" type="number" placeholder="0"></input>
+                        <button onClick={this.agregarCompra}>Agregar</button>
+                    </div>
+                    <div className="tablaProductos">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Precio</th>
+                                    <th>Cantidad</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {this.state.misCompras.map(compra =>{
+                                    return(
+                                        <tr key={compra.producto.id}>
+                                            <th>{compra.producto.nombre}</th>
+                                            <th>{compra.producto.precio}</th>
+                                            <th>{compra.cantidad}</th>
+                                            <th>{compra.producto.precio * compra.cantidad}</th>
+                                        </tr>
+                                    ) 
+                                })}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div className="descuentos">
                     Descuentos 
-                    <select id="slc_descuentos">
+                    <select ref="slc_descuentos">
                         {this.listarDescuentos()}
                     </select>  
-                    <button onClick={this.agregarDescuento()}>Agregar</button>
+                    <button onClick={this.agregarDescuento}>Agregar</button>
                     <div className="tablaDescuentos">
                         <table>
-                            <tr>
-                                <th>Id</th>
-                                <th>Descripcion</th>
-                                <th>Descuento</th>
-                            </tr>
-                            {this.state.misDescuentos.map(descuento =>{
-                                return(
-                                    <tr>
-                                        <th>{descuento.id}</th>
-                                        <th>{descuento.descripcion}</th>
-                                        <th>{descuento.valorDescuento}</th>
-                                    </tr>
-                                )
-                            })}
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Descripcion</th>
+                                    <th>Descuento</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {this.state.misDescuentos.map(descuento =>{
+                                    
+                                    return(
+                                        <tr key={i++}>
+                                            <th>{descuento.id}</th>
+                                            <th>{descuento.descripcion}</th>
+                                            <th>{descuento.valorDescuento}</th>
+                                        </tr>
+                                    ) 
+                                })}
+                            </tbody>
                         </table>
                     </div>
                 </div>
                 <div className="opciones">
-                    Monto Total : 
+                    Monto Total : {this.state.montoTotal}
                     <button> Cancelar</button>
                     <button> Agregar Factura</button>
                 </div>

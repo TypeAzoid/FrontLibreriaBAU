@@ -53,7 +53,7 @@ class FacturaRow extends React.Component {
                 />
             </Popup>  
         </td>
-        <td className='Monto Total'>{this.props.montoTotal}</td>
+        <td className='Monto Total'>{this.props.montoTotal.toFixed(2)}</td>
         <td className='Pagado'>     
             {this.state.pagado ? 'Pagado' : 
                 <button onClick={this.pagarFactura}>

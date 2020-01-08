@@ -70,6 +70,7 @@ class TablaProductos extends React.Component {
           <td className="tdProductos">{precio}</td>
           <td className="tdProductos">
             <button
+              className="bProductoBorrar"
               variant="danger"
               onClick={() => {
                 this.props.deleteProducto(id);
@@ -77,7 +78,7 @@ class TablaProductos extends React.Component {
             >
               Borrar
             </button>
-            <Popup modal trigger={<button> Editar </button>}>
+            <Popup modal trigger={<button className="bProductoEditar"> Editar </button>}>
               <FormProducto id={id} />
             </Popup>
           </td>

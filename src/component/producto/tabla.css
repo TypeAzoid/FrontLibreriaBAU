@@ -15,6 +15,7 @@
 
 .tdProductos {
   border: 1px solid black;
+  width: 20%;
 }
 
 .tablaProductos {
@@ -31,7 +32,62 @@
 .inputTablaProducto {
   margin: 0 5px;
 }
-
+thead {
+  background: black;
+  color: white;
+  opacity: 0.8;
+}
 .parametrosProducto {
   margin: 0 5px;
+}
+.bProductoEditar{
+  width: 50%;
+  height: 100%;
+  border: 0px;
+  background: black;
+  color: white;
+  opacity: 0.8;
+}
+.bProductoBorrar{
+  width: 50%;
+  height: 100%;
+  border: 0px;
+  background: black;
+  color: white;
+  opacity: 0.8;
+}
+
+.parametrosProducto {
+  width: 24.8%;
+  height: 30px;
+  line-height:30px;
+  background: black;
+  opacity: 0.8;
+  color: white;
+  border: 1px solid black;
+  margin-left: -23.6%;
+}
+
+.inputTablaProducto {
+  width: 24.8%;
+  margin-left: 0.2%;
+  margin-bottom: 0.2%;
+  background: black;
+  opacity: 0.8;
+  color: white;
+  border: 1px solid black;
+}
+
+.botonAgregarProducto {
+  width: 24.8%;
+  margin-left: 0.2%;
+  margin-bottom: 0.2%;
+  background: black;
+  opacity: 0.8;
+  color: white;
+  border: 0px;
+}
+
+.overheadProductos {
+  width: 100%;
 }

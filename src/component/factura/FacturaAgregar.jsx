@@ -204,7 +204,7 @@ export default class FacturaAgregar extends Component {
                         <input ref="cantidad" type="number" placeholder="0"></input>
                         <button onClick={this.agregarCompra}>Agregar</button>
                     </div>
-                    <div className="tablaProductos">
+                    <div className="tblProductos">
                         <table>
                             <thead>
                                 <tr>

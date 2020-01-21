@@ -1,60 +1,59 @@
-.agregar{
-    height: 500px;
-    
+.agregar {
+  height: 500px;
+
   font-size: medium;
 }
 
-h1{
-    text-align: center;
+h1 {
+  text-align: center;
 }
 
-.cliente{
-    
+.cliente {
 }
 
-.agregar button{
+.agregar button {
   float: right;
   margin-right: 15px;
 }
 
-select{
+select {
   margin-left: 15px;
 }
 
-input{
+input {
   margin-left: 15px;
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    border-width: 2px;
-    
-    border-style: solid;
-    font-weight: bolder;
-    text-align: center;
-  }
-  
-  table td, table th {
-    border-width: 2px;
-    border-style: solid;
-    padding: 5px;
-  }
-  
-  table thead {
-    background-color: grey;
-  }
+  width: 100%;
+  border-collapse: collapse;
+  border-width: 2px;
 
-
-.tablaProductos{
-    height: 150px;
-    overflow: auto;
+  border-style: solid;
+  font-weight: bolder;
+  text-align: center;
 }
 
-.tablaDescuentos{
-    height: 150px;
-    overflow: auto;
+table td,
+table th {
+  border-width: 2px;
+  border-style: solid;
+  padding: 5px;
 }
 
-.opciones{
+table thead {
+  background-color: grey;
+}
+
+.tblProductos {
+  height: 150px;
+  overflow: auto;
+}
+
+.tablaDescuentos {
+  height: 150px;
+  overflow: auto;
+}
+
+.opciones {
 }

@@ -3,6 +3,7 @@ import "./tabla.css";
 import "./form.css";
 import FormDescuento from "./FormDescuento";
 import Popup from "reactjs-popup";
+import { Button, Table } from "react-bootstrap";
 
 class TablaDescuentos extends React.Component {
   constructor(props) {
@@ -21,9 +22,19 @@ class TablaDescuentos extends React.Component {
           <td className="tdDescuentos">{descripcion}</td>
           <td className="tdDescuentos">{valorDescuento}</td>
           <td className="tdDescuentos">
-            <button variant="danger" onClick={() => {this.props.deleteDescuento(id)}}>Borrar</button>
-            <Popup modal trigger={<button> Editar </button>}>
-              <FormDescuento id={id} descripcion = {descripcion}/>
+            <Button
+              variant="danger"
+              onClick={() => {
+                this.props.deleteDescuento(id);
+              }}
+            >
+              Borrar
+            </Button>
+            <Popup
+              modal
+              trigger={<Button variant="secondary"> Editar </Button>}
+            >
+              <FormDescuento id={id} descripcion={descripcion} />
             </Popup>
           </td>
         </tr>
@@ -34,10 +45,10 @@ class TablaDescuentos extends React.Component {
   render() {
     return (
       <div className="bodyTable">
-        <Popup modal trigger={<button> Agregar </button>}>
+        <Popup modal trigger={<Button variant="primary"> Agregar </Button>}>
           <FormDescuento id={-1} />
         </Popup>
-        <table id="descuentos">
+        <Table variant="dark" id="descuentos">
           <thead>
             <tr className="trDescuentos">
               <th className="tdDescuentos">Id</th>
@@ -47,7 +58,7 @@ class TablaDescuentos extends React.Component {
             </tr>
           </thead>
           <tbody>{this.renderTableData()}</tbody>
-        </table>
+        </Table>
       </div>
     );
   }

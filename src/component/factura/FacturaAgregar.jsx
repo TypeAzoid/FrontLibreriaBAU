@@ -9,6 +9,8 @@ import FacturaService from "../../service/FacturaService";
 import { Button, Table } from "react-bootstrap";
 import "../globalStyles.css";
 
+import {Modal} from "react-bootstrap";
+
 export default class FacturaAgregar extends Component {
   constructor(props) {
     super(props);
@@ -34,13 +36,17 @@ export default class FacturaAgregar extends Component {
     this.agregarCompra = this.agregarCompra.bind(this);
     this.calcularMontoTotal = this.calcularMontoTotal.bind(this);
     this.agregarFactura = this.agregarFactura.bind(this);
+
+    this.showModal = this.showModal.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
   componentDidMount() {
     ClienteService.obtenerClientes().then(resp => {
       let listaClientes = resp.data;
       this.setState({
-        clientes: listaClientes
+        clientes: listaClientes,
+        showModal : false
       });
     });
 
@@ -193,10 +199,28 @@ export default class FacturaAgregar extends Component {
     window.open("/facturas", "_self");
   }
 
+  showModal(){
+    this.setState({
+      showModal : true
+    })
+  }
+  handleClose(){
+    this.setState({
+      showModal : false
+    })
+  }
+
   render() {
     let i = 0;
     return (
-      <div className="agregar">
+
+      <div>
+        <Button variant="info" className="button" onClick={this.showModal}>
+        Agregar Factura
+      </Button>
+
+      <Modal show={this.state.showModal} onHide={this.handleClose} backdrop="static">
+        <div className="agregar">
         <h1> Nueva Factura</h1>
         <div className="cliente">
           Cliente :<select ref="slc_cliente">{this.listarClientes()}</select>
@@ -269,7 +293,7 @@ export default class FacturaAgregar extends Component {
         </div>
         <div className="opciones">
           Monto Total : {this.state.montoTotal}
-          <Button variant="danger" onClick={this.props.closePopup}>
+          <Button variant="danger" onClick={this.handleClose}>
             Cancelar
           </Button>
           <Button variant="info" onClick={this.agregarFactura}>
@@ -277,6 +301,9 @@ export default class FacturaAgregar extends Component {
           </Button>
         </div>
       </div>
+      </Modal>
+      </div>
+      
     );
   }
 }

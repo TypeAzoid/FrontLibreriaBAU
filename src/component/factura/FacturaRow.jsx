@@ -38,20 +38,16 @@ class FacturaRow extends React.Component {
         <td className="ClienteId"> {this.props.clienteId}</td>
         <td className="Fecha"> {this.props.fecha}</td>
         <td className="Compras">
-          <Popup modal trigger={<Button variant="info"> Ver </Button>}>
             <FacturaVerDetallesPopup
               title="Compras"
               compras={this.props.compras}
             />
-          </Popup>
         </td>
         <td className="Descuentos">
-          <Popup modal trigger={<Button variant="info"> Ver </Button>}>
             <FacturaVerDetallesPopup
               title="Descuentos"
               descuentos={this.props.descuentos}
             />
-          </Popup>
         </td>
         <td className="Monto Total">{this.props.montoTotal.toFixed(2)}</td>
         <td className="Pagado">

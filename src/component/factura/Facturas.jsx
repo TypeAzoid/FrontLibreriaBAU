@@ -33,7 +33,7 @@ class Facturas extends Component {
           Facturas
           <br />
           <div>
-             <FacturaAgregar  />
+            <FacturaAgregar />
           </div>
           <br />
         </h1>

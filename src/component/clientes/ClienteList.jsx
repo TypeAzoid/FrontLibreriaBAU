@@ -6,13 +6,13 @@ class ClienteList extends React.Component {
   render() {
     return (
       <div className="bodyTable">
-        <Table variant="dark" className="tablas" responsive>
+        <Table variant="dark" className="tablas" className = "borderTabla"  responsive>
           <thead>
-            <th>Id</th>
+            <th className = "tablaTopLeftRadius" >Id</th>
             <th>Nombre</th>
             <th>Direccion</th>
             <th>Monto</th>
-            <th>Acciones</th>
+            <th className = "tablaTopRightRadius" >Acciones</th>
           </thead>
           {this.props.listado.map(cliente => {
             return (

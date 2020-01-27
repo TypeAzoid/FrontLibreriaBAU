@@ -46,13 +46,13 @@ class TablaDescuentos extends React.Component {
           <FormDescuento id={-1} />
         </div>
 
-        <Table variant="dark" id="descuentos">
+        <Table variant="dark" id="descuentos" className = "borderTabla">
           <thead>
-            <tr className="trDescuentos">
-              <th className="tdDescuentos">Id</th>
+            <tr className="trDescuentos" >
+              <th className="tdDescuentos" className = "tablaTopLeftRadius">Id</th>
               <th className="tdDescuentos">Descripcion del Descuento</th>
               <th className="tdDescuentos">Valor del Descuento</th>
-              <th className="tdDescuentos"> Acciones</th>
+              <th className="tdDescuentos" className = "tablaTopRightRadius"> Acciones</th>
             </tr>
           </thead>
           <tbody>{this.renderTableData()}</tbody>

@@ -4,18 +4,17 @@ import Home from "./component/home/home";
 import Clientes from "./component/clientes/clientes";
 import Producto from "./component/producto/Producto";
 import Facturas from "./component/factura/Facturas";
-import Descuento from "./component/descuento/Descuento"
+import Descuento from "./component/descuento/Descuento";
 import "./App.css";
 import Menu from "./component/menu/menu";
 import NF404 from "./component/404NF/404NF";
 import FormProducto from "./component/producto/FormProducto";
-import Suscripcion from './component/suscripcion/suscripcion';
-
+import Suscripcion from "./component/suscripcion/suscripcion";
 
 class App extends Component {
   render() {
     return (
-      <React.Fragment>
+      <div>
         <header>
           <Menu />
         </header>
@@ -27,14 +26,17 @@ class App extends Component {
               render={() => <Clientes name="Clientes" />}
             />
             <Route
-                path="/producto"
-                render={() => <Producto name="Productos" />} />
+              path="/producto"
+              render={() => <Producto name="Productos" />}
+            />
             <Route
-                path="/suscripciones"
-                render={() => <Suscripcion name="Suscripciones" />} />
+              path="/suscripciones"
+              render={() => <Suscripcion name="Suscripciones" />}
+            />
             <Route
-                path="/facturas"
-                render={() => <Facturas name="Facturas" />} />
+              path="/facturas"
+              render={() => <Facturas name="Facturas" />}
+            />
             <Route
               path="/Descuentos"
               render={() => <Descuento name="Descuentos" />}
@@ -42,7 +44,7 @@ class App extends Component {
             <Route component={NF404} />
           </Switch>
         </BrowserRouter>
-      </React.Fragment>
+      </div>
     );
   }
 }

@@ -5,7 +5,7 @@ import { Button, Table } from "react-bootstrap";
 class FacturaList extends React.Component {
   render() {
     return (
-      <Table variant="dark">
+      <Table variant="dark" responsive>
         <thead>
           <tr>
             <th>Id</th>

@@ -52,3 +52,7 @@
 .facturaAgregarInput {
   length: 50px;
 }
+
+body {
+  background-color: darkslategray;
+}

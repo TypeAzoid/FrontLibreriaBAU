@@ -75,7 +75,10 @@ class TablaProductos extends React.Component {
           <td>{precio}</td>
           <td>
             <FormProducto id={id} />
-            <Button className="button" variant="danger" className = "botonesConjuntos"
+            <Button
+              className="button"
+              variant="danger"
+              className="botonesConjuntos"
               onClick={() => {
                 this.props.deleteProducto(id);
               }}
@@ -91,31 +94,35 @@ class TablaProductos extends React.Component {
   render() {
     return (
       <div className="bodyTable">
-        <div className="overheadTable display-left">
-          <select
-            name="parametrosProducto"
-            className="select"
-            onChange={this.onChangeParametro}
-          >
-            <option value="0">Id</option>
-            <option value="1">Nombre</option>
-            <option value="2">Tipo</option>
-          </select>
-          <input
-            type="text"
-            onChange={this.onChangeValorBusqueda}
-            className="input"
-          />
-          <FormProducto id={-1} />
+        <div className="overheadTable">
+          <div className="justified-left">
+            <select
+              name="parametrosProducto"
+              className="select"
+              onChange={this.onChangeParametro}
+            >
+              <option value="0">Id</option>
+              <option value="1">Nombre</option>
+              <option value="2">Tipo</option>
+            </select>
+            <input
+              type="text"
+              onChange={this.onChangeValorBusqueda}
+              className="input"
+            />
+          </div>
+          <div className="justified-right">
+            <FormProducto id={-1} />
+          </div>
         </div>
-        <Table variant="dark" responsive className = "borderTabla">
+        <Table variant="dark" responsive className="borderTabla">
           <thead>
-            <tr >
-              <th className = "tablaTopLeftRadius">Id</th>
-              <th >Nombre</th>
-              <th >Tipo de Producto</th>
-              <th >Precio</th>
-              <th className = "tablaTopRightRadius"> Acciones</th>
+            <tr>
+              <th className="tablaTopLeftRadius">Id</th>
+              <th>Nombre</th>
+              <th>Tipo de Producto</th>
+              <th>Precio</th>
+              <th className="tablaTopRightRadius"> Acciones</th>
             </tr>
           </thead>
           <tbody>{this.renderTableData()}</tbody>

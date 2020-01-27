@@ -3,12 +3,12 @@ import ReactDOM from "react-dom";
 import ProductoService from "../../service/ProductoService";
 
 import { Button } from "react-bootstrap";
-import Modal from 'react-bootstrap/Modal'
-import ModalHeader from 'react-bootstrap/ModalHeader'
-import ModalDialog from 'react-bootstrap/ModalDialog'
-import ModalTitle from 'react-bootstrap/ModalTitle'
-import ModalBody from 'react-bootstrap/ModalBody'
-import ModalFooter from 'react-bootstrap/ModalFooter'
+import Modal from "react-bootstrap/Modal";
+import ModalHeader from "react-bootstrap/ModalHeader";
+import ModalDialog from "react-bootstrap/ModalDialog";
+import ModalTitle from "react-bootstrap/ModalTitle";
+import ModalBody from "react-bootstrap/ModalBody";
+import ModalFooter from "react-bootstrap/ModalFooter";
 
 class FormProducto extends React.Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class FormProducto extends React.Component {
     this.precioChange = this.precioChange.bind(this);
 
     this.state = {
-      showModal : false,
+      showModal: false,
       tipos: [],
       nombre: "",
       tipoDeProducto: 1,
@@ -102,16 +102,16 @@ class FormProducto extends React.Component {
     this.getTipos();
   }
 
-  openModal(){
+  openModal() {
     this.setState({
-      showModal : true
-    })
+      showModal: true
+    });
   }
 
-  handleClose(){
+  handleClose() {
     this.setState({
-      showModal : false
-    })
+      showModal: false
+    });
   }
 
   render() {
@@ -121,15 +121,20 @@ class FormProducto extends React.Component {
     });
 
     return (
-
       <span>
-        <Button variant={this.state.titulo === "Agregar" ? "info" : "secondary" }
-                className="button" onClick={this.openModal} className = "botonesConjuntos">
+        <Button
+          variant={this.state.titulo === "Agregar" ? "info" : "secondary"}
+          onClick={this.openModal}
+        >
           {this.state.titulo}
         </Button>
 
-        <Modal show={this.state.showModal} onHide={this.handleClose} backdrop="static">
-          <Modal.Header >
+        <Modal
+          show={this.state.showModal}
+          onHide={this.handleClose}
+          backdrop="static"
+        >
+          <Modal.Header>
             <Modal.Title>
               <h1>{this.state.titulo}</h1>
             </Modal.Title>
@@ -153,12 +158,22 @@ class FormProducto extends React.Component {
             ></input>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="info" className="button" onClick={() => {this.formAction();}}>
+            <Button
+              variant="info"
+              className="button"
+              onClick={() => {
+                this.formAction();
+              }}
+            >
               {this.state.titulo}
-            </Button >
-              <Button variant="danger" className="button" onClick={this.handleClose}>
-                Cancelar
-              </Button>
+            </Button>
+            <Button
+              variant="danger"
+              className="button"
+              onClick={this.handleClose}
+            >
+              Cancelar
+            </Button>
           </Modal.Footer>
         </Modal>
       </span>

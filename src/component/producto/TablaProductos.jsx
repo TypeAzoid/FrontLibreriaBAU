@@ -84,17 +84,8 @@ class TablaProductos extends React.Component {
               Borrar
             </Button>
 
-            <Popup
-              modal
-              trigger={
-                <Button variant="secondary" className="button">
-                  {" "}
-                  Editar{" "}
-                </Button>
-              }
-            >
+           
               <FormProducto id={id} />
-            </Popup>
           </td>
         </tr>
       );
@@ -119,16 +110,7 @@ class TablaProductos extends React.Component {
             onChange={this.onChangeValorBusqueda}
             className="input"
           />
-          <Popup
-            modal
-            trigger={
-              <Button variant="info" className="button">
-                Agregar
-              </Button>
-            }
-          >
             <FormProducto id={-1} />
-          </Popup>
         </div>
         <Table variant="dark" className="table" id="productos">
           <thead>

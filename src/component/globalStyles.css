@@ -8,8 +8,22 @@
   margin: 5px 0px;
 }
 
-.tablas {
+.tablas{
   margin: 0 2.5%;
+}
+
+.borderTabla{
+  border-top-left-radius: 20px ;
+  border-top-right-radius: 20px ;
+  border-style: hidden ; 
+}
+
+.tablaTopLeftRadius{
+  border-top-left-radius: 20px;
+}
+
+.tablaTopRightRadius{
+  border-top-right-radius: 20px;
 }
 
 #menu {

@@ -5,17 +5,18 @@ import { Button, Table } from "react-bootstrap";
 class FacturaList extends React.Component {
   render() {
     return (
-      <Table variant="dark" responsive>
+
+      <Table variant="dark" responsive className = "borderTabla">
         <thead>
-          <tr>
-            <th>Id</th>
+          <tr >
+            <th className = "tablaTopLeftRadius">Id</th>
             <th>Cliente</th>
             <th>Id Cliente</th>
             <th>Fecha</th>
             <th>Compras</th>
             <th>Descuentos</th>
             <th>Monto Total</th>
-            <th>Pagado</th>
+            <th className = "tablaTopRightRadius">Pagado</th>
           </tr>
         </thead>
         <tbody>

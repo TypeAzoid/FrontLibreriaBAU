@@ -1,0 +1,35 @@
+.agregar {
+  display: center;
+  margin-top: 15px;
+}
+
+.bodyTable {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#descuentos {
+}
+
+div.display-left {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.trDescuentos {
+  border: 1px solid black;
+}
+
+.tdDescuentos {
+    border: 1px solid black;  
+}
+
+.tablaDescuentos {
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+
+.botonAgregarDescuentos {
+}

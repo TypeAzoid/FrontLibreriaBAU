@@ -6,13 +6,14 @@ class ClienteList extends React.Component {
   render() {
     return (
       <div className="bodyTable">
-        <Table variant="dark" responsive>
+
+        <Table variant="dark" responsive className = "borderTabla" >
           <thead>
-            <th>Id</th>
+            <th className = "tablaTopLeftRadius" >Id</th>
             <th>Nombre</th>
             <th>Direccion</th>
             <th>Monto</th>
-            <th>Acciones</th>
+            <th className = "tablaTopRightRadius" >Acciones</th>
           </thead>
           {this.props.listado.map(cliente => {
             return (
@@ -22,9 +23,8 @@ class ClienteList extends React.Component {
                 <td>{cliente.direccion}</td>
                 <td>monto</td>
                 <td>
-                  <Button variant="secondary">Detalles</Button>
-                  <Button
-                    variant="secondary"
+                  <Button variant="secondary" className = "botonesConjuntos">Detalles</Button>
+                  <Button variant="secondary" className = "botonesConjuntos"
                     onClick={() =>
                       this.props.editarCliente(
                         cliente.id,
@@ -35,8 +35,7 @@ class ClienteList extends React.Component {
                   >
                     Editar
                   </Button>
-                  <Button
-                    variant="danger"
+                  <Button variant="danger" className = "botonesConjuntos"
                     onClick={e => this.props.borrarCliente(e)}
                     value={cliente.id}
                   >

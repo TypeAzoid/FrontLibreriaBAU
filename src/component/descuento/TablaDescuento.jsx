@@ -27,6 +27,7 @@ class TablaDescuentos extends React.Component {
             <Button
               variant="danger"
               className="button"
+              className = "botonesConjuntos"
               onClick={() => {
                 this.props.deleteDescuento(id);
               }}
@@ -46,13 +47,14 @@ class TablaDescuentos extends React.Component {
           <FormDescuento id={-1} />
         </div>
 
-        <Table variant="dark" id="descuentos">
+        <Table variant="dark" id="descuentos" className = "borderTabla">
           <thead>
+
             <tr>
-              <th>Id</th>
+              <th className = "tablaTopLeftRadius" >Id</th>
               <th>Descripcion del Descuento</th>
               <th>Valor del Descuento</th>
-              <th> Acciones</th>
+              <th className = "tablaTopRightRadius" > Acciones</th>
             </tr>
           </thead>
           <tbody>{this.renderTableData()}</tbody>

@@ -96,3 +96,7 @@ div.display-left {
   display: flex;
   justify-content: flex-end;
 }
+
+.botonesConjuntos{
+  margin: 3% 3%;
+}

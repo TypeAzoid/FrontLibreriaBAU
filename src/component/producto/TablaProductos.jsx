@@ -1,7 +1,7 @@
 /* eslint-disable default-case */
 import React from "react";
 import "./tabla.css";
-import "./form.css";
+import "./formProducto.css";
 import FormProducto from "./FormProducto";
 import Popup from "reactjs-popup";
 import { Button, Table } from "react-bootstrap";
@@ -68,23 +68,20 @@ class TablaProductos extends React.Component {
     return listaFiltrada.map(producto => {
       const { id, nombre, tipo, precio } = producto; //destructuring
       return (
-        <tr className="trProductos" key={id}>
-          <td className="tdProductos">{id}</td>
-          <td className="tdProductos">{nombre}</td>
-          <td className="tdProductos">{tipo}</td>
-          <td className="tdProductos">{precio}</td>
-          <td className="tdProductos">
-            <Button
-              className="button"
-              variant="danger"
+        <tr key={id}>
+          <td>{id}</td>
+          <td>{nombre}</td>
+          <td>{tipo}</td>
+          <td>{precio}</td>
+          <td>
+            <FormProducto id={id} />
+            <Button className="button" variant="danger" className = "botonesConjuntos"
               onClick={() => {
                 this.props.deleteProducto(id);
               }}
             >
               Borrar
             </Button>
-
-            <FormProducto id={id} />
           </td>
         </tr>
       );
@@ -111,14 +108,14 @@ class TablaProductos extends React.Component {
           />
           <FormProducto id={-1} />
         </div>
-        <Table variant="dark" className="table" id="productos" responsive>
+        <Table variant="dark" responsive className = "borderTabla">
           <thead>
-            <tr className="trProductos">
-              <th className="tdProductos">Id</th>
-              <th className="tdProductos">Nombre</th>
-              <th className="tdProductos">Tipo de Producto</th>
-              <th className="tdProductos">Precio</th>
-              <th className="tdProductos"> Acciones</th>
+            <tr >
+              <th className = "tablaTopLeftRadius">Id</th>
+              <th >Nombre</th>
+              <th >Tipo de Producto</th>
+              <th >Precio</th>
+              <th className = "tablaTopRightRadius"> Acciones</th>
             </tr>
           </thead>
           <tbody>{this.renderTableData()}</tbody>

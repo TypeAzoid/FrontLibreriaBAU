@@ -98,7 +98,8 @@ class FormDescuento extends React.Component {
       <span className="popup">
 
         <Button variant={this.state.titulo === "Agregar" ? "info" : "secondary"}
-          onClick={this.openModal}> 
+          onClick={this.openModal}
+          className = "botonesConjuntos"> 
           {this.state.titulo} 
         </Button>
 

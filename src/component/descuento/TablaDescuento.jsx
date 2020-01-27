@@ -1,6 +1,5 @@
 import React from "react";
-import "./tabla.css";
-import "./form.css";
+
 import FormDescuento from "./FormDescuento";
 import Popup from "reactjs-popup";
 import { Button, Table } from "react-bootstrap";
@@ -18,19 +17,21 @@ class TablaDescuentos extends React.Component {
     return props.listado.map(descuento => {
       const { id, descripcion, valorDescuento } = descuento; //destructuring
       return (
-        <tr className="trDescuentos" key={id}>
-          <td className="tdDescuentos">{id}</td>
-          <td className="tdDescuentos">{descripcion}</td>
-          <td className="tdDescuentos">{valorDescuento}</td>
-          <td className="tdDescuentos">
+        <tr key={id}>
+          <td>{id}</td>
+          <td>{descripcion}</td>
+          <td>{valorDescuento}</td>
+          <td>
             <FormDescuento id={id} descripcion={descripcion} />
 
             <Button
               variant="danger"
               className="button"
+              className = "botonesConjuntos"
               onClick={() => {
                 this.props.deleteDescuento(id);
-              }}>
+              }}
+            >
               Borrar
             </Button>
           </td>
@@ -42,17 +43,18 @@ class TablaDescuentos extends React.Component {
   render() {
     return (
       <div className="bodyTable">
-        <span className="display-left">
-          <FormDescuento id={-1}  />
-        </span>
-        
-        <Table variant="dark" id="descuentos">
+        <div>
+          <FormDescuento id={-1} />
+        </div>
+
+        <Table variant="dark" id="descuentos" className = "borderTabla">
           <thead>
-            <tr className="trDescuentos">
-              <th className="tdDescuentos">Id</th>
-              <th className="tdDescuentos">Descripcion del Descuento</th>
-              <th className="tdDescuentos">Valor del Descuento</th>
-              <th className="tdDescuentos"> Acciones</th>
+
+            <tr>
+              <th className = "tablaTopLeftRadius" >Id</th>
+              <th>Descripcion del Descuento</th>
+              <th>Valor del Descuento</th>
+              <th className = "tablaTopRightRadius" > Acciones</th>
             </tr>
           </thead>
           <tbody>{this.renderTableData()}</tbody>

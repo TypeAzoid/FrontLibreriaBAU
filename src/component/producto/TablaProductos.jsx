@@ -74,6 +74,7 @@ class TablaProductos extends React.Component {
           <td className="tdProductos">{tipo}</td>
           <td className="tdProductos">{precio}</td>
           <td className="tdProductos">
+            <FormProducto id={id} />
             <Button
               className="button"
               variant="danger"
@@ -83,8 +84,6 @@ class TablaProductos extends React.Component {
             >
               Borrar
             </Button>
-
-            <FormProducto id={id} />
           </td>
         </tr>
       );

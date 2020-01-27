@@ -47,14 +47,13 @@ export default class FacturaAgregar extends Component {
     this.handleClose = this.handleClose.bind(this);
   }
 
+  async obtenerClientes() {
+    let clientes = await ClienteService.obtenerClientes();
+    await this.setState({clientes: clientes});
+  }
+
   componentDidMount() {
-    ClienteService.obtenerClientes().then(resp => {
-      let listaClientes = resp.data;
-      this.setState({
-        clientes: listaClientes,
-        showModal : false
-      });
-    });
+    this.obtenerClientes();
 
     ProductoService.findAll().then(resp => {
       let listaProductos = resp.data;

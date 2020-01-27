@@ -97,7 +97,10 @@ class FormDescuento extends React.Component {
     return (
       <span className="popup">
 
-        <Button variant="info" onClick={this.openModal}> {this.state.titulo} </Button>
+        <Button variant={this.state.titulo === "Agregar" ? "info" : "secondary"}
+          onClick={this.openModal}> 
+          {this.state.titulo} 
+        </Button>
 
         <Modal show={this.state.showModal} backdrop="static">
           <Modal.Header >

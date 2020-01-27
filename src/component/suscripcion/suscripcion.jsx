@@ -99,8 +99,8 @@ class Suscripcion extends React.Component {
                     suscripcion={this.state.suscripcion}
                     editarSuscripcion={this.editarSuscripcion}/>
 
-        <FormSuscripcion ref="formSuscripcion"
-                         crearSuscripcion={this.crearSuscripcion}/>
+        
+                         
         <div className="bodyTable">
           <div className="containersuscripcion">
             <input
@@ -110,14 +110,10 @@ class Suscripcion extends React.Component {
               value={this.state.buscador}
               onChange={this.busChange}
             ></input>
-            <Button
-              className="button"
-              variant="info"
-              size="sm"
-              onClick={() => this.refs.formSuscripcion.display()}
-            >
-              Agregar
-            </Button>
+
+            <FormSuscripcion ref="formSuscripcion"
+                                    crearSuscripcion={this.crearSuscripcion}/>
+            
           </div>
           <SuscripcionList
             listado={this.state.suscripciones}

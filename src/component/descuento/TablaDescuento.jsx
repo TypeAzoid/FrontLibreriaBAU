@@ -4,6 +4,7 @@ import "./form.css";
 import FormDescuento from "./FormDescuento";
 import Popup from "reactjs-popup";
 import { Button, Table } from "react-bootstrap";
+import "../globalStyles.css";
 
 class TablaDescuentos extends React.Component {
   constructor(props) {
@@ -24,6 +25,7 @@ class TablaDescuentos extends React.Component {
           <td className="tdDescuentos">
             <Button
               variant="danger"
+              className="button"
               onClick={() => {
                 this.props.deleteDescuento(id);
               }}
@@ -32,7 +34,12 @@ class TablaDescuentos extends React.Component {
             </Button>
             <Popup
               modal
-              trigger={<Button variant="secondary"> Editar </Button>}
+              trigger={
+                <Button variant="secondary" className="button">
+                  {" "}
+                  Editar{" "}
+                </Button>
+              }
             >
               <FormDescuento id={id} descripcion={descripcion} />
             </Popup>
@@ -45,9 +52,19 @@ class TablaDescuentos extends React.Component {
   render() {
     return (
       <div className="bodyTable">
-        <Popup modal trigger={<Button variant="primary"> Agregar </Button>}>
-          <FormDescuento id={-1} />
-        </Popup>
+        <div className="overheadTable display-left">
+          <Popup
+            modal
+            trigger={
+              <Button variant="info" size="lg">
+                {" "}
+                Agregar{" "}
+              </Button>
+            }
+          >
+            <FormDescuento id={-1} />
+          </Popup>
+        </div>
         <Table variant="dark" id="descuentos">
           <thead>
             <tr className="trDescuentos">

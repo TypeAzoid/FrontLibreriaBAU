@@ -5,7 +5,21 @@
 .button {
   height: 35;
   width: 85;
-  margin: 10;
+  margin: 5px;
+}
+
+#menu {
+  background-color: #212529c4;
+  color: whitesmoke;
+  margin-bottom: -1px;
+}
+
+.navLinks {
+  color: whitesmoke;
+}
+
+.logo {
+  padding: 7px 14px;
 }
 
 .overheadTable {
@@ -16,8 +30,6 @@
   justify-items: center;
   justify-content: center;
   padding-left: 3%;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
 }
 
 .select {

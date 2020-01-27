@@ -83,6 +83,7 @@ class TablaProductos extends React.Component {
             >
               Borrar
             </Button>
+
             <Popup
               modal
               trigger={
@@ -121,7 +122,7 @@ class TablaProductos extends React.Component {
           <Popup
             modal
             trigger={
-              <Button variant="primary" className="button">
+              <Button variant="info" className="button">
                 Agregar
               </Button>
             }

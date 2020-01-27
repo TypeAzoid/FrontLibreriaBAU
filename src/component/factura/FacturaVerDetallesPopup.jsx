@@ -2,14 +2,28 @@ import React, { Component } from 'react'
 
 import './FacturaVerDetallesPopup.css'
 
+import { Button, Table } from "react-bootstrap";
+import Modal from 'react-bootstrap/Modal'
+import ModalHeader from 'react-bootstrap/ModalHeader'
+import ModalDialog from 'react-bootstrap/ModalDialog'
+import ModalTitle from 'react-bootstrap/ModalTitle'
+import ModalBody from 'react-bootstrap/ModalBody'
+import ModalFooter from 'react-bootstrap/ModalFooter'
+
 export default class FacturaVerDetallesPopup extends Component {
     constructor(props){
         super(props);
+
+        this.state = {
+            showModal : false
+        }
 
         this.comprasTableHead = this.comprasTableHead.bind(this);
         this.descuentosTableHead = this.descuentosTableHead.bind(this);
         this.comprasTableBody = this.comprasTableBody.bind(this);
         this.descuentosTableBody = this.descuentosTableBody.bind(this);
+        this.showModal = this.showModal.bind(this);
+        this.handleClose = this.handleClose(this);
     }
 
     comprasTableHead(){
@@ -62,18 +76,38 @@ export default class FacturaVerDetallesPopup extends Component {
         )
     }
 
+    showModal(){
+        this.setState({
+            showModal : true
+        })
+    }
+    handleClose(){
+        this.setState({
+            showModal : false
+        })
+    }
+
     render() {
         return (
-            <div className='popup'>
-                {this.props.title}
-                <table className='facturaTavle'>
-                  <thead>
-                    { this.props.title === 'Compras' ? this.comprasTableHead() : this.descuentosTableHead()}
-                  </thead>
-                  <tbody>
-                    { this.props.title === 'Compras' ? this.comprasTableBody() : this.descuentosTableBody()}
-                  </tbody>
-                </table>
+
+            <div>
+                <Button variant="info" onClick={this.showModal}> Ver </Button>
+
+                <Modal show={this.state.showModal} onHide={this.handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>{this.props.title}</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <Table className='facturaTavle'>
+                            <thead>
+                                { this.props.title === 'Compras' ? this.comprasTableHead() : this.descuentosTableHead()}
+                            </thead>
+                            <tbody>
+                                { this.props.title === 'Compras' ? this.comprasTableBody() : this.descuentosTableBody()}
+                            </tbody>
+                        </Table>
+                    </Modal.Body>
+                </Modal>
             </div>
         )
     }

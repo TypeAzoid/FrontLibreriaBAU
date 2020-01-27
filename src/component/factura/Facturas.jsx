@@ -38,8 +38,7 @@ class Facturas extends Component {
               closeOnDocumentClick={false}
               trigger={
                 <Button variant="info" className="button">
-                  {" "}
-                  Agregar Factura{" "}
+                  Agregar Factura
                 </Button>
               }
             >

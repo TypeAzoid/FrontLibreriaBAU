@@ -9,13 +9,12 @@ import FacturaService from "../../service/FacturaService";
 import { Button, Table } from "react-bootstrap";
 import "../globalStyles.css";
 
-import Modal from 'react-bootstrap/Modal'
-import ModalHeader from 'react-bootstrap/ModalHeader'
-import ModalDialog from 'react-bootstrap/ModalDialog'
-import ModalTitle from 'react-bootstrap/ModalTitle'
-import ModalBody from 'react-bootstrap/ModalBody'
-import ModalFooter from 'react-bootstrap/ModalFooter'
-
+import Modal from "react-bootstrap/Modal";
+import ModalHeader from "react-bootstrap/ModalHeader";
+import ModalDialog from "react-bootstrap/ModalDialog";
+import ModalTitle from "react-bootstrap/ModalTitle";
+import ModalBody from "react-bootstrap/ModalBody";
+import ModalFooter from "react-bootstrap/ModalFooter";
 
 export default class FacturaAgregar extends Component {
   constructor(props) {
@@ -49,7 +48,7 @@ export default class FacturaAgregar extends Component {
 
   async obtenerClientes() {
     let clientes = await ClienteService.obtenerClientes();
-    await this.setState({clientes: clientes});
+    await this.setState({ clientes: clientes });
   }
 
   componentDidMount() {
@@ -204,102 +203,110 @@ export default class FacturaAgregar extends Component {
     window.open("/facturas", "_self");
   }
 
-  showModal(){
+  showModal() {
     this.setState({
-      showModal : true
-    })
+      showModal: true
+    });
   }
-  handleClose(){
+  handleClose() {
     this.setState({
-      showModal : false
-    })
+      showModal: false
+    });
   }
 
   render() {
     let i = 0;
     return (
-
       <div>
-        <Button variant="info" className="button" onClick={this.showModal}>
-          Agregar Factura
-        </Button>
+        <div className="display-left">
+          <Button variant="info" className="button" onClick={this.showModal}>
+            Agregar Factura
+          </Button>
+        </div>
 
-        <Modal show={this.state.showModal} onHide={this.handleClose} backdrop="static">
+        <Modal
+          show={this.state.showModal}
+          onHide={this.handleClose}
+          backdrop="static"
+        >
           <Modal.Header>
             <Modal.Title>Nueva Factura</Modal.Title>
             <div className="cliente">
-              Cliente :<select ref="slc_cliente">{this.listarClientes()}</select>
+              Cliente :
+              <select ref="slc_cliente">{this.listarClientes()}</select>
             </div>
           </Modal.Header>
           <Modal.Body>
             <div className="productos">
-            <div className="prod_options">
-              Productos
-              <select ref="slc_productos">{this.listarProductos()}</select>
-              &nbsp; Cantidad :
-              <input
-                ref="cantidad"
-                type="number"
-                placeholder="0"
-                className="facturaAgregarInput"
-              ></input>
-              <Button onClick={this.agregarCompra}>Agregar</Button>
+              <div className="prod_options">
+                Productos
+                <select ref="slc_productos">{this.listarProductos()}</select>
+                &nbsp; Cantidad :
+                <input
+                  ref="cantidad"
+                  type="number"
+                  placeholder="0"
+                  className="facturaAgregarInput"
+                ></input>
+                <Button onClick={this.agregarCompra}>Agregar</Button>
+              </div>
+              <div className="tblProductos">
+                <Table variant="dark">
+                  <thead>
+                    <tr>
+                      <th>Producto</th>
+                      <th>Precio</th>
+                      <th>Cantidad</th>
+                      <th>Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {this.state.misCompras.map(compra => {
+                      return (
+                        <tr key={compra.producto.id}>
+                          <th>{compra.producto.nombre}</th>
+                          <th>{compra.producto.precio}</th>
+                          <th>{compra.cantidad}</th>
+                          <th>{compra.producto.precio * compra.cantidad}</th>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </Table>
+              </div>
             </div>
-            <div className="tblProductos">
-              <Table variant="dark">
-                <thead>
-                  <tr>
-                    <th>Producto</th>
-                    <th>Precio</th>
-                    <th>Cantidad</th>
-                    <th>Total</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {this.state.misCompras.map(compra => {
-                    return (
-                      <tr key={compra.producto.id}>
-                        <th>{compra.producto.nombre}</th>
-                        <th>{compra.producto.precio}</th>
-                        <th>{compra.cantidad}</th>
-                        <th>{compra.producto.precio * compra.cantidad}</th>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </Table>
+            <div className="descuentos">
+              Descuentos
+              <select ref="slc_descuentos">{this.listarDescuentos()}</select>
+              <Button onClick={this.agregarDescuento}>Agregar</Button>
+              <div className="tablaDescuentos">
+                <Table variant="dark">
+                  <thead>
+                    <tr>
+                      <th>Id</th>
+                      <th>Descripcion</th>
+                      <th>Descuento</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {this.state.misDescuentos.map(descuento => {
+                      return (
+                        <tr key={i++}>
+                          <th>{descuento.id}</th>
+                          <th>{descuento.descripcion}</th>
+                          <th>{descuento.valorDescuento}</th>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </Table>
+              </div>
             </div>
-          </div>
-          <div className="descuentos">
-            Descuentos
-            <select ref="slc_descuentos">{this.listarDescuentos()}</select>
-            <Button onClick={this.agregarDescuento}>Agregar</Button>
-            <div className="tablaDescuentos">
-              <Table variant="dark">
-                <thead>
-                  <tr>
-                    <th>Id</th>
-                    <th>Descripcion</th>
-                    <th>Descuento</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {this.state.misDescuentos.map(descuento => {
-                    return (
-                      <tr key={i++}>
-                        <th>{descuento.id}</th>
-                        <th>{descuento.descripcion}</th>
-                        <th>{descuento.valorDescuento}</th>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </Table>
-            </div>
-          </div>
           </Modal.Body>
           <Modal.Footer>
-            <span className="monto ">Monto Total : {this.state.montoTotal}</span>
+            <span className="monto ">
+              Monto Total : {this.state.montoTotal}
+            </span>
             <Button variant="info" onClick={this.agregarFactura}>
               Agregar Factura
             </Button>
@@ -308,10 +315,7 @@ export default class FacturaAgregar extends Component {
             </Button>
           </Modal.Footer>
         </Modal>
-
-      
       </div>
-      
     );
   }
 }

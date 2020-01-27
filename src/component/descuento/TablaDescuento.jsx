@@ -53,15 +53,7 @@ class TablaDescuentos extends React.Component {
     return (
       <div className="bodyTable">
         <div className="overheadTable display-left">
-          <Popup
-            modal
-            trigger={
-              <Button variant="info" size="lg">
-                {" "}
-                Agregar{" "}
-              </Button>
-            }
-          >
+          <Popup modal trigger={<Button variant="info"> Agregar </Button>}>
             <FormDescuento id={-1} />
           </Popup>
         </div>

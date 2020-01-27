@@ -14,9 +14,7 @@
 
 div.display-left {
   display: flex;
-
   justify-content: flex-end;
-  padding-right: 9%;
 }
 
 .trDescuentos {

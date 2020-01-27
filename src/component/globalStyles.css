@@ -44,14 +44,11 @@
   height: 55px;
   display: flex;
   align-items: center;
-  justify-items: center;
-  justify-content: center;
-  padding-left: 3%;
 }
 
 .select {
   height: 30px;
-  width: 25%;
+  flex: 1;
   background-color: #212529;
   color: #ffffff;
   border: black solid 1px;
@@ -61,7 +58,7 @@
   background-color: #212529;
   color: #ffffff;
   height: 30px;
-  width: 25%;
+  flex: 2;
   border: black solid 1px;
   margin: 0 5px;
 }
@@ -86,6 +83,16 @@ body {
 }
 
 div.display-left {
+}
+
+.justified-left {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.justified-right {
+  flex: 1;
   display: flex;
   justify-content: flex-end;
 }

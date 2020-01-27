@@ -153,30 +153,34 @@ class Clientes extends Component {
     return (
       <React.Fragment>
         <div className="tablas">
-          <div className="overheadTable display-left">
-            <select
-              value={this.state.busqueda}
-              onChange={this.changeBusq}
-              className="select"
-            >
-              <option value="0">Nombre</option>
-              <option value="1">Direccion</option>
-              <option value="2">Id</option>
-            </select>
-            <input
-              type="text"
-              className="input"
-              value={this.state.buscador}
-              onChange={this.busChange}
-            ></input>
-            <FormCliente
-              concreteEdit={this.concreteEdit}
-              clienteNombre={this.state.clientename}
-              clienteDireccion={this.state.clientedir}
-              clienteId={this.state.clienteid}
-              titulo="Editar"
-              ref="formcliente"
-            />
+          <div className="overheadTable">
+            <div className="justified-left">
+              <select
+                value={this.state.busqueda}
+                onChange={this.changeBusq}
+                className="select"
+              >
+                <option value="0">Nombre</option>
+                <option value="1">Direccion</option>
+                <option value="2">Id</option>
+              </select>
+              <input
+                type="text"
+                className="input"
+                value={this.state.buscador}
+                onChange={this.busChange}
+              ></input>
+            </div>
+            <div className="justified-right">
+              <FormCliente
+                concreteEdit={this.concreteEdit}
+                clienteNombre={this.state.clientename}
+                clienteDireccion={this.state.clientedir}
+                clienteId={this.state.clienteid}
+                titulo="Editar"
+                ref="formcliente"
+              />
+            </div>
           </div>
 
           <ClienteList

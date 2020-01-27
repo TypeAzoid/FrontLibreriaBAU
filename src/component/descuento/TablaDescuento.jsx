@@ -43,7 +43,7 @@ class TablaDescuentos extends React.Component {
   render() {
     return (
       <div className="bodyTable">
-        <div>
+        <div className="justified-right" >
           <FormDescuento id={-1} />
         </div>
 

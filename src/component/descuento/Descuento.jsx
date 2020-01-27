@@ -39,7 +39,7 @@ export default class Descuento extends Component {
 
   render() {
     return (
-      <div className="tablaDescuento">
+      <div className="tablas">
         <TablaDescuento
           listado = {this.state.descuentos}
           deleteDescuento = {this.deleteDescuento}

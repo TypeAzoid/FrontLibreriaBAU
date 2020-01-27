@@ -110,10 +110,10 @@ class FormDescuento extends React.Component {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <div>
+            <span>
               <span>Descripcion ---- </span>
               <span>Valor del descuento</span>
-            </div>
+            </span>
             <input
               type="text"
               value={this.state.descripcion}

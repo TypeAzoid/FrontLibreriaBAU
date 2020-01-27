@@ -62,7 +62,7 @@ class FormCliente extends React.Component {
                     </Modal.Body>
                     <Modal.Footer>
                         <Button className="botonagregar" onClick={() => this.props.concreteEdit(this.state.nombrel,this.state.direccionl)}>Enviar</Button>
-                        <Button className="botoncancelar" onClick={() => this.undisplayeditar()}>Cancelar</Button>
+                        <Button className="botoncancelar" variant="danger" onClick={() => this.undisplayeditar()}>Cancelar</Button>
                     </Modal.Footer>
                 </Modal>
 

@@ -27,6 +27,7 @@ class TablaDescuentos extends React.Component {
             <Button
               variant="danger"
               className="button"
+              className = "botonesConjuntos"
               onClick={() => {
                 this.props.deleteDescuento(id);
               }}

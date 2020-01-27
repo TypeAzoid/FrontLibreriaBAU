@@ -123,8 +123,8 @@ class FormProducto extends React.Component {
     return (
 
       <span>
-        <Button variant={this.state.titulo === "Agregar" ? "info" : "secondary"}
-                className="button" onClick={this.openModal}>
+        <Button variant={this.state.titulo === "Agregar" ? "info" : "secondary" }
+                className="button" onClick={this.openModal} className = "botonesConjuntos">
           {this.state.titulo}
         </Button>
 

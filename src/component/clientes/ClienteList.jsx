@@ -23,9 +23,8 @@ class ClienteList extends React.Component {
                 <td>{cliente.direccion}</td>
                 <td>monto</td>
                 <td>
-                  <Button variant="secondary">Detalles</Button>
-                  <Button
-                    variant="secondary"
+                  <Button variant="secondary" className = "botonesConjuntos">Detalles</Button>
+                  <Button variant="secondary" className = "botonesConjuntos"
                     onClick={() =>
                       this.props.editarCliente(
                         cliente.id,
@@ -36,8 +35,7 @@ class ClienteList extends React.Component {
                   >
                     Editar
                   </Button>
-                  <Button
-                    variant="danger"
+                  <Button variant="danger" className = "botonesConjuntos"
                     onClick={e => this.props.borrarCliente(e)}
                     value={cliente.id}
                   >

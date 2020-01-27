@@ -1,7 +1,7 @@
 /* eslint-disable default-case */
 import React from "react";
 import "./tabla.css";
-import "./form.css";
+import "./formProducto.css";
 import FormProducto from "./FormProducto";
 import Popup from "reactjs-popup";
 import { Button, Table } from "react-bootstrap";

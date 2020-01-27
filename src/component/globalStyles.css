@@ -8,21 +8,21 @@
   margin: 5px 0px;
 }
 
-.tablas{
+.tablas {
   margin: 0 2.5%;
 }
 
-.borderTabla{
-  border-top-left-radius: 20px ;
-  border-top-right-radius: 20px ;
-  border-style: hidden ; 
+.borderTabla {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-style: hidden;
 }
 
-.tablaTopLeftRadius{
+.tablaTopLeftRadius {
   border-top-left-radius: 20px;
 }
 
-.tablaTopRightRadius{
+.tablaTopRightRadius {
   border-top-right-radius: 20px;
 }
 
@@ -54,6 +54,7 @@
   width: 25%;
   background-color: #212529;
   color: #ffffff;
+  border: black solid 1px;
 }
 
 .input {
@@ -61,7 +62,8 @@
   color: #ffffff;
   height: 30px;
   width: 25%;
-  border: solid black 1px;
+  border: black solid 1px;
+  margin: 0 5px;
 }
 
 .facturaAgregarInput {
@@ -70,4 +72,20 @@
 
 body {
   background-color: darkslategray;
+}
+
+.agregar {
+  display: center;
+  margin-top: 15px;
+}
+
+.bodyTable {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+div.display-left {
+  display: flex;
+  justify-content: flex-end;
 }

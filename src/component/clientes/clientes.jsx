@@ -152,12 +152,12 @@ class Clientes extends Component {
   render() {
     return (
       <React.Fragment>
-        <div>
+        <div className="tablas">
           <div className="overheadTable display-left">
             <select
               value={this.state.busqueda}
               onChange={this.changeBusq}
-              className="selectCliente"
+              className="select"
             >
               <option value="0">Nombre</option>
               <option value="1">Direccion</option>
@@ -165,8 +165,7 @@ class Clientes extends Component {
             </select>
             <input
               type="text"
-              className="buscadorname"
-              placeholder="<== buscar por"
+              className="input"
               value={this.state.buscador}
               onChange={this.busChange}
             ></input>

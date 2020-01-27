@@ -6,7 +6,8 @@ class ClienteList extends React.Component {
   render() {
     return (
       <div className="bodyTable">
-        <Table variant="dark" className="tablas" className = "borderTabla"  responsive>
+
+        <Table variant="dark" responsive className = "borderTabla" >
           <thead>
             <th className = "tablaTopLeftRadius" >Id</th>
             <th>Nombre</th>

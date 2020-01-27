@@ -26,10 +26,8 @@ class Suscripcion extends React.Component {
   async editarSuscripcion(cantidad,anual,fin) {
     let cantidadf = this.state.suscripcion.cantidadMensual;
     let anualf = this.state.suscripcion.anual;
-    let producto = this.state.suscripcion.producto;
-    let cliente = this.state.suscripcion.cliente;
-    let idp = producto.id;
-    let idc = cliente.id;
+    let idp = this.state.suscripcion.producto.id;
+    let idc = this.state.suscripcion.cliente.id;
     let finf = this.state.suscripcion.finSuscripcion;
     let ids = this.state.suscripcion.id;
     if(cantidad !== cantidadf && cantidad !== 0) {
@@ -41,9 +39,11 @@ class Suscripcion extends React.Component {
     if(fin !== finf) {
       finf = fin;
     }
-    if(await SuscripcionService.editarSuscripcion(cantidadf,anualf,idp,idc,finf,ids)) {
-      alert("suscripcion editada");
-    }
+    await SuscripcionService.editarSuscripcion(cantidadf,anualf,idp,idc,finf,ids);
+    this.refs.formEditar.undisplay();
+    await this.setState({suscripcion: ""});
+    alert("suscripcion editada");
+    this.listarSuscripciones();
   }
   
   async listarSuscripciones() {
@@ -84,6 +84,7 @@ class Suscripcion extends React.Component {
 
   async displayEditar(e) {
     let suscripcion = await SuscripcionService.obtenerSuscripcionId(e);
+    await this.setState({suscripcion: suscripcion});
     this.refs.formEditar.display(suscripcion);
   }
 

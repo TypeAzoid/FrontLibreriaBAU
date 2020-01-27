@@ -1,22 +1,22 @@
 import React from "react";
 import FacturaRow from "./FacturaRow";
-import './FacturaList.css'
 import { Button, Table } from "react-bootstrap";
 
 class FacturaList extends React.Component {
   render() {
     return (
-      <Table variant="dark" className="tablaFactura">
+
+      <Table variant="dark" responsive className = "borderTabla">
         <thead>
-          <tr style = {{borderTopLeftRadius: 25 + "px"}}>
-            <th>Id</th>
+          <tr >
+            <th className = "tablaTopLeftRadius">Id</th>
             <th>Cliente</th>
             <th>Id Cliente</th>
             <th>Fecha</th>
             <th>Compras</th>
             <th>Descuentos</th>
             <th>Monto Total</th>
-            <th style ={{borderTopRightRadius: 25 + "px"}}>Pagado</th>
+            <th className = "tablaTopRightRadius">Pagado</th>
           </tr>
         </thead>
         <tbody>

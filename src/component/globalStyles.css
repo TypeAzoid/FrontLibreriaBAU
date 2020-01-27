@@ -5,7 +5,25 @@
 .button {
   height: 35;
   width: 85;
-  margin: 5px;
+  margin: 5px 0px;
+}
+
+.tablas{
+  margin: 0 2.5%;
+}
+
+.borderTabla{
+  border-top-left-radius: 20px ;
+  border-top-right-radius: 20px ;
+  border-style: hidden ; 
+}
+
+.tablaTopLeftRadius{
+  border-top-left-radius: 20px;
+}
+
+.tablaTopRightRadius{
+  border-top-right-radius: 20px;
 }
 
 #menu {
@@ -24,7 +42,6 @@
 
 .overheadTable {
   height: 55px;
-  background-color: #6d6e6f;
   display: flex;
   align-items: center;
   justify-items: center;
@@ -44,8 +61,13 @@
   color: #ffffff;
   height: 30px;
   width: 25%;
+  border: solid black 1px;
 }
 
 .facturaAgregarInput {
   length: 50px;
+}
+
+body {
+  background-color: darkslategray;
 }

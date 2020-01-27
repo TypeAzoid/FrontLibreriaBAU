@@ -1,5 +1,4 @@
 import React from 'react'
-import SuscripcionProductoForm from './suscripcionProductoForm'
 
 class SuscripcionProductoList extends React.Component {
 
@@ -12,11 +11,12 @@ class SuscripcionProductoList extends React.Component {
             </tr>
             {
                 this.props.listado.map((producto) => {
-                return <SuscripcionProductoForm id={producto.id}
-                                               name={producto.nombre}
-                                               precio={producto.precio}
-                                               idp={this.props.idp}/>
-                })
+                return(
+                  <tr className="clienteFila" onClick={() => this.props.idp(producto.id)}>
+                    <td className="columna">{producto.nombre}</td>
+                    <td className="columna">{producto.precio}</td>
+                  </tr>
+                );})
             }
         </table>
     )

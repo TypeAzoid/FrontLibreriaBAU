@@ -29,8 +29,7 @@ class ProductoService extends React.Component {
   }
 
   editarProducto(id, nombre, tipo, precio) {
-    return axios.post(ProductoURL, {
-      id: id,
+    return axios.put(ProductoURL + "/" + id, {
       nombre: nombre,
       tipo: tipo,
       precio: precio

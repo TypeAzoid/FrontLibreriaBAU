@@ -28,15 +28,9 @@ class Facturas extends Component {
 
   render() {
     return (
-      <div className="facturasDiv">
-        <h1>
-          Facturas
-          <br />
-          <div>
-            <FacturaAgregar />
-          </div>
-          <br />
-        </h1>
+      <div className="tablas">
+        <FacturaAgregar />
+
         <FacturaList facturas={this.state.facturas} />
       </div>
     );

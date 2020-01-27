@@ -84,17 +84,7 @@ class TablaProductos extends React.Component {
               Borrar
             </Button>
 
-            <Popup
-              modal
-              trigger={
-                <Button variant="secondary" className="button">
-                  {" "}
-                  Editar{" "}
-                </Button>
-              }
-            >
-              <FormProducto id={id} />
-            </Popup>
+            <FormProducto id={id} />
           </td>
         </tr>
       );
@@ -104,7 +94,7 @@ class TablaProductos extends React.Component {
   render() {
     return (
       <div className="bodyTable">
-        <div className="overheadTable">
+        <div className="overheadTable display-left">
           <select
             name="parametrosProducto"
             className="select"
@@ -119,18 +109,9 @@ class TablaProductos extends React.Component {
             onChange={this.onChangeValorBusqueda}
             className="input"
           />
-          <Popup
-            modal
-            trigger={
-              <Button variant="info" className="button">
-                Agregar
-              </Button>
-            }
-          >
-            <FormProducto id={-1} />
-          </Popup>
+          <FormProducto id={-1} />
         </div>
-        <Table variant="dark" className="table" id="productos">
+        <Table variant="dark" className="table" id="productos" responsive>
           <thead>
             <tr className="trProductos">
               <th className="tdProductos">Id</th>

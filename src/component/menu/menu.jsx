@@ -9,28 +9,28 @@ class Menu extends React.Component {
     this.setTab = this.setTab.bind(this);
     this.state = {
       loged: 0,
-      tab: "0"
+      tab: "24"
     };
   }
 
-  setTab(e) {
-    console.log("el parametro es " + e);
-    this.setState({ tab: e });
+  setTab = selectedKey => {
+    console.log("el parametro es " + selectedKey);
+    this.setState({ tab: selectedKey });
     console.log(this.state.tab);
-  }
+  };
 
   render() {
     return (
       <React.Fragment>
+        {this.state.tab}
         <Nav
           fill
+          activeKey={this.state.tab}
           variant="tabs"
           id="menu"
-          onClick={k => {
-            return this.setTab(k.value);
-          }}
+          onSelect={this.setTab}
         >
-          <Nav.Item href="/home" value="0">
+          <Nav.Item href="/home">
             <img
               className="logo"
               src="..\..\resources\logo 2.jpg"
@@ -39,11 +39,12 @@ class Menu extends React.Component {
               width="120"
             />
           </Nav.Item>
-          <Nav.Item value="0">
+          <Nav.Item>
             <Nav.Link
               style={{ color: "white" }}
               className="navLinks"
               href="/home"
+              eventKey="0"
             >
               Home
             </Nav.Link>
@@ -52,46 +53,50 @@ class Menu extends React.Component {
             <Nav.Link
               style={{ color: "white" }}
               className="navLinks"
-              value="1"
               href="/clientes"
+              key="1"
             >
               Clientes
             </Nav.Link>
           </Nav.Item>
-          <Nav.Item value="2">
+          <Nav.Item>
             <Nav.Link
               style={{ color: "white" }}
               className="navLinks"
               href="/producto"
+              eventKey="2"
             >
               Producto
             </Nav.Link>
           </Nav.Item>
-          <Nav.Item value="3">
+          <Nav.Item>
             <Nav.Link
               style={{ color: "white" }}
               className="navLinks"
               href="/suscripciones"
+              eventKey="3"
             >
               Suscripciones
             </Nav.Link>
           </Nav.Item>
-          <Nav.Item value="4">
+          <Nav.Item>
             <Nav.Link
               style={{ color: "white" }}
               className="navLinks"
               href="/facturas"
+              eventKey="4"
             >
               Facturas
             </Nav.Link>
           </Nav.Item>
-          <Nav.Item value="5">
+          <Nav.Item>
             <Nav.Link
               style={{ color: "white" }}
               className="navLinks"
               href="/descuentos"
+              eventKey="5"
             >
-              descuentos
+              Descuentos
             </Nav.Link>
           </Nav.Item>
         </Nav>

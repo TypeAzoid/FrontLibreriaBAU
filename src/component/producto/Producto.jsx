@@ -21,11 +21,11 @@ class Producto extends React.Component {
   }
 
   componentDidMount() {
-    this.listProductos();
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-    this.listProductos();
+    ProductoService.findAll().then(resp => {
+      this.setState({
+        productos: resp.data
+      });
+    });
   }
 
   listProductos() {
@@ -49,7 +49,7 @@ class Producto extends React.Component {
 
   render() {
     return (
-      <div className="tablaProductos">
+      <div className="tablas">
         <TablaProductos
           listado={this.state.productos}
           deleteProducto={this.deleteProducto}

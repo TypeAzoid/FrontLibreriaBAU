@@ -24,6 +24,15 @@ class FormSuscripcion extends React.Component {
         }
         this.changeIdc = this.changeIdc.bind(this);
         this.changeIdp = this.changeIdp.bind(this);
+        this.selectDisplay = this.selectDisplay.bind(this);
+        this.display = this.display.bind(this);
+        this.undisplay = this.undisplay.bind(this);
+        this.changeBusq = this.changeBusq.bind(this);
+        this.finChange = this.finChange.bind(this);
+        this.cantidadChange = this.cantidadChange.bind(this);
+        this.checkChange = this.checkChange.bind(this);
+        this.busChange = this.busChange.bind(this);
+        this.enviar = this.enviar.bind(this);
     }
 
     async listarClientes(nombre) {
@@ -31,45 +40,46 @@ class FormSuscripcion extends React.Component {
         await this.setState({clientes: clientes});
     }
 
-    listarProductos(nombre) {
-        axios.get('http://localhost:8080/api/v1/producto/').then(resp => {
-            if(nombre !== "") {
-                const data = resp.data.filter(filt => filt.tipo === "PRODUCTO_PERIODICO");
-                const datan = data.filter(filt => filt.nombre.toLowerCase().includes(nombre.toLowerCase()));
-                this.setState({productos: datan});
-            } else {
-                const data = resp.data.filter(filt => filt.tipo === "PRODUCTO_PERIODICO");
-                this.setState({productos: data});
-            }
-        });
+    async listarProductos(nombre) {
+        let resp = (await axios.get('http://localhost:8080/api/v1/producto/')).data;
+        if(nombre !== "") {
+            const data = resp.filter(filt => filt.tipo === "PRODUCTO_PERIODICO");
+            const datan = data.filter(filt => filt.nombre.toLowerCase().includes(nombre.toLowerCase()));
+            await this.setState({productos: datan});
+        } else {
+            const data = resp.filter(filt => filt.tipo === "PRODUCTO_PERIODICO");
+            await this.setState({productos: data});
+        }
     }
 
-    checkChange = (e) => {
-        this.setState({checkbox: e.target.value});
+    async checkChange(e) {
+        await this.setState({checkbox: e.target.value});
     }
 
-    changeIdc(id) {
-        this.setState({idc: id});
+    async changeIdc(id) {
+        await this.setState({idc: id});
     }
 
-    changeIdp(id) {
-        this.setState({idp: id});
+    async changeIdp(id) {
+        await this.setState({idp: id});
     }
 
-    busChange = (e) => {
-        this.setState({buscador: e.target.value});
+    async busChange(e){
+        await this.setState({buscador: e.target.value});
+        this.selectDisplay(this.state.busqueda);
     }
 
-    cantidadChange = (e) => {
-        this.setState({cantidad: e.target.value});
+    async cantidadChange(e) {
+        await this.setState({cantidad: e.target.value});
     }
 
-    finChange = (e) => {
-        this.setState({fin: e.target.value});
+    async finChange(e){
+        await this.setState({fin: e.target.value});
     }
 
-    changeBusq = (e) => {
-        this.setState({busqueda: e.target.value});
+    async changeBusq(e) {
+        await this.setState({busqueda: e.target.value});
+        this.selectDisplay(this.state.busqueda);
     }
 
     selectDisplay(estado) {
@@ -87,37 +97,25 @@ class FormSuscripcion extends React.Component {
     }
 
     enviar(cantidad,anual,idp,idc,fin) {
-        if( cantidad !== "" && anual !== "" && idp !== "" && idc !== "" && fin !== "") {
-            const c1 = parseInt(idp);
-            const c2 = parseInt(idc);
-            const c3 = parseInt(cantidad);
-            SuscripcionService.agregarSuscripcion(c3,anual,c1,c2,fin).then( (sus) => {
-                console.log("Suscripcion creada");
-                alert("suscripcion creada");
-                this.undisplay();
-            })
-        } else {
-            alert("Los campos no pueden estar vacios");
-            this.undisplay();
-        }
+        this.props.crearSuscripcion(cantidad,anual,idp,idc,fin);
     }
 
-    undisplay() {
+    async undisplay() {
         var elemento = document.getElementById("BSE");
         var elemento2 = document.getElementById("CSE");
         var elemento3 = document.getElementById("PSC");
+        await this.setState({busqueda: "0"});
+        await this.setState({buscador: ""});
+        await this.setState({idc: "-"});
+        await this.setState({idp: "-"});
+        await this.setState({cantidad: ""});
+        await this.setState({fin: ""});
+        await this.setState({inicio: ""});
+        await this.setState({idp: ""});
+        await this.setState({checkbox: false});
         elemento3.style.display = "block";
         elemento.style.display = "none";
         elemento2.style.display = "none";
-        this.setState({busqueda: "0"});
-        this.setState({buscador: ""});
-        this.setState({idc: "-"});
-        this.setState({idp: "-"});
-        this.setState({cantidad: ""});
-        this.setState({fin: ""});
-        this.setState({inicio: ""});
-        this.setState({idp: ""});
-        this.setState({checkbox: false});
     }
 
     display() {
@@ -125,10 +123,11 @@ class FormSuscripcion extends React.Component {
         var elemento2 = document.getElementById("CSE");
         elemento.style.display = "block";
         elemento2.style.display = "block";
+        this.selectDisplay(this.state.busqueda);
     }
     
     componentDidMount() {
-        setInterval(() => this.selectDisplay(this.state.busqueda),500);
+        this.selectDisplay(this.state.busqueda);
     }
 
     render() {

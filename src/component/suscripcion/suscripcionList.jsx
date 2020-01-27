@@ -1,6 +1,8 @@
 import React from "react";
-import SuscripcionRow from "./suscripcionRow";
 import { Table } from "react-bootstrap";
+import { Button } from "react-bootstrap";
+import SuscripcionService from "../../service/SuscripcionService";
+import Suscripcion from "./suscripcion";
 
 class SuscripcionList extends React.Component {
   detectarAnual(value) {
@@ -34,16 +36,31 @@ class SuscripcionList extends React.Component {
         </thead>
         {this.props.listado.map(suscripcion => {
           return (
-            <SuscripcionRow
-              id={suscripcion.id}
-              cantidadMensual={suscripcion.cantidadMensual}
-              inicio={suscripcion.inicio}
-              fin={suscripcion.fin}
-              anual={this.detectarAnual(suscripcion.anual)}
-              cliente={this.detectarCliente(suscripcion.cliente)}
-              producto={this.detectarProducto(suscripcion.producto)}
-              ids={this.props.ids}
-            />
+            <tr>
+              <td>{suscripcion.id}</td>
+              <td>{suscripcion.producto.nombre}</td>
+              <td>{suscripcion.cantidadMensual}</td>
+              <td>{suscripcion.inicio}</td>
+              <td>{suscripcion.fin}</td>
+              <td>{suscripcion.cliente.name}</td>
+              <td>{suscripcion.anual}</td>
+              <td>
+                  <Button
+                    variant="danger"
+                    className="button"
+                    onClick={() => this.props.borrarSuscripcion(suscripcion.id)}
+                  >
+                    Borrar
+                  </Button>
+                  <Button
+                    variant="secondary"
+                    className="button"
+                    onClick={() => this.props.displayEditar(suscripcion.id)}
+                  >
+                    Editar
+                  </Button>
+              </td>
+            </tr>
           );
         })}
       </Table>

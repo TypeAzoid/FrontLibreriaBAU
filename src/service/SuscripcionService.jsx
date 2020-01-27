@@ -1,10 +1,12 @@
 import React from 'react';
 import axios from 'axios';
+import { Component } from 'react';
 
-class SuscripcionService extends React.Component {
+class SuscripcionService extends Component {
 
-    obtenerSuscripciones() {
-        return axios.get("http://localhost:8080/api/v1/suscripcion/");
+    async obtenerSuscripciones() {
+        let resp = await axios.get("http://localhost:8080/api/v1/suscripcion/");
+        return resp.data;
     }
 
     borrarSuscripcion(id) {
@@ -21,7 +23,7 @@ class SuscripcionService extends React.Component {
         })
     }
     
-    editarSuscripcion(cantidadMensual,anual,productoId,clienteId,finSuscripcion,inicio,ids) {
+    editarSuscripcion(cantidadMensual,anual,productoId,clienteId,finSuscripcion,ids) {
         return axios.put('http://localhost:8080/api/v1/suscripcion/' + ids, {
             productoId,
             cantidadMensual,
@@ -31,8 +33,9 @@ class SuscripcionService extends React.Component {
         })
     }
 
-    obtenerSuscripcionId(id) {
-        return axios.get('http://localhost:8080/api/v1/suscripcion/' + id)
+    async obtenerSuscripcionId(id) {
+        let resp = await axios.get("http://localhost:8080/api/v1/suscripcion/" + id);
+        return resp.data;
     }
 
 }

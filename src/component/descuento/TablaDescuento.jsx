@@ -1,6 +1,5 @@
 import React from "react";
 import "./tabla.css";
-import "./form.css";
 import FormDescuento from "./FormDescuento";
 import Popup from "reactjs-popup";
 import { Button, Table } from "react-bootstrap";
@@ -30,7 +29,8 @@ class TablaDescuentos extends React.Component {
               className="button"
               onClick={() => {
                 this.props.deleteDescuento(id);
-              }}>
+              }}
+            >
               Borrar
             </Button>
           </td>
@@ -45,7 +45,7 @@ class TablaDescuentos extends React.Component {
         <div>
           <FormDescuento id={-1} />
         </div>
-        
+
         <Table variant="dark" id="descuentos">
           <thead>
             <tr className="trDescuentos">

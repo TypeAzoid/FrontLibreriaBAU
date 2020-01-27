@@ -23,26 +23,16 @@ class TablaDescuentos extends React.Component {
           <td className="tdDescuentos">{descripcion}</td>
           <td className="tdDescuentos">{valorDescuento}</td>
           <td className="tdDescuentos">
+            <FormDescuento id={id} descripcion={descripcion} />
+
             <Button
               variant="danger"
               className="button"
               onClick={() => {
                 this.props.deleteDescuento(id);
-              }}
-            >
+              }}>
               Borrar
             </Button>
-            <Popup
-              modal
-              trigger={
-                <Button variant="secondary" className="button">
-                  {" "}
-                  Editar{" "}
-                </Button>
-              }
-            >
-              <FormDescuento id={id} descripcion={descripcion} />
-            </Popup>
           </td>
         </tr>
       );
@@ -52,11 +42,10 @@ class TablaDescuentos extends React.Component {
   render() {
     return (
       <div className="bodyTable">
-        <div className="overheadTable display-left">
-          <Popup modal trigger={<Button variant="info"> Agregar </Button>}>
-            <FormDescuento id={-1} />
-          </Popup>
+        <div>
+          <FormDescuento id={-1} />
         </div>
+        
         <Table variant="dark" id="descuentos">
           <thead>
             <tr className="trDescuentos">

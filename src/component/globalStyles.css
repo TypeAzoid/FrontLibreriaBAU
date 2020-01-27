@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+
+.button {
+  height: 35;
+  width: 85;
+  margin: 5px;
+}
+
+#menu {
+  background-color: #212529c4;
+  color: whitesmoke;
+  margin-bottom: -1px;
+}
+
+.navLinks {
+  color: whitesmoke;
+}
+
+.logo {
+  padding: 7px 14px;
+}
+
+.overheadTable {
+  height: 55px;
+  background-color: #6d6e6f;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  padding-left: 3%;
+}
+
+.select {
+  height: 30px;
+  width: 25%;
+  background-color: #212529;
+  color: #ffffff;
+}
+
+.input {
+  background-color: #212529;
+  color: #ffffff;
+  height: 30px;
+  width: 25%;
+}
+
+.facturaAgregarInput {
+  length: 50px;
+}

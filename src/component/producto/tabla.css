@@ -3,6 +3,10 @@
   margin-top: 15px;
 }
 
+.buttonAccept {
+  variant: "secondary";
+}
+
 .bodyTable {
   display: flex;
   flex-direction: column;
@@ -18,11 +22,11 @@
   width: 20%;
 }
 
-.tablaProductos {
+/* .tablaProductos {
   width: 90%;
   margin-left: 5%;
   margin-top: 5%;
-}
+} */
 
 .botonAgregarProducto {
   margin: 0 10px;
@@ -40,7 +44,7 @@ thead {
 .parametrosProducto {
   margin: 0 5px;
 }
-.bProductoEditar{
+.bProductoEditar {
   width: 50%;
   height: 100%;
   border: 0px;
@@ -48,7 +52,7 @@ thead {
   color: white;
   opacity: 0.8;
 }
-.bProductoBorrar{
+.bProductoBorrar {
   width: 50%;
   height: 100%;
   border: 0px;
@@ -60,7 +64,7 @@ thead {
 .parametrosProducto {
   width: 24.8%;
   height: 30px;
-  line-height:30px;
+  line-height: 30px;
   background: black;
   opacity: 0.8;
   color: white;

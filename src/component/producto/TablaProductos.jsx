@@ -4,6 +4,11 @@ import "./tabla.css";
 import "./form.css";
 import FormProducto from "./FormProducto";
 import Popup from "reactjs-popup";
+import { Button, Table } from "react-bootstrap";
+import { globalStyles } from "../bootstrap";
+import "../globalStyles.css";
+
+const styles = globalStyles;
 
 class TablaProductos extends React.Component {
   constructor(props) {
@@ -69,16 +74,25 @@ class TablaProductos extends React.Component {
           <td className="tdProductos">{tipo}</td>
           <td className="tdProductos">{precio}</td>
           <td className="tdProductos">
-            <button
-              className="bProductoBorrar"
+            <Button
+              className="button"
               variant="danger"
               onClick={() => {
                 this.props.deleteProducto(id);
               }}
             >
               Borrar
-            </button>
-            <Popup modal trigger={<button className="bProductoEditar"> Editar </button>}>
+            </Button>
+
+            <Popup
+              modal
+              trigger={
+                <Button variant="secondary" className="button">
+                  {" "}
+                  Editar{" "}
+                </Button>
+              }
+            >
               <FormProducto id={id} />
             </Popup>
           </td>
@@ -90,10 +104,10 @@ class TablaProductos extends React.Component {
   render() {
     return (
       <div className="bodyTable">
-        <div className="overheadProductos">
+        <div className="overheadTable">
           <select
             name="parametrosProducto"
-            className="parametrosProducto"
+            className="select"
             onChange={this.onChangeParametro}
           >
             <option value="0">Id</option>
@@ -103,18 +117,20 @@ class TablaProductos extends React.Component {
           <input
             type="text"
             onChange={this.onChangeValorBusqueda}
-            className="inputTablaProducto"
+            className="input"
           />
           <Popup
             modal
             trigger={
-              <button className="botonAgregarProducto"> Agregar </button>
+              <Button variant="info" className="button">
+                Agregar
+              </Button>
             }
           >
             <FormProducto id={-1} />
           </Popup>
         </div>
-        <table id="productos">
+        <Table variant="dark" className="table" id="productos">
           <thead>
             <tr className="trProductos">
               <th className="tdProductos">Id</th>
@@ -125,7 +141,7 @@ class TablaProductos extends React.Component {
             </tr>
           </thead>
           <tbody>{this.renderTableData()}</tbody>
-        </table>
+        </Table>
       </div>
     );
   }

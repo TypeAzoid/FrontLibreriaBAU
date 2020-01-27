@@ -23,7 +23,7 @@ class SuscripcionList extends React.Component {
 
   render() {
     return (
-      <Table variant="dark" size="sm">
+      <Table variant="dark" responsive>
         <thead>
           <th>Id</th>
           <th>Producto</th>
@@ -45,20 +45,20 @@ class SuscripcionList extends React.Component {
               <td>{suscripcion.cliente.name}</td>
               <td>{suscripcion.anual}</td>
               <td>
-                  <Button
-                    variant="danger"
-                    className="button"
-                    onClick={() => this.props.borrarSuscripcion(suscripcion.id)}
-                  >
-                    Borrar
-                  </Button>
-                  <Button
-                    variant="secondary"
-                    className="button"
-                    onClick={() => this.props.displayEditar(suscripcion.id)}
-                  >
-                    Editar
-                  </Button>
+                <Button
+                  variant="secondary"
+                  className="button botonesConjuntos"
+                  onClick={() => this.props.displayEditar(suscripcion.id)}
+                >
+                  Editar
+                </Button>
+                <Button
+                  variant="danger"
+                  className="button botonesConjuntos"
+                  onClick={() => this.props.borrarSuscripcion(suscripcion.id)}
+                >
+                  Borrar
+                </Button>
               </td>
             </tr>
           );

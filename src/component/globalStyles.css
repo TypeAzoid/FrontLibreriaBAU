@@ -52,6 +52,7 @@
   background-color: #212529;
   color: #ffffff;
   border: black solid 1px;
+  margin-right: 5px;
 }
 
 .input {
@@ -60,7 +61,7 @@
   height: 30px;
   flex: 2;
   border: black solid 1px;
-  margin: 0 5px;
+  margin-right: 5px;
 }
 
 .facturaAgregarInput {
@@ -97,6 +98,6 @@ div.display-left {
   justify-content: flex-end;
 }
 
-.botonesConjuntos{
+.botonesConjuntos {
   margin: 3% 3%;
 }

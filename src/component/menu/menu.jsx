@@ -22,7 +22,6 @@ class Menu extends React.Component {
   render() {
     return (
       <React.Fragment>
-        {this.state.tab}
         <Nav
           fill
           activeKey={this.state.tab}

@@ -1,5 +1,6 @@
 import React from "react";
 import { Table } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 class ClienteList extends React.Component {
   render() {
@@ -44,10 +45,24 @@ class ClienteList extends React.Component {
                 </button>
               </td>
             </tr>
-          );
-        })}
-      </Table>
-    );
+            {
+                this.props.listado.map((cliente) => {
+                  return(
+                  <tr>
+                    <td className="columna" id={cliente.id}>{cliente.id}</td>
+                    <td className="columna">{cliente.name}</td>
+                    <td className="columna">{cliente.direccion}</td>
+                    <td className="columna">monto</td>
+                    <td className="botonera">
+                    <button className="botoncliente">Detalles</button>
+                      <button className="botoncliente" onClick={() => this.props.editarCliente(cliente.id,cliente.name,cliente.direccion)}>Editar</button>
+                      <button className="botoncliente" onClick={(e) => this.props.borrarCliente(e)} value={cliente.id}>Borrar</button>
+                    </td>
+                  </tr>);
+                })
+            }
+        </table>
+    )
   }
 }
 

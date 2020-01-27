@@ -128,7 +128,7 @@ class FormProducto extends React.Component {
           {this.state.titulo}
         </Button>
 
-        <Modal show={this.state.showModal} onHide={this.handleClose}>
+        <Modal show={this.state.showModal} onHide={this.handleClose} backdrop="static">
           <Modal.Header >
             <Modal.Title>
               <h1>{this.state.titulo}</h1>

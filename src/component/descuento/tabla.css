@@ -12,6 +12,13 @@
 #descuentos {
 }
 
+div.display-left {
+  display: flex;
+
+  justify-content: flex-end;
+  padding-right: 9%;
+}
+
 .trDescuentos {
   border: 1px solid black;
 }
@@ -27,5 +34,4 @@
 }
 
 .botonAgregarDescuentos {
-
 }

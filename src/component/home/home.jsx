@@ -6,8 +6,6 @@ export default class Home extends Component {
   specialStyles() {
     var element = document.getElementById("menu");
     element.style.display = "none";
-    var element2 = document.getElementsByTagName("body");
-    element2.className = "bodyHome";
   }
 
   componentDidMount() {

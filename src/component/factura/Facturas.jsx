@@ -33,7 +33,17 @@ class Facturas extends Component {
           Facturas
           <br />
           <div>
-            <FacturaAgregar />
+            <Popup
+              modal
+              closeOnDocumentClick={false}
+              trigger={
+                <Button variant="info" className="button">
+                  Agregar Factura
+                </Button>
+              }
+            >
+              {close => <FacturaAgregar closePopup={close} />}
+            </Popup>
           </div>
           <br />
         </h1>

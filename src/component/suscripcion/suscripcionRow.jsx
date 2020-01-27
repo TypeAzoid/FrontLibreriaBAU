@@ -1,26 +1,38 @@
-import React from 'react';
-import SuscripcionService from '../../service/SuscripcionService';
-import FormSuscripcion from './FormSuscripcion';
-import Suscripcion from './suscripcion';
+import React from "react";
+import SuscripcionService from "../../service/SuscripcionService";
+import FormSuscripcion from "./FormSuscripcion";
+import Suscripcion from "./suscripcion";
+import { Button } from "react-bootstrap";
 
 class SuscripcionRow extends React.Component {
-
   render() {
-    return(
-    <tr>
-        <td className="columna">{this.props.id}</td>
-        <td className="columna">{this.props.producto}</td>
-        <td className="columna">{this.props.cantidadMensual}</td>
-        <td className="columna">{this.props.inicio}</td>
-        <td className="columna">{this.props.fin}</td>
-        <td className="columna">{this.props.cliente}</td>
-        <td className="columna">{this.props.anual}</td>
-        <td className="columna">
-          <button className="botonsuscripcion" onClick={() => SuscripcionService.borrarSuscripcion(this.props.id)}>Borrar</button>
-          <button className="botonsuscripcion" onClick={() => new Suscripcion().editarSuscripcion(this.props.id)}>Editar</button>
+    return (
+      <tr>
+        <td>{this.props.id}</td>
+        <td>{this.props.producto}</td>
+        <td>{this.props.cantidadMensual}</td>
+        <td>{this.props.inicio}</td>
+        <td>{this.props.fin}</td>
+        <td>{this.props.cliente}</td>
+        <td>{this.props.anual}</td>
+        <td>
+          <Button
+            variant="danger"
+            className="button"
+            onClick={() => SuscripcionService.borrarSuscripcion(this.props.id)}
+          >
+            Borrar
+          </Button>
+          <Button
+            variant="secondary"
+            className="button"
+            onClick={() => new Suscripcion().editarSuscripcion(this.props.id)}
+          >
+            Editar
+          </Button>
         </td>
-    </tr>
-    )
+      </tr>
+    );
   }
 }
 

@@ -66,7 +66,7 @@ class Clientes extends Component {
     async borrarCliente(e) {
       const id = e.target.value;
       const cliente = (await ClienteService.obtenerClienteId(id)).data;
-      const suscripciones = (await SuscripcionService.obtenerSuscripciones()).data;
+      const suscripciones = await SuscripcionService.obtenerSuscripciones();
       const incluidas = suscripciones.filter(filt => filt.cliente.name.toLowerCase().includes(cliente.name.toLowerCase()));
       if(incluidas.length >= 1) {
         // eslint-disable-next-line no-restricted-globals

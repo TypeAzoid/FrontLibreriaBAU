@@ -42,9 +42,9 @@ class TablaDescuentos extends React.Component {
   render() {
     return (
       <div className="bodyTable">
-        <div>
-          <FormDescuento id={-1} />
-        </div>
+        <span className="display-left">
+          <FormDescuento id={-1}  />
+        </span>
         
         <Table variant="dark" id="descuentos">
           <thead>

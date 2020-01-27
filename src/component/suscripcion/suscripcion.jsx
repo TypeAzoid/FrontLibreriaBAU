@@ -12,7 +12,7 @@ class Suscripcion extends React.Component {
     super();
     this.state = {
       suscripciones: [],
-      suscripcion: [],
+      suscripcion: "",
       buscador: ""
     };
     this.busChange = this.busChange.bind(this);
@@ -20,15 +20,18 @@ class Suscripcion extends React.Component {
     this.listarSuscripciones = this.listarSuscripciones.bind(this);
     this.crearSuscripcion = this.crearSuscripcion.bind(this);
     this.displayEditar = this.displayEditar.bind(this);
+    this.editarSuscripcion = this.editarSuscripcion.bind(this);
   }
 
   async editarSuscripcion(cantidad,anual,fin) {
     let cantidadf = this.state.suscripcion.cantidadMensual;
     let anualf = this.state.suscripcion.anual;
-    let idp = this.state.suscripcion.producto.id;
-    let idc = this.state.suscripcion.cliente.id;
+    let producto = this.state.suscripcion.producto;
+    let cliente = this.state.suscripcion.cliente;
+    let idp = producto.id;
+    let idc = cliente.id;
     let finf = this.state.suscripcion.finSuscripcion;
-    let ids = this.state.suscripcion.ids;
+    let ids = this.state.suscripcion.id;
     if(cantidad !== cantidadf && cantidad !== 0) {
       cantidadf = cantidad;
     }

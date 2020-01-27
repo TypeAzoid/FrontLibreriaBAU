@@ -2,6 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import ProductoService from "../../service/ProductoService";
 
+import { Button } from "react-bootstrap";
+import Modal from 'react-bootstrap/Modal'
+import ModalHeader from 'react-bootstrap/ModalHeader'
+import ModalDialog from 'react-bootstrap/ModalDialog'
+import ModalTitle from 'react-bootstrap/ModalTitle'
+import ModalBody from 'react-bootstrap/ModalBody'
+import ModalFooter from 'react-bootstrap/ModalFooter'
+
 class FormProducto extends React.Component {
   constructor(props) {
     super(props);
@@ -11,6 +19,7 @@ class FormProducto extends React.Component {
     this.precioChange = this.precioChange.bind(this);
 
     this.state = {
+      showModal : false,
       tipos: [],
       nombre: "",
       tipoDeProducto: 1,
@@ -18,6 +27,9 @@ class FormProducto extends React.Component {
       id: this.props.id,
       titulo: ""
     };
+
+    this.openModal = this.openModal.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
   isAgregar() {
@@ -90,6 +102,18 @@ class FormProducto extends React.Component {
     this.getTipos();
   }
 
+  openModal(){
+    this.setState({
+      showModal : true
+    })
+  }
+
+  handleClose(){
+    this.setState({
+      showModal : false
+    })
+  }
+
   render() {
     let i = 0;
     var tipos = this.state.tipos.map(tipos => {
@@ -97,34 +121,47 @@ class FormProducto extends React.Component {
     });
 
     return (
-      <div className="popupProducto">
-        <h1>{this.state.titulo}</h1>
-        <input
-          className="inputProducto"
-          type="text"
-          value={this.state.nombre}
-          onChange={this.nameChange}
-        ></input>
-        <select className="tipo" onChange={this.tipoOnChange}>
-          {tipos}
-        </select>
-        <input
-          className="inputProducto"
-          type="text"
-          value={this.state.precio}
-          onChange={this.precioChange}
-        ></input>
-        <button
-          onClick={() => {
-            this.formAction();
-          }}
-        >
+
+      <span>
+        <Button variant={this.state.titulo === "Agregar" ? "info" : "secondary"}
+                className="button" onClick={this.openModal}>
           {this.state.titulo}
-        </button>
-        <a href="/producto">
-          <button>Cancelar</button>
-        </a>
-      </div>
+        </Button>
+
+        <Modal show={this.state.showModal} onHide={this.handleClose} backdrop="static">
+          <Modal.Header >
+            <Modal.Title>
+              <h1>{this.state.titulo}</h1>
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <input
+              className="inputProducto"
+              placeholder="Nombre"
+              type="text"
+              value={this.state.nombre}
+              onChange={this.nameChange}
+            ></input>
+            <select className="tipo" onChange={this.tipoOnChange}>
+              {tipos}
+            </select>
+            <input
+              className="inputProducto"
+              type="number"
+              value={this.state.precio}
+              onChange={this.precioChange}
+            ></input>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="info" className="button" onClick={() => {this.formAction();}}>
+              {this.state.titulo}
+            </Button >
+              <Button variant="danger" className="button" onClick={this.handleClose}>
+                Cancelar
+              </Button>
+          </Modal.Footer>
+        </Modal>
+      </span>
     );
   }
 }

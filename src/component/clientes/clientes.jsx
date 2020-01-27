@@ -134,11 +134,7 @@ class Clientes extends Component {
     render() {
           return (
             <React.Fragment>
-              <FormCliente concreteEdit={this.concreteEdit}
-                           clienteNombre={this.state.clientename}
-                           clienteDireccion={this.state.clientedir}
-                           clienteId={this.state.clienteid}
-                           ref="formcliente"/>
+              
               <CuentaC/>
               <div className="Container">
                 <select value={this.state.busqueda} onChange={this.changeBusq} className="selectCliente">
@@ -147,7 +143,13 @@ class Clientes extends Component {
                   <option value="2">Id</option>
                 </select>
                 <input type="text" className="buscadorname" placeholder="<== buscar por" value={this.state.buscador} onChange={this.busChange}></input>
-                <button onClick={() => this.refs.formcliente.displayeditar()} className="botonadd">Agregar</button>
+                
+                <FormCliente concreteEdit={this.concreteEdit}
+                           clienteNombre={this.state.clientename}
+                           clienteDireccion={this.state.clientedir}
+                           clienteId={this.state.clienteid}
+                           titulo="Editar"
+                           ref="formcliente"/>
                 <ClienteList listado={this.state.clientes}
                              borrarCliente = {this.borrarCliente}
                              editarCliente = {this.editarCliente}/>

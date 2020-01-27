@@ -23,7 +23,6 @@ class Menu extends React.Component {
     return (
       <React.Fragment>
         <Nav
-          activeKey="/clientes"
           fill
           variant="tabs"
           id="menu"
@@ -50,7 +49,12 @@ class Menu extends React.Component {
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link style={{ color: "white" }} className="navLinks" value="1">
+            <Nav.Link
+              style={{ color: "white" }}
+              className="navLinks"
+              value="1"
+              href="/clientes"
+            >
               Clientes
             </Nav.Link>
           </Nav.Item>

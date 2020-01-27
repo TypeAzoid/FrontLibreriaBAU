@@ -5,7 +5,11 @@
 .button {
   height: 35;
   width: 85;
-  margin: 5px;
+  margin: 5px 0px;
+}
+
+.tablas {
+  margin: 0 2.5%;
 }
 
 #menu {
@@ -24,7 +28,6 @@
 
 .overheadTable {
   height: 55px;
-  background-color: #6d6e6f;
   display: flex;
   align-items: center;
   justify-items: center;

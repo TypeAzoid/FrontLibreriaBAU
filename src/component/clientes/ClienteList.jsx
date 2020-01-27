@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from "react-bootstrap";
 
 class ClienteList extends React.Component {
 
@@ -21,9 +22,9 @@ class ClienteList extends React.Component {
                     <td className="columna">{cliente.direccion}</td>
                     <td className="columna">monto</td>
                     <td className="botonera">
-                    <button className="botoncliente">Detalles</button>
-                      <button className="botoncliente" onClick={() => this.props.editarCliente(cliente.id,cliente.name,cliente.direccion)}>Editar</button>
-                      <button className="botoncliente" onClick={(e) => this.props.borrarCliente(e)} value={cliente.id}>Borrar</button>
+                    <Button variant="secondary" className="botoncliente">Detalles</Button>
+                      <Button variant="secondary" className="botoncliente" onClick={() => this.props.editarCliente(cliente.id,cliente.name,cliente.direccion)}>Editar</Button>
+                      <Button variant="danger" className="botoncliente" onClick={(e) => this.props.borrarCliente(e)} value={cliente.id}>Borrar</Button>
                     </td>
                   </tr>);
                 })

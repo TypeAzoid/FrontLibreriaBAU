@@ -23,7 +23,7 @@ class SuscripcionList extends React.Component {
 
   render() {
     return (
-      <Table variant="dark" size="sm" className = "borderTabla">
+      <Table variant="dark" className = "borderTabla" responsive>
         <thead>
           <th className = "tablaTopLeftRadius" >Id</th>
           <th>Producto</th>
@@ -31,8 +31,8 @@ class SuscripcionList extends React.Component {
           <th>Comienzo</th>
           <th>Fin</th>
           <th>Cliente</th>
-          <th className = "tablaTopRightRadius" >Anual</th>
-          <th></th>
+          <th>Anual</th>
+          <th className = "tablaTopRightRadius" >Acciones</th>
         </thead>
         {this.props.listado.map(suscripcion => {
           return (
@@ -45,20 +45,20 @@ class SuscripcionList extends React.Component {
               <td>{suscripcion.cliente.name}</td>
               <td>{suscripcion.anual}</td>
               <td>
-                  <Button
-                    variant="danger"
-                    className="button"
-                    onClick={() => this.props.borrarSuscripcion(suscripcion.id)}
-                  >
-                    Borrar
-                  </Button>
-                  <Button
-                    variant="secondary"
-                    className="button"
-                    onClick={() => this.props.displayEditar(suscripcion.id)}
-                  >
-                    Editar
-                  </Button>
+                <Button
+                  variant="secondary"
+                  className="button botonesConjuntos"
+                  onClick={() => this.props.displayEditar(suscripcion.id)}
+                >
+                  Editar
+                </Button>
+                <Button
+                  variant="danger"
+                  className="button botonesConjuntos"
+                  onClick={() => this.props.borrarSuscripcion(suscripcion.id)}
+                >
+                  Borrar
+                </Button>
               </td>
             </tr>
           );

@@ -6,6 +6,14 @@ import SuscripcionProductoList from './suscripcionProductoList';
 import axios from 'axios';
 import SuscripcionService from '../../service/SuscripcionService';
 
+import { Button } from "react-bootstrap";
+import Modal from 'react-bootstrap/Modal'
+import ModalHeader from 'react-bootstrap/ModalHeader'
+import ModalDialog from 'react-bootstrap/ModalDialog'
+import ModalTitle from 'react-bootstrap/ModalTitle'
+import ModalBody from 'react-bootstrap/ModalBody'
+import ModalFooter from 'react-bootstrap/ModalFooter'
+
 class FormSuscripcion extends React.Component {
     constructor() {
         super();
@@ -21,6 +29,7 @@ class FormSuscripcion extends React.Component {
             ids: "",
             inicio: "",
             checkbox: false,
+            showModal : false
         }
         this.changeIdc = this.changeIdc.bind(this);
         this.changeIdp = this.changeIdp.bind(this);
@@ -83,6 +92,8 @@ class FormSuscripcion extends React.Component {
     }
 
     selectDisplay(estado) {
+        if(!this.state.showModal) return;
+
         var elemento = document.getElementById("showerSCL");
         var elemento2 = document.getElementById("showerSPL");
         if(estado === "0") {
@@ -94,6 +105,9 @@ class FormSuscripcion extends React.Component {
             elemento2.style.display = "block";
             this.listarProductos(this.state.buscador);
         }
+        this.setState({
+            openModal : true
+        })
     }
 
     enviar(cantidad,anual,idp,idc,fin) {
@@ -101,8 +115,7 @@ class FormSuscripcion extends React.Component {
     }
 
     async undisplay() {
-        var elemento = document.getElementById("BSE");
-        var elemento2 = document.getElementById("CSE");
+        await this.setState({showModal: false});
         var elemento3 = document.getElementById("PSC");
         await this.setState({busqueda: "0"});
         await this.setState({buscador: ""});
@@ -114,51 +127,74 @@ class FormSuscripcion extends React.Component {
         await this.setState({idp: ""});
         await this.setState({checkbox: false});
         elemento3.style.display = "block";
-        elemento.style.display = "none";
-        elemento2.style.display = "none";
+        await this.setState({
+            openModal : false
+        })
     }
 
-    display() {
-        var elemento = document.getElementById("BSE");
-        var elemento2 = document.getElementById("CSE");
-        elemento.style.display = "block";
-        elemento2.style.display = "block";
+    async display() {
+         await this.setState({
+            showModal : true
+        })
         this.selectDisplay(this.state.busqueda);
     }
     
     componentDidMount() {
         this.selectDisplay(this.state.busqueda);
     }
+    
 
     render() {
         return(
             <React.Fragment>
-                <div className="backgroundSuscripcionE" id="BSE"></div>
-                <div className="SuscripcionE" id="CSE">
-                    <div className="Selection">Id cliente  seleccionado: {this.state.idc}</div>
-                    <div className="Selection">Id producto seleccionado: {this.state.idp}</div>
-                    <div className="datecontainer">
-                        Fin <input type="date" className="Date" value={this.state.fin} onChange={this.finChange}></input>
-                    </div>
-                    <select className="SelectSuscripcion" value={this.state.busqueda} onChange={this.changeBusq}>
-                        <option value="0">Cliente</option>
-                        <option value="1">Producto</option>
-                    </select>
-                    <input type="text" className="inputNombre" placeholder="Buscar" value={this.state.buscador} onChange={this.busChange}></input>
-                    <div className="SelectContainer" id="PSC">
-                        <div id="showerSCL"><SuscripcionClienteList listado={this.state.clientes} 
-                                                                    idc={this.changeIdc}/></div>
-                        <div id="showerSPL"><SuscripcionProductoList listado={this.state.productos}
-                                                                     idp={this.changeIdp}/></div>
-                    </div>
-                    <button className="botonEnviar" onClick={() => this.enviar(this.state.cantidad,this.state.checkbox,this.state.idp,this.state.idc,this.state.fin)}>Enviar</button>
-                    <button className="botonCancelar" onClick={() => this.undisplay()}>Cancelar</button>
-                    <select className="SelectAnual" value={this.state.checkbox} onChange={this.checkChange}>
-                        <option value={true}>Anual</option>
-                        <option value={false}>No Anual</option>
-                    </select>
-                    <input type="number" placeholder="cantidad" min="1" value={this.state.cantidad} onChange={this.cantidadChange} className="cantidad"></input>
-                </div>
+
+                <Button variant="info" className="button" onClick={this.display}>
+                    Agregar
+                </Button>
+
+                <Modal show={this.state.showModal}  backdrop="static">
+                    <Modal.Header >
+                        <Modal.Title>
+                        <h1>Agregar Suscripcion</h1>
+                        </Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <div className="Selection">Id cliente  seleccionado: {this.state.idc}</div>
+                        <div className="Selection">Id producto seleccionado: {this.state.idp}</div>
+                        <div className="datecontainer">
+                            Fin <input type="date" className="Date" value={this.state.fin} onChange={this.finChange}></input>
+                        </div>
+                        <select className="SelectSuscripcion" value={this.state.busqueda} onChange={this.changeBusq}>
+                            <option value="0">Cliente</option>
+                            <option value="1">Producto</option>
+                        </select>
+                        <input type="text" className="inputNombre" placeholder="Buscar" value={this.state.buscador} onChange={this.busChange}></input>
+
+                        <div className="SelectContainer" id="PSC">
+                            <div id="showerSCL"><SuscripcionClienteList listado={this.state.clientes} 
+                                                                        idc={this.changeIdc}/></div>
+                            <div id="showerSPL"><SuscripcionProductoList listado={this.state.productos}
+                                                                        idp={this.changeIdp}/></div>
+                        </div>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <input type="number" placeholder="cantidad" min="1" value={this.state.cantidad} onChange={this.cantidadChange} className="cantidad"></input>
+                        
+                        <select className="SelectAnual" value={this.state.checkbox} onChange={this.checkChange}>
+                            <option value={true}>Anual</option>
+                            <option value={false}>No Anual</option>
+                        </select>
+
+                        <Button variant="info" className="button" 
+                            onClick={() => this.enviar(this.state.cantidad,this.state.checkbox,this.state.idp,this.state.idc,this.state.fin)}>
+                                Enviar
+                        </Button>
+                        <Button variant="danger" className="button" onClick={() => this.undisplay()}>
+                            Cancelar
+                        </Button>
+                    </Modal.Footer>
+                </Modal>      
+              
             </React.Fragment>
         );
     }

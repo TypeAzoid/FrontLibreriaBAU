@@ -218,7 +218,7 @@ export default class FacturaAgregar extends Component {
     let i = 0;
     return (
       <div>
-        <div className="display-left">
+        <div className="justified-right">
           <Button variant="info" className="button" onClick={this.showModal}>
             Agregar Factura
           </Button>

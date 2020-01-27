@@ -95,11 +95,11 @@ class FormDescuento extends React.Component {
     let i = 0;
 
     return (
-      <span className="popup">
+      <span >
 
         <Button variant={this.state.titulo === "Agregar" ? "info" : "secondary"}
           onClick={this.openModal}
-          className = "botonesConjuntos"> 
+          className = "button"> 
           {this.state.titulo} 
         </Button>
 

@@ -23,41 +23,52 @@ class Suscripcion extends React.Component {
     this.editarSuscripcion = this.editarSuscripcion.bind(this);
   }
 
-  async editarSuscripcion(cantidad,anual,fin) {
+  async editarSuscripcion(cantidad, anual, fin) {
     let cantidadf = this.state.suscripcion.cantidadMensual;
     let anualf = this.state.suscripcion.anual;
     let idp = this.state.suscripcion.producto.id;
     let idc = this.state.suscripcion.cliente.id;
     let finf = this.state.suscripcion.finSuscripcion;
     let ids = this.state.suscripcion.id;
-    if(cantidad !== cantidadf && cantidad !== 0) {
+    if (cantidad !== cantidadf && cantidad !== 0) {
       cantidadf = cantidad;
     }
-    if(anual !== anualf) {
+    if (anual !== anualf) {
       anualf = anual;
     }
-    if(fin !== finf) {
+    if (fin !== finf) {
       finf = fin;
     }
-    await SuscripcionService.editarSuscripcion(cantidadf,anualf,idp,idc,finf,ids);
+    await SuscripcionService.editarSuscripcion(
+      cantidadf,
+      anualf,
+      idp,
+      idc,
+      finf,
+      ids
+    );
     this.refs.formEditar.undisplay();
-    await this.setState({suscripcion: ""});
+    await this.setState({ suscripcion: "" });
     alert("suscripcion editada");
     this.listarSuscripciones();
   }
-  
+
   async listarSuscripciones() {
     let suscripciones = await SuscripcionService.obtenerSuscripciones();
-    if(this.state.buscador !== "") {
-      suscripciones = suscripciones.filter(filt => filt.cliente.name.toLowerCase().includes(this.state.buscador.toLowerCase()));
+    if (this.state.buscador !== "") {
+      suscripciones = suscripciones.filter(filt =>
+        filt.cliente.name
+          .toLowerCase()
+          .includes(this.state.buscador.toLowerCase())
+      );
     }
-    await this.setState({suscripciones: suscripciones});
+    await this.setState({ suscripciones: suscripciones });
   }
 
   async busChange(e) {
     await this.setState({ buscador: e.target.value });
     this.listarSuscripciones();
-  };
+  }
 
   async borrarSuscripcion(e) {
     await SuscripcionService.borrarSuscripcion(e);
@@ -65,26 +76,34 @@ class Suscripcion extends React.Component {
     this.listarSuscripciones();
   }
 
-  async crearSuscripcion(cantidad,anual,idp,idc,fin) {
-    if( cantidad !== "" && anual !== "" && idp !== "" && idc !== "" && fin !== "") {
+  async crearSuscripcion(cantidad, anual, idp, idc, fin) {
+    if (
+      cantidad !== "" &&
+      anual !== "" &&
+      idp !== "" &&
+      idc !== "" &&
+      fin !== ""
+    ) {
       const c1 = parseInt(idp);
       const c2 = parseInt(idc);
       const c3 = parseInt(cantidad);
-      SuscripcionService.agregarSuscripcion(c3,anual,c1,c2,fin).then( (sus) => {
+      SuscripcionService.agregarSuscripcion(c3, anual, c1, c2, fin).then(
+        sus => {
           alert("suscripcion creada");
           this.refs.formSuscripcion.undisplay();
           this.listarSuscripciones();
-      })
+        }
+      );
     } else {
-          alert("Los campos no pueden estar vacios");
-          this.refs.formSuscripcion.undisplay();
-          this.listarSuscripciones();
+      alert("Los campos no pueden estar vacios");
+      this.refs.formSuscripcion.undisplay();
+      this.listarSuscripciones();
     }
   }
 
   async displayEditar(e) {
     let suscripcion = await SuscripcionService.obtenerSuscripcionId(e);
-    await this.setState({suscripcion: suscripcion});
+    await this.setState({ suscripcion: suscripcion });
     this.refs.formEditar.display(suscripcion);
   }
 
@@ -95,29 +114,30 @@ class Suscripcion extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <FormEditar ref="formEditar"
-                    suscripcion={this.state.suscripcion}
-                    editarSuscripcion={this.editarSuscripcion}/>
+        <FormEditar
+          ref="formEditar"
+          suscripcion={this.state.suscripcion}
+          editarSuscripcion={this.editarSuscripcion}
+        />
 
-        <FormSuscripcion ref="formSuscripcion"
-                         crearSuscripcion={this.crearSuscripcion}/>
-        <div className="bodyTable">
-          <div className="containersuscripcion">
-            <input
-              type="text"
-              className="input"
-              placeholder="Buscar por nombre de cliente"
-              value={this.state.buscador}
-              onChange={this.busChange}
-            ></input>
-            <Button
-              className="button"
-              variant="info"
-              size="sm"
-              onClick={() => this.refs.formSuscripcion.display()}
-            >
-              Agregar
-            </Button>
+        <div className="bodyTable tablas">
+          <div className="overheadTable">
+            <div className="justified-left">
+              <input
+                type="text"
+                className="input"
+                placeholder="Buscar por nombre de cliente"
+                value={this.state.buscador}
+                onChange={this.busChange}
+              ></input>
+            </div>
+
+            <div className="justified-right">
+              <FormSuscripcion
+                ref="formSuscripcion"
+                crearSuscripcion={this.crearSuscripcion}
+              />
+            </div>
           </div>
           <SuscripcionList
             listado={this.state.suscripciones}

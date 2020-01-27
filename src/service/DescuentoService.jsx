@@ -24,8 +24,7 @@ class DescuentoService extends Component {
   }
 
   edit(id, descripcion, valorDescuento) {
-    return axios.post(DESCUENTOURL, {
-      id: id,
+    return axios.put(DESCUENTOURL + id, {
       descripcion: descripcion,
       valorDescuento: valorDescuento
     });

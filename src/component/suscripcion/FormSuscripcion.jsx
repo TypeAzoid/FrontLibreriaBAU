@@ -26,15 +26,9 @@ class FormSuscripcion extends React.Component {
         this.changeIdp = this.changeIdp.bind(this);
     }
 
-    listarClientes(nombre) {
-        ClienteService.obtenerClientes().then(resp => {
-            if(nombre !== "") {
-                const data = resp.data.filter(filt => filt.name.toLowerCase().includes(nombre.toLowerCase()));
-                this.setState({clientes: data});
-            } else {
-                this.setState({clientes: resp.data});
-            }
-        })
+    async listarClientes(nombre) {
+        let clientes = await ClienteService.obtenerClientes();
+        await this.setState({clientes: clientes});
     }
 
     listarProductos(nombre) {

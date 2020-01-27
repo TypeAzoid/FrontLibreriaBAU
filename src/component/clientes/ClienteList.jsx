@@ -1,5 +1,4 @@
 import React from 'react'
-import ClienteRow from './ClienteRow'
 
 class ClienteList extends React.Component {
 
@@ -15,9 +14,18 @@ class ClienteList extends React.Component {
             </tr>
             {
                 this.props.listado.map((cliente) => {
-                return <ClienteRow id={ cliente.id }
-                                    name={ cliente.name }
-                                    direccion={ cliente.direccion }/>
+                  return(
+                  <tr>
+                    <td className="columna" id={cliente.id}>{cliente.id}</td>
+                    <td className="columna">{cliente.name}</td>
+                    <td className="columna">{cliente.direccion}</td>
+                    <td className="columna">monto</td>
+                    <td className="botonera">
+                    <button className="botoncliente">Detalles</button>
+                      <button className="botoncliente" onClick={() => this.props.editarCliente(cliente.id,cliente.name,cliente.direccion)}>Editar</button>
+                      <button className="botoncliente" onClick={(e) => this.props.borrarCliente(e)} value={cliente.id}>Borrar</button>
+                    </td>
+                  </tr>);
                 })
             }
         </table>

@@ -23,15 +23,15 @@ class SuscripcionList extends React.Component {
 
   render() {
     return (
-      <Table variant="dark" size="sm">
+      <Table variant="dark" size="sm" className = "borderTabla">
         <thead>
-          <th>Id</th>
+          <th className = "tablaTopLeftRadius" >Id</th>
           <th>Producto</th>
           <th>Cantidad Mensual</th>
           <th>Comienzo</th>
           <th>Fin</th>
           <th>Cliente</th>
-          <th>Anual</th>
+          <th className = "tablaTopRightRadius" >Anual</th>
           <th></th>
         </thead>
         {this.props.listado.map(suscripcion => {

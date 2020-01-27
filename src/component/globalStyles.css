@@ -47,6 +47,8 @@
   color: #ffffff;
   height: 30px;
   width: 25%;
+  border: black solid 1px;
+  margin: 0 5px;
 }
 
 .facturaAgregarInput {
@@ -55,4 +57,20 @@
 
 body {
   background-color: darkslategray;
+}
+
+.agregar {
+  display: center;
+  margin-top: 15px;
+}
+
+.bodyTable {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+div.display-left {
+  display: flex;
+  justify-content: flex-end;
 }

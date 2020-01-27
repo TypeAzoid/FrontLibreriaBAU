@@ -1,5 +1,5 @@
 import React from "react";
-import "./tabla.css";
+
 import FormDescuento from "./FormDescuento";
 import Popup from "reactjs-popup";
 import { Button, Table } from "react-bootstrap";
@@ -17,11 +17,11 @@ class TablaDescuentos extends React.Component {
     return props.listado.map(descuento => {
       const { id, descripcion, valorDescuento } = descuento; //destructuring
       return (
-        <tr className="trDescuentos" key={id}>
-          <td className="tdDescuentos">{id}</td>
-          <td className="tdDescuentos">{descripcion}</td>
-          <td className="tdDescuentos">{valorDescuento}</td>
-          <td className="tdDescuentos">
+        <tr key={id}>
+          <td>{id}</td>
+          <td>{descripcion}</td>
+          <td>{valorDescuento}</td>
+          <td>
             <FormDescuento id={id} descripcion={descripcion} />
 
             <Button
@@ -48,11 +48,11 @@ class TablaDescuentos extends React.Component {
 
         <Table variant="dark" id="descuentos">
           <thead>
-            <tr className="trDescuentos">
-              <th className="tdDescuentos">Id</th>
-              <th className="tdDescuentos">Descripcion del Descuento</th>
-              <th className="tdDescuentos">Valor del Descuento</th>
-              <th className="tdDescuentos"> Acciones</th>
+            <tr>
+              <th>Id</th>
+              <th>Descripcion del Descuento</th>
+              <th>Valor del Descuento</th>
+              <th> Acciones</th>
             </tr>
           </thead>
           <tbody>{this.renderTableData()}</tbody>

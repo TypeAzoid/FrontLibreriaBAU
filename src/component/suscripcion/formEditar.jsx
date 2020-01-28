@@ -2,6 +2,14 @@ import React from 'react';
 import './formsuscripcion.css'
 import SuscripcionService from '../../service/SuscripcionService';
 
+import { Button } from "react-bootstrap";
+import Modal from 'react-bootstrap/Modal'
+import ModalHeader from 'react-bootstrap/ModalHeader'
+import ModalDialog from 'react-bootstrap/ModalDialog'
+import ModalTitle from 'react-bootstrap/ModalTitle'
+import ModalBody from 'react-bootstrap/ModalBody'
+import ModalFooter from 'react-bootstrap/ModalFooter'
+
 class FormEditar extends React.Component {
     constructor() {
         super();
@@ -9,6 +17,7 @@ class FormEditar extends React.Component {
             fin: "",
             anual: false,
             cantidad: 1,
+            showModal : false
         }
         this.display = this.display.bind(this);
         this.enviar = this.enviar.bind(this);
@@ -20,22 +29,16 @@ class FormEditar extends React.Component {
     }
 
     async display(suscripcion) {
-        var elemento = document.getElementById("BSFE");
-        var elemento2 = document.getElementById("CSFE");
+        await this.props.displayEditar(this.state.suscripcion.id);
+        await this.setState({showModal: true});
         await this.setState({fin: suscripcion.fin});
         await this.setState({anual: suscripcion.anual});
         await this.setState({cantidad: suscripcion.cantidadMensual});
-        elemento.style.display = "block";
-        elemento2.style.display = "block";
     }
 
     async undisplay() {
-        var elemento = document.getElementById("BSFE");
-        var elemento2 = document.getElementById("CSFE");
+        await this.setState({showModal: false});
         var elemento3 = document.getElementById("cantidadTI");
-        elemento.style.display = "none";
-        elemento2.style.display = "none";
-        elemento2.style.minHeight = "200px";
         elemento3.style.marginLeft = "15.2%";
         await this.setState({fin: ""});
         await this.setState({anual: false});
@@ -67,19 +70,35 @@ class FormEditar extends React.Component {
     render(){
         return(
             <React.Fragment>
-                <div className="backgroundSuscripcionE" id="BSFE"></div>
-                <div className="SuscripcionE" id="CSFE">
-                    <div className="datecontainer">
-                        Fin <input type="date" className="Date" value={this.state.fin} onChange={this.finChange}></input>
-                    </div>
-                    <button className="botonEnviar" onClick={() => this.enviar()}>Enviar</button>
-                    <button className="botonCancelar" onClick={() => this.undisplay()}>Cancelar</button>
-                    <select className="SelectAnual" value={this.state.anual} onChange={this.checkChange}>
-                        <option value={true}>Anual</option>
-                        <option value={false}>No Anual</option>
-                    </select>
-                    <input type="number" placeholder="cantidad" min="1" value={this.state.cantidad} onChange={this.cantidadChange} className="cantidad" id="cantidadTI"></input>
-                </div>
+
+                <Button variant="secondary" className="button" onClick={this.display}>
+                    Editar
+                </Button>
+
+                <Modal show={this.state.showModal}  backdrop="static">
+                    <Modal.Header >
+                        <Modal.Title>
+                            <h1>Editar Suscripcion</h1>
+                        </Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <div className="datecontainer">
+                            Fin <input type="date" className="Date" value={this.state.fin} onChange={this.finChange}></input>
+                        </div>
+                        
+                        <select className="SelectAnual" value={this.state.anual} onChange={this.checkChange}>
+                            <option value={true}>Anual</option>
+                            <option value={false}>No Anual</option>
+                        </select>
+                    
+                        <input type="number" placeholder="cantidad" min="1" value={this.state.cantidad} onChange={this.cantidadChange} className="cantidad" id="cantidadTI"></input>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="info" className="button" onClick={() => this.enviar()}>Enviar</Button>
+                        <Button variant="danger" className="button" onClick={() => this.undisplay()}>Cancelar</Button>
+                    </Modal.Footer>
+                </Modal>      
+
             </React.Fragment>
         );
     }

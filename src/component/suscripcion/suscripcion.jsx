@@ -114,12 +114,7 @@ class Suscripcion extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <FormEditar
-          ref="formEditar"
-          suscripcion={this.state.suscripcion}
-          editarSuscripcion={this.editarSuscripcion}
-        />
-
+        
         <div className="bodyTable tablas">
           <div className="overheadTable">
             <div className="justified-left">

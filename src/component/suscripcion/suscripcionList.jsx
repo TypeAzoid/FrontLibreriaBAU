@@ -3,6 +3,7 @@ import { Table } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import SuscripcionService from "../../service/SuscripcionService";
 import Suscripcion from "./suscripcion";
+import FormEditar from "./formEditar";
 
 class SuscripcionList extends React.Component {
   detectarAnual(value) {
@@ -45,13 +46,13 @@ class SuscripcionList extends React.Component {
               <td>{suscripcion.cliente.name}</td>
               <td>{suscripcion.anual}</td>
               <td>
-                <Button
-                  variant="secondary"
-                  className="button botonesConjuntos"
-                  onClick={() => this.props.displayEditar(suscripcion.id)}
-                >
-                  Editar
-                </Button>
+                <FormEditar
+                  ref="formEditar"
+                  suscripcion={this.state.suscripcion}
+                  editarSuscripcion={this.props.editarSuscripcion}
+                  displayEditar={this.props.displayEditar}
+                />
+
                 <Button
                   variant="danger"
                   className="button botonesConjuntos"

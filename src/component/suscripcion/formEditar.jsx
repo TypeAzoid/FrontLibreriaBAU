@@ -29,7 +29,7 @@ class FormEditar extends React.Component {
     }
 
     async display(suscripcion) {
-        await this.props.displayEditar(this.state.suscripcion.id);
+        
         await this.setState({showModal: true});
         await this.setState({fin: suscripcion.fin});
         await this.setState({anual: suscripcion.anual});
@@ -64,7 +64,8 @@ class FormEditar extends React.Component {
         let cantidad = this.state.cantidad;
         let anual = this.state.anual;
         let fin = this.state.fin;
-        this.props.editarSuscripcion(cantidad,anual,fin);
+        this.props.editarSuscripcion(cantidad,anual,fin,this.props.suscripcion.id);
+        await this.undisplay();
     }
 
     render(){

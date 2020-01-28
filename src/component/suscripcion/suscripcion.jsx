@@ -23,7 +23,10 @@ class Suscripcion extends React.Component {
     this.editarSuscripcion = this.editarSuscripcion.bind(this);
   }
 
-  async editarSuscripcion(cantidad, anual, fin) {
+  async editarSuscripcion(cantidad, anual, fin,id) {
+    let suscripcion = await SuscripcionService.obtenerSuscripcionId(id);
+    await this.setState({ suscripcion: suscripcion });
+
     let cantidadf = this.state.suscripcion.cantidadMensual;
     let anualf = this.state.suscripcion.anual;
     let idp = this.state.suscripcion.producto.id;
@@ -47,7 +50,7 @@ class Suscripcion extends React.Component {
       finf,
       ids
     );
-    this.refs.formEditar.undisplay();
+    //this.refs.formEditar.undisplay();
     await this.setState({ suscripcion: "" });
     alert("suscripcion editada");
     this.listarSuscripciones();
@@ -139,6 +142,7 @@ class Suscripcion extends React.Component {
             ids={this.state.ids}
             borrarSuscripcion={this.borrarSuscripcion}
             displayEditar={this.displayEditar}
+            editarSuscripcion={this.editarSuscripcion}
           />
         </div>
       </React.Fragment>

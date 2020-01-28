@@ -48,7 +48,7 @@ class SuscripcionList extends React.Component {
               <td>
                 <FormEditar
                   ref="formEditar"
-                  suscripcion={this.state.suscripcion}
+                  suscripcion={suscripcion}
                   editarSuscripcion={this.props.editarSuscripcion}
                   displayEditar={this.props.displayEditar}
                 />

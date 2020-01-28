@@ -111,22 +111,21 @@ class FormDescuento extends React.Component {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <span>
+            <div>
               <span>Descripcion ---- </span>
               <span>Valor del descuento</span>
-            </span>
+            </div>
             <input
               type="text"
               value={this.state.descripcion}
               placeholder={this.props.descripcion}
               onChange={this.descripcionChange}
-              className="input"
+              style={{ marginRight: 10 }}
             ></input>
             <input
               type="number"
               value={this.state.valorDescuento}
               onChange={this.valorDescuentoChange}
-              className="inout"
             ></input>
           </Modal.Body>
           <Modal.Footer>

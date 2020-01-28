@@ -22,15 +22,17 @@ class Clientes extends Component {
     this.editarCliente = this.editarCliente.bind(this);
     this.concreteEdit = this.concreteEdit.bind(this);
     this.listarClientes = this.listarClientes.bind(this);
+    this.busChange = this.busChange.bind(this);
+    this.changeBusq = this.changeBusq.bind(this);
   }
 
-  busChange = e => {
-    this.setState({ buscador: e.target.value });
+  async busChange(e) {
+    await this.setState({ buscador: e.target.value });
     this.listarClientes();
   };
 
-  changeBusq = e => {
-    this.setState({ busqueda: e.target.value });
+  async changeBusq(e) {
+    await this.setState({ busqueda: e.target.value });
     this.listarClientes();
   };
 

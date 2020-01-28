@@ -37,8 +37,12 @@
   color: whitesmoke;
 }
 
-.logo {
-  padding: 7px 14px;
+.navLogo {
+  height: auto;
+  width: auto;
+  flex-wrap: wrap;
+  font-weight: 50;
+  font-family: sans-serif;
 }
 
 .overheadTable {

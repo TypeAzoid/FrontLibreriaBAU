@@ -30,24 +30,11 @@ class Menu extends React.Component {
           onSelect={this.setTab}
         >
           <Nav.Item href="/home">
-            <img
-              className="logo"
-              src="..\..\resources\logo 2.jpg"
-              alt="logo"
-              height="33"
-              width="120"
-            />
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link
-              style={{ color: "white" }}
-              className="navLinks"
-              href="/home"
-              eventKey="0"
-            >
-              Home
+            <Nav.Link className="navLogo" href="/home" eventKey="0">
+              Baufest Library
             </Nav.Link>
           </Nav.Item>
+
           <Nav.Item>
             <Nav.Link
               style={{ color: "white" }}

@@ -41,6 +41,10 @@ class App extends Component {
               path="/Descuentos"
               render={() => <Descuento name="Descuentos" />}
             />
+            <Route
+              path="/"
+              render={() => <Home name="Home" />}
+            />
             <Route component={NF404} />
           </Switch>
         </BrowserRouter>

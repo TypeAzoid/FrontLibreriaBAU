@@ -18,7 +18,7 @@ class FormDescuento extends React.Component {
     this.valorDescuentoChange = this.valorDescuentoChange.bind(this);
 
     this.state = {
-      showModal : false,
+      showModal: false,
       titulo: "",
       descripcion: "",
       valorDescuento: 0,
@@ -79,34 +79,35 @@ class FormDescuento extends React.Component {
     this.isAgregar();
   }
 
-  openModal(){
+  openModal() {
     this.setState({
-      showModal : true
-    })
+      showModal: true
+    });
   }
 
-  handleClose(){
+  handleClose() {
     this.setState({
-      showModal : false
-    })
+      showModal: false
+    });
   }
 
   render() {
     let i = 0;
 
     return (
-      <span >
-
-        <Button variant={this.state.titulo === "Agregar" ? "info" : "secondary"}
+      <span>
+        <Button
+          variant={this.state.titulo === "Agregar" ? "info" : "secondary"}
           onClick={this.openModal}
-          className = "button"> 
-          {this.state.titulo} 
+          className="button"
+        >
+          {this.state.titulo}
         </Button>
 
         <Modal show={this.state.showModal} backdrop="static">
-          <Modal.Header >
+          <Modal.Header>
             <Modal.Title>
-            <h1>{this.state.titulo}</h1>
+              <h1>{this.state.titulo}</h1>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
@@ -117,25 +118,30 @@ class FormDescuento extends React.Component {
             <input
               type="text"
               value={this.state.descripcion}
-              placeholder = {this.props.descripcion}
+              placeholder={this.props.descripcion}
               onChange={this.descripcionChange}
+              className="input"
             ></input>
             <input
               type="number"
               value={this.state.valorDescuento}
               onChange={this.valorDescuentoChange}
+              className="inout"
             ></input>
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={() => {this.formAction();}}>
+            <Button
+              onClick={() => {
+                this.formAction();
+              }}
+            >
               {this.state.titulo}
             </Button>
             <Button variant="danger" onClick={this.handleClose}>
               Cancelar
             </Button>
           </Modal.Footer>
-        </Modal>            
-
+        </Modal>
       </span>
     );
   }

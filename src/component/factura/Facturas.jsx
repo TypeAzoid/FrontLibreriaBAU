@@ -3,7 +3,6 @@ import { Component } from "react";
 import ReactDOM from "react-dom";
 import Popup from "reactjs-popup";
 
-import "./Facturas.css";
 import FacturaList from "./FacturaList";
 import FacturaService from "../../service/FacturaService";
 import FacturaAgregar from "./FacturaAgregar";

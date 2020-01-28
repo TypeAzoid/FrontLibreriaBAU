@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 
-import "./FacturaVerDetallesPopup.css";
-
 import { Button, Table } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 import ModalHeader from "react-bootstrap/ModalHeader";
@@ -41,10 +39,10 @@ export default class FacturaVerDetallesPopup extends Component {
     return this.props.compras.map(compra => {
       return (
         <tr>
-          <th>{compra.producto.nombre}</th>
-          <th>{compra.producto.precio}</th>
-          <th>{compra.cantidad}</th>
-          <th>{compra.producto.precio * compra.cantidad}</th>
+          <td>{compra.producto.nombre}</td>
+          <td>{compra.producto.precio}</td>
+          <td>{compra.cantidad}</td>
+          <td>{compra.producto.precio * compra.cantidad}</td>
         </tr>
       );
     });
@@ -64,9 +62,9 @@ export default class FacturaVerDetallesPopup extends Component {
     return this.props.descuentos.map(descuento => {
       return (
         <tr>
-          <th>{descuento.id}</th>
-          <th>{descuento.descripcion}</th>
-          <th>{descuento.valorDescuento}</th>
+          <td>{descuento.id}</td>
+          <td>{descuento.descripcion}</td>
+          <td>{descuento.valorDescuento}</td>
         </tr>
       );
     });
@@ -96,7 +94,7 @@ export default class FacturaVerDetallesPopup extends Component {
             <Modal.Title>{this.props.title}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Table className="facturaTavle">
+            <Table variant="dark">
               <thead>
                 {this.props.title === "Compras"
                   ? this.comprasTableHead()
